@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<title>Tell Me Something True</title>
+</head>
+<audio id="prototypemusic" loop>
+  <source src="assets/bluemorning.m4a">
+</audio>
+<body>
+<div id="desktop">
+  <div class="icon" style="top:20px;left:20px" ondblclick="openWindow('myspace')">
+    <div class="icon-img">🌐</div>
+    <span>MySpace</span>
+  </div>
+
+  <div class="icon" style="top:110px;left:20px" ondblclick="openWindow('aim')">
+    <div class="icon-img">💬</div>
+    <span>TinyChat</span>
+  </div>
+
+  <div class="icon" style="top:200px;left:20px" ondblclick="openWindow('diary')">
+    <div class="icon-img">📝</div>
+    <span>diary.txt</span>
+  </div>
+
+  <div class="icon" style="top:290px;left:20px" ondblclick="openWindow('browser')">
+    <div class="icon-img">🔵</div>
+    <span>Internet Explorer</span>
+  </div>
+
+  <div class="icon" style="top:20px;left:110px" ondblclick="openWindow('photos')">
+    <div class="icon-img">🖼️</div>
+    <span>My Photos</span>
+  </div>
+
+  <!-- ══ MYSPACE WINDOW ══ -->
+  <div class="window focused" id="win-myspace" style="top:40px;left:160px;width:640px;height:520px;">
+    <div class="titlebar" onmousedown="startDrag(event,'win-myspace')">
+      <div class="title-left">🌐 <span id="myspace-title">MySpace.com</span></div>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minimizeWindow('myspace')">_</div>
+        <div class="win-btn">□</div>
+        <div class="win-btn" onclick="closeWindow('myspace')">✕</div>
+      </div>
+    </div>
+    <div class="content" id="myspace-content" style="padding:0;font-size:11px">
+
+      <div class="ms-topbar">
+        <span class="ms-logo">myspace</span>
+        <div>
+          <a onclick="msShowHome()">Home</a>
+          <a onclick="msShowProfile('player')">My Profile</a>
+          <a>Browse</a>
+          <a>Search</a>
+          <a>Mail (1)</a>
+        </div>
+      </div>
+      <div class="ms-nav">
+        <a onclick="msShowHome()">Home</a>
+        <a onclick="msShowProfile('dylan')">Dylan</a>
+        <a onclick="msShowProfile('isabel')">istiny888</a>
+        <a>Music</a>
+        <a>Groups</a>
+      </div>
+
+      <!-- narrative trigger -->
+      <div class="narrative-box" id="narrative-box"></div>
+
+      <!-- HOME SCREEN -->
+      <div class="ms-home visible" id="ms-home">
+        <h3>👥 Friends Online</h3>
+        <div class="ms-profile-link" onclick="msShowProfile('dylan')">
+          <div class="ms-profile-link-pic">🌙</div>
+          <div class="ms-profile-link-info">
+            <div class="ms-profile-link-name">Dylan</div>
+            <div class="ms-profile-link-status" id="dylan-home-status">● offline — last seen 28/05/2008</div>
+          </div>
+        </div>
+        <div class="ms-profile-link" onclick="msShowProfile('isabel')">
+          <div class="ms-profile-link-pic">💗</div>
+          <div class="ms-profile-link-info">
+            <div class="ms-profile-link-name">istiny888 (Isabel)</div>
+            <div class="ms-profile-link-status" id="isabel-home-status">● offline — last seen 28/05/2008</div>
+          </div>
+        </div>
+        <div style="margin-top:16px;padding:8px;background:#fff3f3;border:1px solid #ffaaaa;font-size:10px;color:#880000;font-family:monospace">
+          MySpace.com — <em>a place for friends.</em>
+        </div>
+      </div>
+      <div class="ms-profile-wrapper" id="ms-dylan">
+        <div class="ms-profile-header">
+          <span class="ms-username" style="font-family:Georgia,serif;font-style:italic">Dylan</span>
+          <span class="ms-status-badge offline" id="dylan-status-badge">● offline</span>
+          <span style="font-size:10px;color:#999;margin-left:8px">Last Login: <span id="dylan-last-login">28/05/2008</span></span>
+        </div>
+        <div class="ms-profile-tabs">
+          <div class="ms-tab active">Profile</div>
+          <div class="ms-tab">Friends (29)</div>
+          <div class="ms-tab">Blog (19)</div>
+          <div class="ms-tab">Photos (3)</div>
+        </div>
+        <div class="ms-grid">
+          <div class="ms-leftcol">
+            <div class="ms-avatar dylan-av">[ placeholder ]</div>
+            <div style="text-align:center;font-size:9px;color:#555;margin-bottom:8px;font-style:italic">Dylan is female and 24 years old.</div>
+            <div class="ms-details-box">
+              <div class="ms-details-title">Contacting Dylan</div>
+              <div class="ms-detail-row"><a style="cursor:pointer;color:#0033CC">Send Message</a></div>
+              <div class="ms-detail-row"><a style="cursor:pointer;color:#0033CC">Add to Friends</a></div>
+              <div class="ms-detail-row"><a style="cursor:pointer;color:#0033CC">Add to Favorites</a></div>
+            </div>
+            <div class="ms-details-box">
+              <div class="ms-details-title">Dylan's Details</div>
+              <div class="ms-detail-row"><span class="ms-detail-label">Status:</span> In a relationship</div>
+              <div class="ms-detail-row"><span class="ms-detail-label">Here for:</span> Friends</div>
+              <div class="ms-detail-row"><span class="ms-detail-label">Hometown:</span> Los Angeles, obviously.</div>
+              <div class="ms-detail-row"><span class="ms-detail-label">Sign:</span> Virgo</div> 
+              <div class="ms-detail-row"><span class="ms-detail-label">Body Type:</span> 0'1"</div>
+            </div>
+            <div style="background:#000;border:1px solid #663399;padding:5px;color:#C9A8E0;font-size:9px;font-style:italic;text-align:center;overflow:hidden">
+              <marquee behavior="scroll" direction="left" scrollamount="2"></marquee>
+            </div>
+          </div>
+          <div class="ms-rightcol">
+            <div class="ms-section-title">About me</div>
+            <div class="ms-section-body">
+              <div class="ms-glitter"></div>
+              I'm Dylan and I'm not a man. My mam was so sure I was going to be a boy she never thought to check, and chose the name Dylan. When I was ripped untimely from her vagina, emphatically female, she decided to keep the name. I bet she thought that was really funny at the time, but she's dead now, and it just means I spend a disappointing amount of time explaining to online strangers I'm actually a woman with a man's name. Not even a cutesy man's name, at that...<br><br>
+              My favourite artist is Francesca Woodman. My favourite Muse album is Absolution. My favourite Absolution song is Falling Away With You.<br><br>
+              I am 24(th century), probably part alien. I used to believe I was a starseed sent to Earth to suffer, but then I discovered Planet Internet and decided to reside here instead over worrying about whether I really fit in as an Earthling.<br><br>
+              I live up North, in a seaside town where you're about as likely to have a sunny beach day as you are to find a happy person. We used to have a lot more ice cream shops and hippie head shops that reminded me of my mam, but they're all boarded up now. Not saying exactly where in case you're a stalker, but if you're from Sunderland area you know.<br><br>
+              Passion is Art but currently working a dead end job. Open to commissions if you're stupid rich and take pity on a poor, broke graduate saving to move to London.<br><br>
+              I collect cool pebbles I see on the beach and crystals. My sister Marnie used to tell me they fell from other planets. I still have a pet rock from when I was eleven.<br><br>
+              Always open to new friends. Unless you're a bigot.
+            </div>
+            <div class="ms-section-title">Interests</div>
+            <div class="ms-section-body">
+              <div class="ms-interest-row"><div class="ms-interest-label">General</div><div>ART. Probably geology? Photography. If I could afford a camera I'd probably be good at it. The stars. Fashion, though my style's very alternative.</div></div>
+              <div class="ms-interest-row"><div class="ms-interest-label">Music</div><div>Joanna Newsom, Mazzy Star, Boards of Canada, Crystal Castles, The Cure</div></div>
+              <div class="ms-interest-row"><div class="ms-interest-label">Movies</div><div>I've never really liked movies.</div></div>
+              <div class="ms-interest-row"><div class="ms-interest-label">Books</div><div><em>Rubyfruit Jungle</em> by Rita Mae Brown. <em>Strange Weather in Tokyo</em> by Hiromi Kawakami. <em>The Planets</em> by Dava Sobel — mam gave it to me before she kicked the bucket, silly bitch. LOL.</div></div>
+              <div class="ms-interest-row"><div class="ms-interest-label">Heroes</div><div>She knows who she is...</div></div>
+            </div>
+            <div class="ms-section-title">Dylan's Comments</div>
+            <div class="ms-section-body">
+              <div class="ms-comment">
+                <div class="ms-comment-pic">👤</div>
+                <div>
+                  <div class="ms-comment-from" onclick="msShowProfile('isabel')">istiny888</div>
+                  <div class="ms-comment-date">posted 14/05/2008</div>
+                  <div>your woodman post made me think. do u ever feel like you're disappearing into the wall a bit. anyway call me soon???? xoxo</div>
+                </div>
+              </div>
+              <div class="ms-comment">
+                <div class="ms-comment-pic">👤</div>
+                <div>
+                  <div class="ms-comment-from">Marnie Holloway</div>
+                  <div class="ms-comment-date">posted 26/04/2008</div>
+                  <div>I found this rock today and thought of you! It's grey and boring. ;-) Has the Holloway household recently developed an allergy to the phone? Tell dad to call me. X</div>
+                </div>
+              </div>
+                <div class="ms-comment">
+                   <div class="ms-comment-pic">👤</div>
+                <div>
+                  <div class="ms-comment-from">Xx_Mikey_xX</div>
+                  <div class="ms-comment-date">posted 21/04/2008</div>
+                  <div>YO are you a man bcause your called Dylan. Bahahahaha</div>
+                </div>
+              </div>
+            </div>
+           <div class="ms-section-title">Dylan's Friends <span style="font-size:10px;font-style:normal;color:#C9A8E0;float:right">view all (47)</span></div>
+            <div class="ms-section-body">
+              <div class="ms-friends-grid">
+              <div class="ms-comment">
+                <div class="ms-comment-pic">👤</div>
+                <div><div class="ms-friend-pic" onclick="msShowProfile('isabel')">👤</div><div class="ms-friend-name" onclick="msShowProfile('isabel')">istiny888</div></div>
+                <div><div class="ms-friend-pic">👤</div><div class="ms-friend-name">jess!!</div></div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      <div class="ms-profile-wrapper" id="ms-isabel">
+        <div class="ms-profile-header">
+          <span class="ms-username" style="font-family:Georgia,serif;font-style:italic;color:#880044">istiny888</span>
+          <span class="ms-status-badge offline" id="isabel-status-badge">● offline</span>
+          <span style="font-size:10px;color:#999;margin-left:8px">Last Login: <span id="isabel-last-login">28/05/2008</span></span>
+        </div>
+        <div class="ms-profile-tabs">
+          <div class="ms-tab active">Profile</div>
+          <div class="ms-tab">Friends (489)</div>
+          <div class="ms-tab">Blog (19)</div>
+          <div class="ms-tab">Photos (267)</div>
+        </div>
+        <div class="ms-grid">
+          <div class="ms-leftcol">
+            <div class="ms-avatar isabel-av">[ placeholder again soz ]</div>
+            <div style="text-align:center;font-size:9px;color:#555;margin-bottom:8px;font-style:italic">Isabel is female and 23 years old.</div>
+            <div class="ms-details-box">
+              <div class="ms-details-title">Contacting Isabel</div>
+              <div class="ms-detail-row" id="isabel-contact-row"><a style="cursor:pointer;color:#0033CC">Send Message</a></div>
+              <div class="ms-detail-row"><a style="cursor:pointer;color:#0033CC">Add to Friends</a></div>
+            </div>
+            <div class="ms-details-box">
+              <div class="ms-details-title">Isabel's Details</div>
+              <div class="ms-detail-row"><span class="ms-detail-label">Orientation:</span> Bisexual</div>
+              <div class="ms-detail-row"><span class="ms-detail-label">Hometown:</span> Chiswick</div>
+              <div class="ms-detail-row"><span class="ms-detail-label">Sign:</span> Leo</div>
+              <div class="ms-detail-row"><span class="ms-detail-label">Body Type:</span> 5'0"</div>
+            </div>
+          </div>
+          <div class="ms-rightcol">
+            <div id="isabel-blurb-section">
+              <div class="ms-section-title">About me</div>
+              <div class="ms-section-body" id="isabel-about">
+                I'm looking for something real! Tell me something true :)<br><br>
+                I'm Isabel Tiley, remember my name! Someday I'll be huge! Tiley is pronounced like tiny, which is funny because I'm 5'0. I've been told I would model if it weren't for my height, but I'm far more interested in taking the pictures and creating the looks. I study fashion at CSAM!<br><br>
+                I'm proudly bisexual, West Londoner born and bred, and I love you &lt;3
+              </div>
+            </div>
+            <div class="ms-section-title">Interests</div>
+            <div class="ms-section-body">
+              <div class="ms-interest-row"><div class="ms-interest-label">General</div><div>I love John Galliano, his runway looks are divine right now. Christopher Bailey's Burberry Is Viv Westwood too basic? Yes? I DON'T CARE! I love taking pictures. I love sweet things and glitter and snowfall and London in the summer. I love swimming in the sea. I got to swim up in Whitley Bay recently ;) I also used to swim competitively. I have 20 pairs of shoes and I cannot live without my Motorola Razr!</div></div>
+              <div class="ms-interest-row"><div class="ms-interest-label">Music</div><div>MGMT, Hot Chip, Vampire Weekend, Belle and Sebastian, Crystal Castles </div></div>
+              <div class="ms-interest-row"><div class="ms-interest-label">Movies</div><div>Eternal Sunshine of the Spotless Mind <3</div></div>
+              <div class="ms-interest-row"><div class="ms-interest-label">TV</div><div>The L Word, 90210 (GUILTY PLEASURE don't hurt me oxo), One Tree Hill, The Mighty Boosh</div></div>
+              <div class="ms-interest-row"><div class="ms-interest-label">Books</div><div>I'm trying to read more! Fav is Virgin Suicides by Jeffrey something-or-other....I loved Banana by Kitchen Yashimoto... wasn't quite sure if I *got* it but it was pretty. I have some tabletop books about designers I admire. Recommend me something to read and I will give you a kiss <3</div></div>
+            </div>
+            <div class="ms-section-title">Isabel's Comments</div>
+            <div class="ms-section-body" id="isabel-comments">
+              <div class="ms-comment">
+                <div class="ms-comment-pic">👤</div>
+                <div>
+                  <div class="ms-comment-from">sophie_may</div>
+                  <div class="ms-comment-date">posted 18/05/2008</div>
+                  <div>omg please tell me it isn't true?????? </333 </div>
+                </div>
+              </div>
+              <div class="ms-comment">
+                <!-- note, these comment pics need to change into actual photos. codebar.io pls help x-->
+                <div class="ms-comment-pic">👤</div>
+                <div>
+                  <div class="ms-comment-from">Tomas</div>
+                  <div class="ms-comment-date">posted 15/05/2008</div>
+                  <div>Heyyyy gorgeous, just checking in? Missed u @ workshop 2day. Hope all is gud xx</div>
+                  </div>
+                   <div class="ms-comment">
+                <div class="ms-comment-pic">👤</div>
+                <div> 
+                  <div class="ms-comment-from" onclick="msShowProfile('dylan')">Dylan</div>
+                  <div class="ms-comment-date">posted 20/05/2008</div>
+                  <div>Oh? I see Crystal Castles have made their way onto your favourites? Anything influencing that...? </div>
+                </div>
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="statusbar" id="myspace-status">MySpace.com — a place for friends</div>
+    <div class="resize-handle" onmousedown="startResize(event,'win-myspace')"></div>
+  </div>
+
+  <div class="window" id="win-aim" style="top:100px;left:180px;width:340px;height:380px;">
+    <div class="titlebar" onmousedown="startDrag(event,'win-aim')">
+      <div class="title-left">💬 TinyChat — <span id="aim-title">Buddy List</span></div>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minimizeWindow('aim')">_</div>
+        <div class="win-btn">□</div>
+        <div class="win-btn" onclick="closeWindow('aim')">✕</div>
+      </div>
+    </div>
+    <div class="content" style="padding:0;display:flex;flex-direction:column">
+      <div id="aim-chat-log">
+        <div class="aim-msg aim-from-system">— TinyChat conversation with istiny888 —</div>
+        <div class="aim-msg aim-from-system">— <span id="aim-convo-date">28 May 2008, 22:14</span> —</div>
+        <div class="aim-msg aim-from-system" style="margin-top:8px" id="aim-offline-msg">istiny888 is offline.</div>
+      </div>
+      <div class="aim-input-row">
+        <input id="aim-input" type="text" placeholder="type a message..." onkeydown="if(event.key==='Enter')sendAIM()" disabled>
+        <button class="aim-send-btn" onclick="sendAIM()" id="aim-send-btn" disabled>Send</button>
+      </div>
+    </div>
+    <div class="statusbar" id="aim-status">istiny888: offline</div>
+    <div class="resize-handle" onmousedown="startResize(event,'win-aim')"></div>
+  </div>
+
+  <div class="window" id="win-diary" style="top:80px;left:200px;width:440px;height:360px;">
+    <div class="titlebar" onmousedown="startDrag(event,'win-diary')">
+      <div class="title-left">📝 diary.txt — Notepad</div>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minimizeWindow('diary')">_</div>
+        <div class="win-btn">□</div>
+        <div class="win-btn" onclick="closeWindow('diary')">✕</div>
+      </div>
+    </div>
+    <div class="menubar"><span>File</span><span>Edit</span><span>Format</span></div>
+    <div class="content" style="padding:0">
+      <textarea id="diary-textarea" spellcheck="false">22/4/2008
+
+Long time, no talk. So annoying when you spend all this money on your own computer then it doesn't fucking well work. They're more than happy to take my money, but when it doesn't work? I'm on my own.
+
+I found something online that said writing can help get your emotions out. I need help with that. Growing up in a family that's been addicted to emotional repression since the only one who could feel died will do that to you. Aside from this, I don't think I can do anything about why I feel so terrible all the time. I know why I feel terrible, at least. I'm 24 and I live in Shitley Bay in my childhood home, with a dad who stopped giving a fuck and my little siblings who think the height of comedy is mildly inconveniencing and aggravating me. But there's literally nothing I can do about that until I'm out of here for London.
+
+I feel like I'm trapped inside boxes. Box room, box bed, walking down box roads until I get to the box pub and pull box pints for boxy men who call me Morticia and grab my arse. There's no escape from these boxes. I'm saving every penny I own to get the hell out of here, so it's not like I can have a laugh with mates or anything. The cinema tends to cost money, and what's the point? The screen's another big box. Most of my friends are all across the country, anyway. Especially Isabel. It will all be okay when I see Isabel.
+
+But I love my computer. It's the only place I ever feel properly at home. I am safe in pixels. I have this perfect, pristine world at my hands, free to explore everything. It's like I'm turning over technicolour rocks in my own garden of Eden, peering through endless fishtanks in the largest aquarium. Some things I'm not supposed to see so I leave them be, wondering past to the next tank. Some fish are so beautiful I try and catch them for my own. It is mine, all mine, and I watch the fish glide past and feel so safe and happy it burns all over my body.
+
+So real life is tragic, sure. But I have my own secret world. And at least I have somewhere I can be honest without my kid siblings sneaking in and trying to read my diary. Password protection.
+
+____
+
+20/5/2008
+I'm scared if I write she's dead it makes it real.
+
+It can't be real. Because it can't be. Because why would it?
+
+I keep writing that and deleting it and writing it again because I don't know how else to start.
+
+And Life cannot possibly be this cruel..
+
+This has to be a dream
+
+---
+
+28/5/2008
+It was not a dream. Sorry, Planet Earth for invading. You can stop with all your evil tests now. I don't know what I did in my past life to deserve all this. I don't know what you are testing me for. But I can't fucking handle it anymore.
+
+I found out from a news article. She died in a car crash. There are no fucking cars in London anyway. That's like, the number one thing people always say. NOBODY DRIVES IN LONDON.
+A news article, like she was something that happened to the world instead of something that happened to me.
+  
+I don't know who to tell. I keep picking up the phone and putting it down. 
+
+I keep looking at her profile picture. I keep wondering why this happened to me.
+
+.</textarea>
+    </div>
+    <div class="statusbar" id="diary-status">Ln 1, Col 1</div>
+    <div class="resize-handle" onmousedown="startResize(event,'win-diary')"></div>
+  </div>
+
+  <!-- ══ BROWSER WINDOW ══ -->
+  <div class="window" id="win-browser" style="top:60px;left:170px;width:540px;height:440px;">
+    <div class="titlebar" onmousedown="startDrag(event,'win-browser')">
+      <div class="title-left">🔵 <span id="browser-title">New Tab — Internet Explorer</span></div>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minimizeWindow('browser')">_</div>
+        <div class="win-btn">□</div>
+        <div class="win-btn" onclick="closeWindow('browser')">✕</div>
+      </div>
+    </div>
+    <div class="content" style="padding:0">
+      <div class="browser-toolbar">
+        <button onclick="browserBack()">◀</button>
+        <button onclick="browserForward()">▶</button>
+        <button onclick="navigateTo('home')">🏠</button>
+        <input id="address-bar" type="text" value="about:blank" onkeydown="if(event.key==='Enter')browserNav(this.value)"/>
+        <button onclick="browserNav(document.getElementById('address-bar').value)">Go</button>
+      </div>
+      <div id="browser-frame">
+        <div class="webpage active browser-home-links" id="page-home">
+          <h2 style="color:#003399;margin-bottom:8px">Favourites</h2>
+          <a onclick="navigateTo('news')">📰 BBC News — London & Greater London</a>
+          <a onclick="navigateTo('news2')">📰 Isabel Tiley — search results</a>
+          <a onclick="navigateTo('blog')">📓 isabel's blog — things i think about</a>
+        </div>
+        <div class="webpage" id="page-news">
+          <h1> BBC News — London & Greater London</h1>
+          <p style="font-size:11px;color:#999">Wednesday 28 May 2008</p>
+          <h2>Woman, 23, killed in road traffic accident on A316</h2>
+         [[Tell me something true]]
+<h2>Woman, 23, killed in road traffic accident on A316</h2>
+
+<p>An urgent appeal has been issued by the London Metropolitan Police following a fatal collision on the A316.
+
+On 26 May, at approximately 22:58, an unknown vehicle crashed into a silver Peugeot Hybrid 2008, causing a collision into the underpass.
+
+The owner of the vehicle, named locally as Isabel Tiley, was pronounced dead at the scene.</p>
+
+Isabel, who was 23 years old and a Fashion student at Central Saint Martin's College, is believed to have suffered catastrophic brain injuries.
+
+She leaves behind her father, Ed Tiley, noted for his art dealings, and mother, Marisa Tiley-Renaud.
+
+"She had the sort of energy you could feel from another room," said Marisa, when asked for comment.
+
+"Her death will be felt far and wide, not least in our little family. 
+
+"I worry I will never be the same person after losing her."
+
+Ed Tiley agreed with his wife's sentiments, adding: "I will never know a greater loss than today, and my grief is only worsened knowing how little information we have on my daughter's killer.
+
+"I pray my beautiful daughter's death will be bought to justice."
+
+<p>London Metropolitan Police have put out an urgent appeal for witnesses, citing the lack of information on the vehicle that caused the collision as a "serious concern".</p>
+
+"We are potentially dealing with a hit-and-run, and we need to find the driver of the vehicle that caused this collision," said a spokesperson for the London Metropolitan Police.
+          <a onclick="navigateTo('home')" style="font-size:11px">◀ back</a>
+        </div>
+        <div class="webpage" id="page-news2">
+          <h1>Search: "Isabel Tiley"</h1>
+          <p style="font-size:11px;color:#999">About 3 results</p>
+          <div style="margin:10px 0;padding:8px;border:1px solid #ddd">
+            <a onclick="navigateTo('news')">Woman, 23, killed in road traffic accident on A316</a>
+            <p style="font-size:11px;color:#666">BBC News — London & Greater London — ...named locally as Isabel Tiley of Chiswick...</p>
+          </div>
+          <div style="margin:10px 0;padding:8px;border:1px solid #ddd">
+            <a onclick="alert('Page not found.')">Isabel Tiley — MySpace</a>
+            <p style="font-size:11px;color:#666">myspace.com — istiny888 — I\'m looking for something real! Tell me something true...</p>
+          </div>
+          <div style="margin:10px 0;padding:8px;border:1px solid #ddd;background:#fff8f8" id="search-result-3" style="display:none">
+            <a onclick="navigateTo('news3')">Isabelle Tiley, 1985–1998 — In Memoriam</a>
+            <p style="font-size:11px;color:#666">local-remembrance.co.uk — ...beloved daughter, remembered always...</p>
+          </div>
+          <a onclick="navigateTo('home')" style="font-size:11px">◀ back</a>
+        </div>
+      </div>
+    </div>
+    <div class="statusbar" id="browser-status">Done</div>
+    <div class="resize-handle" onmousedown="startResize(event,'win-browser')"></div>
+  </div>
+
+  <div class="window" id="win-photos" style="top:70px;left:190px;width:480px;height:380px;">
+    <div class="titlebar" onmousedown="startDrag(event,'win-photos')">
+      <div class="title-left">My Pictures</div>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minimizeWindow('photos')">_</div>
+        <div class="win-btn">□</div>
+        <div class="win-btn" onclick="closeWindow('photos')">✕</div>
+      </div>
+    </div>
+    <div class="menubar"><span>File</span><span>View</span><span>Slideshow</span></div>
+    <div class="content" style="padding:8px">
+      <div id="photo-folder-view">
+        <div style="display:inline-block;width:80px;text-align:center;padding:6px;cursor:pointer;margin:4px;vertical-align:top" ondblclick="openPhotoFolder('isabel')">
+          <div style="font-size:32px">📁</div>
+          <div style="font-size:10px;font-family:monospace">isabel</div>
+        </div>
+        <div style="display:inline-block;width:80px;text-align:center;padding:6px;cursor:pointer;margin:4px;vertical-align:top" ondblclick="openPhotoFolder('misc')">
+          <div style="font-size:32px">📁</div>
+          <div style="font-size:10px;font-family:monospace">misc</div>
+        </div>
+        <div style="display:inline-block;width:80px;text-align:center;padding:6px;cursor:pointer;margin:4px;vertical-align:top" ondblclick="openPhotoFolder('beach')">
+          <div style="font-size:32px">📁</div>
+          <div style="font-size:10px;font-family:monospace">beach 2007</div>
+        </div>
+      </div>
+      <div id="photo-grid-isabel" style="display:none">
+        <div style="margin-bottom:8px;font-size:11px"><a onclick="closePhotoFolder()" style="cursor:pointer;color:#0033CC">◀ My Photos</a> \ isabel</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <div style="text-align:center"><div style="width:80px;height:60px;background:#FFB6C1;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px;color:#666">IMG_4201.jpg</div><div style="font-size:9px;font-family:monospace;width:80px;overflow:hidden">IMG_4201.jpg</div></div>
+          <div style="text-align:center"><div style="width:80px;height:60px;background:#FFB6C1;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px;color:#666">iz laughing.jpg</div><div style="font-size:9px;font-family:monospace;width:80px;overflow:hidden">iz laughing.jpg</div></div>
+          <div style="text-align:center"><div style="width:80px;height:60px;background:#FFB6C1;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px;color:#666">IMG_4267.jpg</div><div style="font-size:9px;font-family:monospace;width:80px;overflow:hidden">IMG_4267.jpg</div></div>
+          <div style="text-align:center"><div style="width:80px;height:60px;background:#FFB6C1;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px;color:#666">whitley bay<br>jan.jpg</div><div style="font-size:9px;font-family:monospace;width:80px;overflow:hidden">whitley bay jan.jpg</div></div>
+          <div style="text-align:center"><div style="width:80px;height:60px;background:#ddd;border:1px dashed #999;display:flex;align-items:center;justify-content:center;font-size:9px;color:#999;font-style:italic">new folder<br>(empty)</div><div style="font-size:9px;font-family:monospace;width:80px;overflow:hidden">&nbsp;</div></div>
+        </div>
+      </div>
+      <div id="photo-grid-misc" style="display:none">
+        <div style="margin-bottom:8px;font-size:11px"><a onclick="closePhotoFolder()" style="cursor:pointer;color:#0033CC">◀ My Photos</a> \ misc</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <div style="text-align:center"><div style="width:80px;height:60px;background:#c8d8c8;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px">IMG_3901.jpg</div><div style="font-size:9px;font-family:monospace">IMG_3901.jpg</div></div>
+        </div>
+      </div>
+
+      <div id="photo-grid-beach" style="display:none">
+        <div style="margin-bottom:8px;font-size:11px"><a onclick="closePhotoFolder()" style="cursor:pointer;color:#0033CC">◀ My Photos</a> \ beach 2007</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <div style="text-align:center"><div style="width:80px;height:60px;background:#b8c8d8;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px">DSC_0142.jpg</div><div style="font-size:9px;font-family:monospace">DSC_0142.jpg</div></div>
+          <div style="text-align:center"><div style="width:80px;height:60px;background:#b8c8d8;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px">(blurry)<br>DSC_0143.jpg</div><div style="font-size:9px;font-family:monospace">DSC_0143.jpg</div></div>
+          <div style="text-align:center"><div style="width:80px;height:60px;background:#b8c8d8;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px">last day.jpg</div><div style="font-size:9px;font-family:monospace">last day.jpg</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="statusbar" id="photos-status">3 folders</div>
+    <div class="resize-handle" onmousedown="startResize(event,'win-photos')"></div>
+  </div>
+
+</div>
+
+<div id="taskbar">
+  <button id="start-btn">🪟 Start</button>
+  <div class="taskbar-divider"></div>
+  <button class="taskbar-btn" id="tb-myspace" onclick="toggleWindow('myspace')">🌐 MySpace</button>
+  <button class="taskbar-btn" id="tb-aim" onclick="toggleWindow('aim')">💬 TinyChat</button>
+  <button class="taskbar-btn" id="tb-diary" onclick="toggleWindow('diary')">📝 diary.txt</button>
+  <button class="taskbar-btn" id="tb-browser" onclick="toggleWindow('browser')">🔵 Internet Explorer</button>
+  <button class="taskbar-btn" id="tb-photos" onclick="toggleWindow('photos')">My Pictures</button>
+  <div id="clock">00:00</div>
+</div>
+
+<div id="notification">
+  <div class="titlebar" style="cursor:default">
+    <div class="title-left"><span id="notif-title">TinyChat</span></div>
+    <div class="win-controls">
+      <div class="win-btn" onclick="closeNotif()">✕</div>
+    </div>
+  </div>
+  <div class="notif-body" id="notif-body"></div>
+  <div class="notif-actions">
+    <button class="notif-btn" id="notif-action-btn" onclick="notifAction()">Open</button>
+    <button class="notif-btn" onclick="closeNotif()">Dismiss</button>
+  </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html> 
