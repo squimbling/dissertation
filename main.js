@@ -10,8 +10,11 @@ const gameState = {
   diaryEntries: 1,
   currentMyspaceView: 'home',
 };
-const ambientBlue = document.getElementById("prototypemusic");
-ambientBlue.play().catch(() => {});
+const prototypemusic = document.getElementById("prototypemusic");
+prototypemusic.play().catch(() => {});
+document.addEventListener("click", () => {
+  prototypemusic.play();
+}, { once: true });
 
 function checkNarrativeTriggers() {
   const box = document.getElementById('narrative-box');
