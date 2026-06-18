@@ -35,7 +35,6 @@
     <span>My Photos</span>
   </div>
 
-  <!-- ══ MYSPACE WINDOW ══ -->
   <div class="window focused" id="win-myspace" style="top:40px;left:160px;width:640px;height:520px;">
     <div class="titlebar" onmousedown="startDrag(event,'win-myspace')">
       <div class="title-left">🌐 <span id="myspace-title">MySpace.com</span></div>
@@ -65,10 +64,9 @@
         <a>Groups</a>
       </div>
 
-      <!-- narrative trigger -->
+      <!-- narrative trigger again remove this for storynodes -->
       <div class="narrative-box" id="narrative-box"></div>
 
-      <!-- HOME SCREEN -->
       <div class="ms-home visible" id="ms-home">
         <h3>👥 Friends Online</h3>
         <div class="ms-profile-link" onclick="msShowProfile('dylan')">
@@ -345,7 +343,6 @@ I keep looking at her profile picture. I keep wondering why this happened to me.
     <div class="resize-handle" onmousedown="startResize(event,'win-diary')"></div>
   </div>
 
-  <!-- ══ BROWSER WINDOW ══ -->
   <div class="window" id="win-browser" style="top:60px;left:170px;width:540px;height:440px;">
     <div class="titlebar" onmousedown="startDrag(event,'win-browser')">
       <div class="title-left">🔵 <span id="browser-title">New Tab — Internet Explorer</span></div>
@@ -368,11 +365,11 @@ I keep looking at her profile picture. I keep wondering why this happened to me.
           <h2 style="color:#003399;margin-bottom:8px">Favourites</h2>
           <a onclick="navigateTo('news')">📰 BBC News — London & Greater London</a>
           <a onclick="navigateTo('news2')">📰 Isabel Tiley — search results</a>
-          <a onclick="navigateTo('blog')">📓 isabel's blog — things i think about</a>
+          <a onclick="navigateTo('blog')">📓 dylan's diary blog — things i think about</a>
         </div>
         <div class="webpage" id="page-news">
           <h1> BBC News — London & Greater London</h1>
-          <p style="font-size:11px;color:#999">Wednesday 28 May 2008</p>
+          <p id="bbc-news-date" style="font-size:11px;color:#999">Wednesday 28 May 2008</p> 
           <h2>Woman, 23, killed in road traffic accident on A316</h2>
          [[Tell me something true]]
 <h2>Woman, 23, killed in road traffic accident on A316</h2>

@@ -1,4 +1,4 @@
-
+let newsClick = 0;
 const gameState = {
   isabelMyspaceVisits: 0,
   dylanMyspaceVisits: 0,
@@ -100,9 +100,8 @@ function enableAIM() {
   }, 2000);
 }
 
-// ═══════════════════════════════════════
 // REMOVE THIS BC I DO NOT LIKE THE RANDOM MESSAGES IT NEEDS TO BRANCH A LA ORPEHUS
-// ═══════════════════════════════════════
+
 const isabelReplies = [
   "i'm okay. are you okay?",
   "i think about you all the time.",
@@ -138,6 +137,12 @@ const browserHistory = ['home'];
 let browserPos = 0;
 
 function navigateTo(page) {
+  if (page === 'news') {
+        newsClick++;
+    }
+    if (newsClick >= 2) {
+        document.getElementById('bbc-news-date').textContent = 'Wednesday 28 May 1998';
+    }
   document.querySelectorAll('.webpage').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + page);
   if (target) {
@@ -205,9 +210,6 @@ function closePhotoFolder() {
   document.getElementById('photos-status').textContent = '3 folders';
 }
 
-// ═══════════════════════════════════════
-// DIARY
-// ═══════════════════════════════════════
 const diaryTA = document.getElementById('diary-textarea');
 if (diaryTA) {
   diaryTA.addEventListener('keyup', () => {
@@ -216,9 +218,6 @@ if (diaryTA) {
   });
 }
 
-// ═══════════════════════════════════════
-// NOTIFICATION
-// ═══════════════════════════════════════
 let notifTarget = '';
 function showNotif(title, body, target) {
   document.getElementById('notif-title').textContent = title;
@@ -233,10 +232,7 @@ function notifAction() {
   closeNotif();
   if (notifTarget) openWindow(notifTarget);
 }
-
-// ═══════════════════════════════════════
-// WINDOW MANAGEMENT
-// ═══════════════════════════════════════
+// windows ........
 const winIds = ['myspace', 'aim', 'diary', 'browser', 'photos'];
 
 function openWindow(id) {
@@ -294,9 +290,7 @@ winIds.forEach(id => {
   if (win) win.addEventListener('mousedown', () => focusWindow(id));
 });
 
-// ═══════════════════════════════════════
-// DRAG
-// ═══════════════════════════════════════
+// DRAGGABLe elemenets
 let dragState = null;
 function startDrag(e, id) {
   if (e.target.classList.contains('win-btn')) return;
@@ -314,9 +308,6 @@ document.addEventListener('mousemove', e => {
 });
 document.addEventListener('mouseup', () => { dragState = null; });
 
-// ═══════════════════════════════════════
-// RESIZE
-// ═══════════════════════════════════════
 let resizeState = null;
 function startResize(e, id) {
   const win = document.getElementById(id);
@@ -345,7 +336,4 @@ function generateStars(count) {
 }
 generateStars(80);
 
-// ═══════════════════════════════════════
-// INIT
-// ═══════════════════════════════════════
 openWindow('myspace');
