@@ -488,7 +488,7 @@ body {
   font-weight: bold;
 }
 
-/* home/browse screen */
+/* on god i cant remember if this is for ms only or for the entire computer...*/
 .ms-home {
   padding: 10px;
   display: none;
@@ -516,7 +516,7 @@ body {
 .ms-profile-link-name { font-weight: bold; color: #003399; font-size: 11px; }
 .ms-profile-link-status { font-size: 10px; }
 
-/* narrative trigger box */
+/* narrative trigger i may remove lol */
 .narrative-box {
   background: #FFFACC;
   border: 1px solid #CCAA00;
@@ -529,7 +529,6 @@ body {
 }
 .narrative-box.visible { display: block; }
 
-/* ── DIARY WINDOW ── */
 #diary-textarea {
   width: 100%;
   height: 100%;
@@ -545,7 +544,6 @@ body {
   line-height: 1.6;
 }
 
-/* ── BROWSER WINDOW ── */
 .browser-toolbar {
   background: var(--win-grey);
   padding: 3px 6px;
@@ -587,7 +585,6 @@ body {
 .browser-home-links a { display: block; color: #0033CC; margin-bottom: 4px; font-family: monospace; font-size: 12px; cursor: pointer; }
 .browser-home-links a:hover { color: #cc0000; }
 
-/* ── AIM WINDOW ── */
 #aim-chat-log {
   height: 100%;
   min-height: 250px;
@@ -628,7 +625,6 @@ body {
   cursor: pointer;
 }
 
-/* ── NOTIFICATION POPUP ── */
 #notification {
   position: fixed;
   bottom: 44px; right: 8px;
@@ -669,7 +665,6 @@ body {
   cursor: pointer;
 }
 
-/* scrollbar */
 ::-webkit-scrollbar { width: 16px; }
 ::-webkit-scrollbar-track { background: var(--win-grey); }
 ::-webkit-scrollbar-thumb {
