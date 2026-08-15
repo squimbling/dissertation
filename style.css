@@ -1,5 +1,8 @@
-
-* { margin:0; padding:0; box-sizing:border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :root {
   --win-bg: #000000;
@@ -15,7 +18,7 @@
   --win-border-dark: #808080;
   --win-border-darker: #404040;
   --taskbar-h: 36px;
-  font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+  font-family: "Tahoma", "MS Sans Serif", Arial, sans-serif;
   font-size: 12px;
 }
 
@@ -28,7 +31,7 @@ body {
   user-select: none;
 }
 #desktop {
-  background-color: #934e4e; 
+  background-color: #934e4e;
   color: #803939;
   background-size: 550px 550px, 350px 350px, 250px 250px;
   background-position: 0 0, 40px 60px, 130px 270px;
@@ -44,8 +47,15 @@ body {
 }
 
 @keyframes twinkle {
-  0%, 100% { opacity: 0.1; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1.2); }
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 }
 
 .icon {
@@ -59,8 +69,13 @@ body {
   cursor: pointer;
   border: 1px solid transparent;
 }
-.icon:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.1); }
-.icon .icon-img { font-size: 32px; }
+.icon:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+.icon .icon-img {
+  font-size: 32px;
+}
 .icon span {
   color: white;
   font-size: 11px;
@@ -84,8 +99,12 @@ body {
   box-shadow: 2px 2px 0 var(--win-black);
   z-index: 10;
 }
-.window.active { display: flex; }
-.window.focused .titlebar { background: var(--win-title-active); }
+.window.active {
+  display: flex;
+}
+.window.focused .titlebar {
+  background: var(--win-title-active);
+}
 
 .titlebar {
   background: var(--win-title-inactive);
@@ -105,9 +124,13 @@ body {
   font-size: 11px;
   font-weight: bold;
 }
-.win-controls { display: flex; gap: 2px; }
+.win-controls {
+  display: flex;
+  gap: 2px;
+}
 .win-btn {
-  width: 16px; height: 14px;
+  width: 16px;
+  height: 14px;
   background: var(--win-grey);
   border-top: 1px solid var(--win-border-light);
   border-left: 1px solid var(--win-border-light);
@@ -135,8 +158,14 @@ body {
   font-size: 11px;
   flex-shrink: 0;
 }
-.menubar span { padding: 1px 4px; cursor: pointer; }
-.menubar span:hover { background: var(--win-blue); color: white; }
+.menubar span {
+  padding: 1px 4px;
+  cursor: pointer;
+}
+.menubar span:hover {
+  background: var(--win-blue);
+  color: white;
+}
 
 .content {
   flex: 1;
@@ -160,15 +189,18 @@ body {
 }
 .resize-handle {
   position: absolute;
-  bottom: 0; right: 0;
-  width: 12px; height: 12px;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
   cursor: se-resize;
 }
 
 /* ── TASKBAR ── */
 #taskbar {
   position: fixed;
-  bottom: 0; left: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: var(--taskbar-h);
   background: var(--win-grey);
@@ -195,7 +227,8 @@ body {
   gap: 4px;
 }
 .taskbar-divider {
-  width: 2px; height: 28px;
+  width: 2px;
+  height: 28px;
   border-left: 1px solid var(--win-border-dark);
   border-right: 1px solid var(--win-border-light);
   margin: 0 2px;
@@ -218,7 +251,9 @@ body {
   text-overflow: ellipsis;
   display: none;
 }
-.taskbar-btn.visible { display: block; }
+.taskbar-btn.visible {
+  display: block;
+}
 .taskbar-btn.focused {
   border-top: 2px solid var(--win-border-darker);
   border-left: 2px solid var(--win-border-darker);
@@ -265,23 +300,36 @@ body {
   color: white;
   letter-spacing: -1px;
 }
-.ms-topbar a { color: #99CCFF; font-size: 10px; margin-left: 8px; cursor: pointer; }
+.ms-topbar a {
+  color: #99ccff;
+  font-size: 10px;
+  margin-left: 8px;
+  cursor: pointer;
+}
 
 .ms-nav {
-  background: #6699CC;
+  background: #6699cc;
   padding: 3px 8px;
   display: flex;
   gap: 12px;
   font-size: 10px;
 }
-.ms-nav a { color: white; cursor: pointer; text-decoration: none; }
-.ms-nav a:hover { text-decoration: underline; }
+.ms-nav a {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+.ms-nav a:hover {
+  text-decoration: underline;
+}
 
 .ms-profile-wrapper {
   display: none;
   flex-direction: column;
 }
-.ms-profile-wrapper.visible { display: flex; }
+.ms-profile-wrapper.visible {
+  display: flex;
+}
 
 .ms-profile-header {
   padding: 8px 12px;
@@ -301,9 +349,21 @@ body {
   padding: 2px 6px;
   border-radius: 2px;
 }
-.ms-status-badge.online { background: #CCFFCC; border: 1px solid #009900; color: #006600; }
-.ms-status-badge.offline { background: #f0f0f0; border: 1px solid #999; color: #666; }
-.ms-status-badge.away { background: #FFFACC; border: 1px solid #CCAA00; color: #886600; }
+.ms-status-badge.online {
+  background: #ccffcc;
+  border: 1px solid #009900;
+  color: #006600;
+}
+.ms-status-badge.offline {
+  background: #f0f0f0;
+  border: 1px solid #999;
+  color: #666;
+}
+.ms-status-badge.away {
+  background: #fffacc;
+  border: 1px solid #ccaa00;
+  color: #886600;
+}
 
 .ms-grid {
   display: grid;
@@ -311,14 +371,17 @@ body {
   min-height: 400px;
 }
 .ms-leftcol {
-  background: #EDEDED;
+  background: #ededed;
   border-right: 1px solid #999;
   padding: 8px;
 }
-.ms-rightcol { padding: 10px; }
+.ms-rightcol {
+  padding: 10px;
+}
 
 .ms-avatar {
-  width: 160px; height: 160px;
+  width: 160px;
+  height: 160px;
   margin-bottom: 6px;
   border: 2px solid #000;
   display: flex;
@@ -331,11 +394,11 @@ body {
 }
 .ms-avatar.dylan-av {
   background: linear-gradient(135deg, #1a1a1a, #3d2b54, #1a1a1a);
-  color: #C9A8E0;
+  color: #c9a8e0;
   font-style: italic;
 }
 .ms-avatar.isabel-av {
-  background: linear-gradient(135deg, #FFE4E1, #FFB6C1, #FF69B4);
+  background: linear-gradient(135deg, #ffe4e1, #ffb6c1, #ff69b4);
   color: #880044;
   font-style: italic;
 }
@@ -355,11 +418,16 @@ body {
   padding: 2px 5px;
   margin: -6px -6px 6px -6px;
 }
-.ms-detail-row { margin-bottom: 3px; }
-.ms-detail-label { font-weight: bold; color: #663399; }
+.ms-detail-row {
+  margin-bottom: 3px;
+}
+.ms-detail-label {
+  font-weight: bold;
+  color: #663399;
+}
 
 .ms-section-title {
-  background: linear-gradient(to right, #663399, #8B5FBF);
+  background: linear-gradient(to right, #663399, #8b5fbf);
   color: white;
   font-size: 12px;
   font-family: Georgia, serif;
@@ -370,7 +438,7 @@ body {
 .ms-section-body {
   border: 1px solid #999;
   border-top: none;
-  background: #FAFAFA;
+  background: #fafafa;
   padding: 8px;
   font-size: 11px;
   line-height: 1.5;
@@ -379,7 +447,14 @@ body {
 
 .ms-glitter {
   height: 2px;
-  background: linear-gradient(to right, transparent, #C9A8E0, #663399, #C9A8E0, transparent);
+  background: linear-gradient(
+    to right,
+    transparent,
+    #c9a8e0,
+    #663399,
+    #c9a8e0,
+    transparent
+  );
   margin: 6px 0;
 }
 
@@ -392,8 +467,14 @@ body {
   border-bottom: 1px dotted #ddd;
   font-size: 10px;
 }
-.ms-interest-row:last-child { border-bottom: none; }
-.ms-interest-label { font-weight: bold; color: #663399; font-size: 10px; }
+.ms-interest-row:last-child {
+  border-bottom: none;
+}
+.ms-interest-label {
+  font-weight: bold;
+  color: #663399;
+  font-size: 10px;
+}
 
 .ms-comment {
   display: flex;
@@ -402,9 +483,12 @@ body {
   border-bottom: 1px solid #eee;
   font-size: 10px;
 }
-.ms-comment:last-child { border-bottom: none; }
+.ms-comment:last-child {
+  border-bottom: none;
+}
 .ms-comment-pic {
-  width: 40px; height: 40px;
+  width: 40px;
+  height: 40px;
   background: #ddd;
   border: 1px solid #999;
   flex-shrink: 0;
@@ -414,8 +498,15 @@ body {
   font-size: 8px;
   color: #666;
 }
-.ms-comment-from { font-weight: bold; color: #0033CC; cursor: pointer; }
-.ms-comment-date { color: #999; font-size: 9px; }
+.ms-comment-from {
+  font-weight: bold;
+  color: #0033cc;
+  cursor: pointer;
+}
+.ms-comment-date {
+  color: #999;
+  font-size: 9px;
+}
 
 .ms-friends-grid {
   display: grid;
@@ -425,7 +516,8 @@ body {
   text-align: center;
 }
 .ms-friend-pic {
-  width: 100%; aspect-ratio: 1;
+  width: 100%;
+  aspect-ratio: 1;
   background: #ddd;
   border: 1px solid #999;
   margin-bottom: 2px;
@@ -436,8 +528,14 @@ body {
   color: #666;
   cursor: pointer;
 }
-.ms-friend-name { color: #0033CC; cursor: pointer; font-size: 10px; }
-.ms-friend-name:hover { text-decoration: underline; }
+.ms-friend-name {
+  color: #0033cc;
+  cursor: pointer;
+  font-size: 10px;
+}
+.ms-friend-name:hover {
+  text-decoration: underline;
+}
 
 #ms-isabel .ms-section-title {
   background: linear-gradient(to right, #cc0066, #ff69b4);
@@ -469,7 +567,7 @@ body {
   display: flex;
   gap: 2px;
   padding: 4px 8px 0;
-  background: #EDEDED;
+  background: #ededed;
   border-bottom: 2px solid #003399;
 }
 .ms-tab {
@@ -493,8 +591,14 @@ body {
   padding: 10px;
   display: none;
 }
-.ms-home.visible { display: block; }
-.ms-home h3 { color: #003399; margin-bottom: 8px; font-size: 13px; }
+.ms-home.visible {
+  display: block;
+}
+.ms-home h3 {
+  color: #003399;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
 .ms-profile-link {
   display: flex;
   align-items: center;
@@ -505,21 +609,35 @@ body {
   cursor: pointer;
   background: white;
 }
-.ms-profile-link:hover { background: #f0f0ff; border-color: #003399; }
+.ms-profile-link:hover {
+  background: #f0f0ff;
+  border-color: #003399;
+}
 .ms-profile-link-pic {
-  width: 36px; height: 36px;
+  width: 36px;
+  height: 36px;
   border: 1px solid #999;
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 18px;
 }
-.ms-profile-link-info { flex: 1; }
-.ms-profile-link-name { font-weight: bold; color: #003399; font-size: 11px; }
-.ms-profile-link-status { font-size: 10px; }
+.ms-profile-link-info {
+  flex: 1;
+}
+.ms-profile-link-name {
+  font-weight: bold;
+  color: #003399;
+  font-size: 11px;
+}
+.ms-profile-link-status {
+  font-size: 10px;
+}
 
 /* narrative trigger i may remove lol */
 .narrative-box {
-  background: #FFFACC;
-  border: 1px solid #CCAA00;
+  background: #fffacc;
+  border: 1px solid #ccaa00;
   padding: 6px 8px;
   font-size: 10px;
   color: #554400;
@@ -527,7 +645,9 @@ body {
   display: none;
   font-style: italic;
 }
-.narrative-box.visible { display: block; }
+.narrative-box.visible {
+  display: block;
+}
 
 #diary-textarea {
   width: 100%;
@@ -536,7 +656,7 @@ body {
   border: none;
   outline: none;
   resize: none;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: 12px;
   padding: 8px;
   background: white;
@@ -564,26 +684,54 @@ body {
   cursor: pointer;
 }
 #address-bar {
-  flex: 1; height: 18px;
-  font-family: 'Courier New', monospace;
+  flex: 1;
+  height: 18px;
+  font-family: "Courier New", monospace;
   font-size: 11px;
   border: inset 1px solid var(--win-border-dark);
   padding: 0 4px;
 }
 #browser-frame {
   padding: 10px;
-  font-family: 'Times New Roman', serif;
+  font-family: "Times New Roman", serif;
   font-size: 13px;
   line-height: 1.5;
 }
-.webpage { display: none; }
-.webpage.active { display: block; }
-.webpage h1 { font-size: 18px; border-bottom: 1px solid #ccc; margin-bottom: 8px; padding-bottom: 4px; }
-.webpage h2 { font-size: 14px; margin: 10px 0 4px; color: #003399; }
-.webpage p { margin-bottom: 8px; }
-.webpage a { color: #0033CC; cursor: pointer; }
-.browser-home-links a { display: block; color: #0033CC; margin-bottom: 4px; font-family: monospace; font-size: 12px; cursor: pointer; }
-.browser-home-links a:hover { color: #cc0000; }
+.webpage {
+  display: none;
+}
+.webpage.active {
+  display: block;
+}
+.webpage h1 {
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+}
+.webpage h2 {
+  font-size: 14px;
+  margin: 10px 0 4px;
+  color: #003399;
+}
+.webpage p {
+  margin-bottom: 8px;
+}
+.webpage a {
+  color: #0033cc;
+  cursor: pointer;
+}
+.browser-home-links a {
+  display: block;
+  color: #0033cc;
+  margin-bottom: 4px;
+  font-family: monospace;
+  font-size: 12px;
+  cursor: pointer;
+}
+.browser-home-links a:hover {
+  color: #cc0000;
+}
 
 #aim-chat-log {
   height: 100%;
@@ -591,14 +739,27 @@ body {
   overflow-y: auto;
   padding: 8px;
   background: #e8e8f8;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: 11px;
   line-height: 1.5;
 }
-.aim-msg { margin-bottom: 5px; }
-.aim-from-player { color: #800000; font-weight: bold; }
-.aim-from-isabel { color: #000080; font-weight: bold; }
-.aim-from-system { color: #999; font-style: italic; text-align: center; font-size: 10px; }
+.aim-msg {
+  margin-bottom: 5px;
+}
+.aim-from-player {
+  color: #800000;
+  font-weight: bold;
+}
+.aim-from-isabel {
+  color: #000080;
+  font-weight: bold;
+}
+.aim-from-system {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  font-size: 10px;
+}
 .aim-input-row {
   display: flex;
   gap: 4px;
@@ -609,7 +770,7 @@ body {
 }
 #aim-input {
   flex: 1;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: 11px;
   padding: 2px 4px;
   border: inset 1px solid var(--win-border-dark);
@@ -627,7 +788,8 @@ body {
 
 #notification {
   position: fixed;
-  bottom: 44px; right: 8px;
+  bottom: 44px;
+  right: 8px;
   width: 240px;
   background: var(--win-grey);
   border-top: 2px solid var(--win-border-light);
@@ -638,14 +800,17 @@ body {
   display: none;
   box-shadow: 2px 2px 0 black;
 }
-#notification .titlebar { background: var(--win-title-active); cursor: default; }
+#notification .titlebar {
+  background: var(--win-title-active);
+  cursor: default;
+}
 #notification .notif-body {
   padding: 8px;
   background: white;
   margin: 4px;
   border: inset 1px solid var(--win-border-dark);
   font-size: 11px;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   min-height: 50px;
 }
 #notification .notif-actions {
@@ -665,12 +830,24 @@ body {
   cursor: pointer;
 }
 
-::-webkit-scrollbar { width: 16px; }
-::-webkit-scrollbar-track { background: var(--win-grey); }
+::-webkit-scrollbar {
+  width: 16px;
+}
+::-webkit-scrollbar-track {
+  background: var(--win-grey);
+}
 ::-webkit-scrollbar-thumb {
   background: var(--win-grey);
   border-top: 1px solid var(--win-border-light);
   border-left: 1px solid var(--win-border-light);
   border-right: 1px solid var(--win-border-darker);
   border-bottom: 1px solid var(--win-border-darker);
+}
+
+.invisible {
+  display: none;
+}
+
+.visible.webpage {
+  display: block;
 }

@@ -87,9 +87,9 @@
           <span style="font-size:10px;color:#999;margin-left:8px">Last Login: <span id="dylan-last-login">28/05/2008</span></span>
         </div>
         <div class="ms-profile-tabs">
-          <div class="ms-tab active">Profile</div>
+          <div class="ms-tab active" onclick="msShowAboutme()" id="profile-tab">Profile</div>
           <div class="ms-tab">Friends (29)</div>
-          <div class="ms-tab">Blog (19)</div>
+          <div class="ms-tab" onclick="msShowBlog()" id="blog-tab" >Blog (19)</div>
           <div class="ms-tab">Photos (3)</div>
         </div>
         <div class="ms-grid">
@@ -115,8 +115,87 @@
             </div>
           </div>
           <div class="ms-rightcol">
-            <div class="ms-section-title">About me</div>
-            <div class="ms-section-body">
+            <div class="webpage" id="page-blog">
+              <div style="border-bottom:2px solid #663399;padding-bottom:6px;margin-bottom:12px">
+                <h1 style="font-family:Georgia,serif;font-style:italic;color:#663399;margin:0;font-size:20px">things i think about</h1>
+                <p style="font-size:10px;color:#999;margin:2px 0 0">dylan's blog — blogspot.com/planetdylan</p>
+              </div>
+     
+              <!-- PUBLIC: anyone can read these, incl. comments -->
+              <div id="blog-public-posts">
+                <div style="margin-bottom:18px">
+                  <div style="font-weight:bold;font-size:13px;color:#333">half-finished thoughts on Francesca Woodman</div>
+                  <div style="font-size:10px;color:#999;margin-bottom:6px">posted 12/05/2008</div>
+                  <div style="font-size:11px;line-height:1.5;color:#333">
+                    I took photos of someone in January. There’s this one of her on the beach, a gaussian blur, a memory of a woman, like she’s become one with the sand, but also an object, an angel-woman-sand-monster-thing, and the more I look at it, the more I don’t know what it is I’m looking at anymore. I think life’s a bit like that anyway. The more I know the less I understand. 
+                    Or maybe I’m just trying to project Woodman too much into my photography.
+    
+                    Here’s another photo I took in her style recently. If you think it’s derivative, keep it to yourself.</div>
+                  <div class="ms-section-title" style="font-size:10px;margin-top:8px">comments (1)</div>
+                  <div class="ms-comment">
+                    <div class="ms-comment-pic">👤</div>
+                    <div>
+                      <div class="ms-comment-from" onclick="msShowProfile('isabel')">istiny888</div>
+                      <div class="ms-comment-date">posted 14/05/2008</div>
+                      <div>your posts always make me think. do u ever feel like you're disappearing into the wall a bit. anyway call me soon???? xoxo</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+     
+              <!-- PRIVATE: locked journal, only visible to Dylan/the player -->
+              <div id="blog-private-section" style="margin-top:14px;border-top:1px dashed #aaa;padding-top:10px">
+                <div class="ms-section-title" style="font-size:10px">🔒 private entries — only visible to you</div>
+     
+                <div style="margin-top:10px;margin-bottom:16px" id="blog-private-1">
+                  <div style="font-size:10px;color:#999;margin-bottom:6px">22/4/2008</div>
+                  <div style="font-size:11px;line-height:1.6;color:#333;white-space:pre-wrap">Long time, no talk. So annoying when you spend all this money on your own computer then it doesn't fucking well work. They're more than happy to take my money, but when it doesn't work? I'm on my own.
+     
+    I found something online that said writing can help get your emotions out. I need help with that. Growing up in a family that's been addicted to emotional repression since the only one who could feel died will do that to you. Aside from this, I don't think I can do anything about why I feel so terrible all the time. I know why I feel terrible, at least. I'm 24 and I live in Shitley Bay in my childhood home, with a dad who stopped giving a fuck and my little siblings who think the height of comedy is mildly inconveniencing and aggravating me. But there's literally nothing I can do about that until I'm out of here for London.
+     
+    I feel like I'm trapped inside boxes. Box room, box bed, walking down box roads until I get to the box pub and pull box pints for boxy men who call me Morticia and grab my arse. There's no escape from these boxes. I'm saving every penny I own to get the hell out of here, so it's not like I can have a laugh with mates or anything. The cinema tends to cost money, and what's the point? The screen's another big box. Most of my friends are all across the country, anyway. Especially Isabel. It will all be okay when I see Isabel.
+     
+    But I love my computer. It's the only place I ever feel properly at home. I am safe in pixels. I have this perfect, pristine world at my hands, free to explore everything. It's like I'm turning over technicolour rocks in my own garden of Eden, peering through endless fishtanks in the largest aquarium. Some things I'm not supposed to see so I leave them be, wondering past to the next tank. Some fish are so beautiful I try and catch them for my own. It is mine, all mine, and I watch the fish glide past and feel so safe and happy it burns all over my body.
+     
+    So real life is tragic, sure. But I have my own secret world. And at least I have somewhere I can be honest without my kid siblings sneaking in and trying to read my diary. Password protection.</div>
+                </div>
+     
+                <!-- These two entries are revealed by unlockPrivateBlogEntries() once Dylan
+                     has learned about the death and seen the mourning comments on Isabel's
+                     MySpace — this is the "new private journal updates" beat. -->
+                <div id="blog-private-new" style="display:none">
+                  <div style="margin-bottom:16px" id="blog-private-2">
+                    <div style="font-size:10px;color:#880000;margin-bottom:6px">20/5/2008 <span style="font-size:9px;border:1px solid #880000;padding:1px 4px;margin-left:4px">new</span></div>
+                    <div style="font-size:11px;line-height:1.6;color:#333;white-space:pre-wrap">I'm scared if I write she's dead it makes it real.
+     
+    It can't be real. Because it can't be. Because why would it?
+     
+    I keep writing that and deleting it and writing it again because I don't know how else to start.
+     
+    And Life cannot possibly be this cruel..
+     
+    This has to be a dream</div>
+                  </div>
+     
+                  <div style="margin-bottom:16px" id="blog-private-3">
+                    <div style="font-size:10px;color:#880000;margin-bottom:6px">28/5/2008 <span style="font-size:9px;border:1px solid #880000;padding:1px 4px;margin-left:4px">new</span></div>
+                    <div style="font-size:11px;line-height:1.6;color:#333;white-space:pre-wrap">It was not a dream. Sorry, Planet Earth for invading. You can stop with all your evil tests now. I don't know what I did in my past life to deserve all this. I don't know what you are testing me for. But I can't fucking handle it anymore.
+     
+    I found out from a news article. She died in a car crash. There are no fucking cars in London anyway. That's like, the number one thing people always say. NOBODY DRIVES IN LONDON.
+    A news article, like she was something that happened to the world instead of something that happened to me.
+     
+    I don't know who to tell. I keep picking up the phone and putting it down.
+     
+    I keep looking at her profile picture. I keep wondering why this happened to me.
+     
+    .</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="aboutme" onclick="msShowAboutme">
+              <div class="ms-section-title">About me</div>
+              <div class="ms-section-body">
               <div class="ms-glitter"></div>
               I'm Dylan and I'm not a man. My mam was so sure I was going to be a boy she never thought to check, and chose the name Dylan. When I was ripped untimely from her vagina, emphatically female, she decided to keep the name. I bet she thought that was really funny at the time, but she's dead now, and it just means I spend a disappointing amount of time explaining to online strangers I'm actually a woman with a man's name. Not even a cutesy man's name, at that...<br><br>
               My favourite artist is Francesca Woodman. My favourite Muse album is Absolution. My favourite Absolution song is Falling Away With You.<br><br>
@@ -125,25 +204,25 @@
               Passion is Art but currently working a dead end job. Open to commissions if you're stupid rich and take pity on a poor, broke graduate saving to move to London.<br><br>
               I collect cool pebbles I see on the beach and crystals. My sister Marnie used to tell me they fell from other planets. I still have a pet rock from when I was eleven.<br><br>
               Always open to new friends. Unless you're a bigot.
-            </div>
-            <div class="ms-section-title">Interests</div>
-            <div class="ms-section-body">
-              <div class="ms-interest-row"><div class="ms-interest-label">General</div><div>ART. Probably geology? Photography. If I could afford a camera I'd probably be good at it. The stars. Fashion, though my style's very alternative.</div></div>
-              <div class="ms-interest-row"><div class="ms-interest-label">Music</div><div>Joanna Newsom, Mazzy Star, Boards of Canada, Crystal Castles, The Cure</div></div>
-              <div class="ms-interest-row"><div class="ms-interest-label">Movies</div><div>I've never really liked movies.</div></div>
-              <div class="ms-interest-row"><div class="ms-interest-label">Books</div><div><em>Rubyfruit Jungle</em> by Rita Mae Brown. <em>Strange Weather in Tokyo</em> by Hiromi Kawakami. <em>The Planets</em> by Dava Sobel — mam gave it to me before she kicked the bucket, silly bitch. LOL.</div></div>
-              <div class="ms-interest-row"><div class="ms-interest-label">Heroes</div><div>She knows who she is...</div></div>
-            </div>
-            <div class="ms-section-title">Dylan's Comments</div>
-            <div class="ms-section-body">
-              <div class="ms-comment">
-                <div class="ms-comment-pic">👤</div>
-                <div>
-                  <div class="ms-comment-from" onclick="msShowProfile('isabel')">istiny888</div>
-                  <div class="ms-comment-date">posted 14/05/2008</div>
-                  <div>stalking your profile again... should i finally give rubyfruit jungle a go? xo</div>
-                </div>
               </div>
+              <div class="ms-section-title">Interests</div>
+              <div class="ms-section-body">
+                <div class="ms-interest-row"><div class="ms-interest-label">General</div><div>ART. Probably geology? Photography. If I could afford a camera I'd probably be good at it. The stars. Fashion, though my style's very alternative.</div></div>
+                <div class="ms-interest-row"><div class="ms-interest-label">Music</div><div>Joanna Newsom, Mazzy Star, Boards of Canada, Crystal Castles, The Cure</div></div>
+                <div class="ms-interest-row"><div class="ms-interest-label">Movies</div><div>I've never really liked movies.</div></div>
+                <div class="ms-interest-row"><div class="ms-interest-label">Books</div><div><em>Rubyfruit Jungle</em> by Rita Mae Brown. <em>Strange Weather in Tokyo</em> by Hiromi Kawakami. <em>The Planets</em> by Dava Sobel — mam gave it to me before she kicked the bucket, silly bitch. LOL.</div></div>
+                <div class="ms-interest-row"><div class="ms-interest-label">Heroes</div><div>She knows who she is...</div></div>
+              </div>
+              <div class="ms-section-title">Dylan's Comments</div>
+              <div class="ms-section-body">
+                <div class="ms-comment">
+                  <div class="ms-comment-pic">👤</div>
+                  <div>
+                    <div class="ms-comment-from" onclick="msShowProfile('isabel')">istiny888</div>
+                    <div class="ms-comment-date">posted 14/05/2008</div>
+                    <div>stalking your profile again... should i finally give rubyfruit jungle a go? xo</div>
+                  </div>
+                </div>
               <div class="ms-comment">
                 <div class="ms-comment-pic">👤</div>
                 <div>
@@ -170,6 +249,7 @@
                 <div><div class="ms-friend-pic">👤</div><div class="ms-friend-name">jess!!</div></div>
               </div>
           </div>
+        
         </div>
       </div>
     </div>
