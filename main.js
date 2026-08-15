@@ -1,5 +1,8 @@
 let newsClick = 0;
 
+const incomingSound = new Audio('incoming.mp3');
+const outgoingSound = new Audio('outgoing.mp3');
+
  const gameState = {
   dylanMyspaceVisits: 0,
   isabelMyspaceVisits: 0,
@@ -16,7 +19,6 @@ let newsClick = 0;
   aimEnabled: false,
   branchComplete: false,
   newArticleUnlocked: false,
- 
   currentMyspaceView: 'home',
 };
  
@@ -48,6 +50,31 @@ function checkNarrativeTriggers() {
     gameState.newArticleUnlocked = true;
     unlockNewArticle();
 }
+}
+
+function addAIMMessage(from, text, name) {
+  const log = document.getElementById('aim-chat-log');
+  const div = document.createElement('div');
+  div.className = 'aim-msg';
+  if (from === 'player') {
+    div.innerHTML = `<span class="aim-from-player">you:</span> ${text}`;
+    outgoingSound.currentTime = 0;
+    outgoingSound.play().catch(() => {});
+  } else if (from === 'isabel') {
+    div.innerHTML = `<span class="aim-from-isabel">istiny888:</span> ${text}`;
+    incomingSound.currentTime = 0;
+    incomingSound.play().catch(() => {});
+  } else if (from === 'friend') {
+    div.className = 'aim-msg aim-from-system';
+    div.innerHTML = `<strong>${name || 'friend'}:</strong> ${text}`;
+    incomingSound.currentTime = 0;
+    incomingSound.play().catch(() => {});
+  } else {
+    div.className = 'aim-msg aim-from-system';
+    div.textContent = text;
+  }
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
 }
  
 function showNarrative(text) {
@@ -138,10 +165,7 @@ function msShowProfile(who) {
   document.getElementById('ms-home').classList.remove('visible');
   document.getElementById('ms-dylan').classList.remove('visible');
   document.getElementById('ms-isabel').classList.remove('visible');
- 
-  // NOTE: fixed a bug from the prototype where 'player' (the "My Profile"
-  // link) was grouped with 'isabel' — since Dylan is the player character,
-  // "My Profile" should show Dylan's page, not Isabel's.
+
   if (who === 'dylan' || who === 'player') {
     gameState.dylanMyspaceVisits++;
     gameState.visitedDylanMyspace = true;
