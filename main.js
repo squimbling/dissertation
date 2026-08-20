@@ -207,7 +207,7 @@ function enableAIM() {
   document.getElementById("aim-offline-msg").style.display = "none";
   document.getElementById("aim-status").textContent = "istiny888: online";
 
-  addAIMMessage("system", "— istiny888 has signed on —");
+  addAIMMessage("system", "istiny888 has logged on");
   setTimeout(() => {
     const startNode = dialogueBranches.start;
     addAIMMessage("isabel", startNode.isabelLine);

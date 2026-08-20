@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Beau+Rivage&family=Sacramento&family=Caveat:wght@400;600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -58,31 +60,46 @@ body {
   }
 }
 
+.icon-img {
+  width: 48px;
+  height: 48px;
+  display: block;
+  margin: 0 auto;
+  image-rendering: pixelated;
+}
+
 .icon {
   position: absolute;
-  width: 76px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 4px;
+  width: 75px;
+  text-align: center;
   cursor: pointer;
-  border: 1px solid transparent;
+  user-select: none;
 }
-.icon:hover {
-  border-color: rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.1);
-}
-.icon .icon-img {
-  font-size: 32px;
-}
+
 .icon span {
+  display: block;
   color: white;
   font-size: 11px;
-  text-align: center;
-  text-shadow: 1px 1px 1px black;
-  word-break: break-word;
-  line-height: 1.3;
+  margin-top: 2px;
+  text-shadow: 1px 1px 2px black; 
+}
+
+.icon .icon-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.win-logo {
+width: 32px;
+  height: 32px;
+  margin-right: 8px;
+}
+
+.icon .win-logo {
+  width: 32px;
+  height: 32px;
+    object-fit: contain;
 }
 
 .window {
@@ -250,9 +267,11 @@ body {
   white-space: nowrap;
   text-overflow: ellipsis;
   display: none;
+  align-items: center;
+  gap: 4px;
 }
 .taskbar-btn.visible {
-  display: block;
+  display: inline-flex;   /* was "block" — inline-flex keeps the icon+text aligned */
 }
 .taskbar-btn.focused {
   border-top: 2px solid var(--win-border-darker);
@@ -260,6 +279,12 @@ body {
   border-right: 2px solid var(--win-border-light);
   border-bottom: 2px solid var(--win-border-light);
   background: #b0b0b0;
+}
+
+.tb-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
 }
 #clock {
   margin-left: auto;
@@ -850,4 +875,247 @@ body {
 
 .visible.webpage {
   display: block;
+}
+
+
+:root {
+  --iz-blush: #ffd9e8;
+  --iz-blush-deep: #ffb8d2;
+  --iz-lilac: #e6d9ff;
+  --iz-lilac-deep: #cbb3f0;
+  --iz-cream: #fffaf3;
+  --iz-gold: #c9a25c;
+  --iz-gold-light: #f1e0b0;
+  --iz-rose: #e8577f;
+  --iz-ink: #5c3a52;
+}
+
+@keyframes iz-sparkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.7) rotate(0deg); }
+  50%      { opacity: 1;    transform: scale(1.2) rotate(20deg); }
+}
+
+#ms-isabel {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--iz-ink);
+}
+
+/* ── header: soft gradient banner, cursive signature, lace scallop trim ── */
+#ms-isabel .ms-profile-header {
+  position: relative;
+  background: linear-gradient(135deg, var(--iz-blush) 0%, var(--iz-lilac) 100%);
+  border-bottom: none;
+  padding: 10px 12px 18px;
+}
+#ms-isabel .ms-profile-header::before {
+  content: "✦";
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  color: var(--iz-gold);
+  font-size: 14px;
+  animation: iz-sparkle 2.8s ease-in-out infinite;
+}
+#ms-isabel .ms-profile-header::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 12px;
+  background-image: radial-gradient(circle at 6px 0, transparent 5.5px, var(--iz-gold-light) 6px);
+  background-size: 12px 12px;
+  background-repeat: repeat-x;
+  opacity: 0.9;
+}
+/* angel png charm, top-right corner of the banner.
+   drop your file at assets/angel.png (transparent bg, tall/portrait
+   crops read best) — swap the filename below if yours is named
+   differently. sizing is deliberately small so it reads as a charm,
+   not a stamp; bump background-size if you want it bigger. */
+#ms-isabel .ms-profile-header {
+  background-image:
+    linear-gradient(135deg, var(--iz-blush) 0%, var(--iz-lilac) 100%),
+    url('assets/angel.png');
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, 46px auto;
+  background-position: 0 0, top 4px right 34px;
+}
+#ms-isabel .ms-username {
+  font-family: 'Sacramento', 'Playfair Display', cursive, serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 34px;
+  line-height: 1.3;
+  color: var(--iz-rose);
+  text-shadow: 0 0 6px rgba(201, 162, 92, 0.35), 1px 1px 0 var(--iz-gold-light);
+  letter-spacing: 0.5px;
+}
+#ms-isabel .ms-status-badge {
+  border-radius: 12px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+#ms-isabel .ms-status-badge.online  { background: var(--iz-blush);       border-color: var(--iz-rose); color: #99204a; }
+#ms-isabel .ms-status-badge.offline { background: var(--iz-lilac);       border-color: var(--iz-gold); color: var(--iz-ink); }
+#ms-isabel .ms-status-badge.away    { background: var(--iz-gold-light);  border-color: var(--iz-gold); color: #7a5a1e; }
+
+/* ── profile tabs ── */
+#ms-isabel .ms-profile-tabs {
+  background: linear-gradient(to right, var(--iz-blush), var(--iz-lilac));
+  border-bottom: 2px solid var(--iz-gold);
+}
+#ms-isabel .ms-tab {
+  background: var(--iz-lilac);
+  border-color: var(--iz-gold-light);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--iz-ink);
+}
+#ms-isabel .ms-tab.active {
+  background: var(--iz-cream);
+  color: var(--iz-rose);
+  font-weight: bold;
+}
+
+
+#ms-isabel .ms-grid {
+  background-color: var(--iz-cream);
+  background-image:
+    linear-gradient(150deg, rgba(255, 217, 232, 0.72) 0%, rgba(230, 217, 255, 0.62) 50%, rgba(255, 250, 243, 0.72) 100%),
+    url('assets/lace.jpg');
+  background-repeat: no-repeat, repeat;
+  background-size: cover, 300px auto;
+}
+#ms-isabel .ms-leftcol {
+  background-color: transparent;
+  background-image: linear-gradient(165deg, rgba(255, 217, 232, 0.35) 0%, rgba(230, 217, 255, 0.35) 55%, rgba(255, 250, 243, 0.35) 100%);
+  border-color: var(--iz-gold-light);
+  position: relative;
+  padding-bottom: 20px;
+}
+#ms-isabel .ms-leftcol::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 14px;
+  background-image: radial-gradient(circle at 7px 0, transparent 6px, var(--iz-cream) 6.5px);
+  background-size: 14px 14px;
+  background-repeat: repeat-x;
+}
+
+#ms-isabel .ms-avatar.isabel-av {
+  background: linear-gradient(150deg, var(--iz-blush) 0%, var(--iz-lilac) 55%, var(--iz-blush-deep) 100%);
+  color: var(--iz-rose);
+  border: 3px solid var(--iz-gold);
+  border-radius: 4px;
+  box-shadow: 0 0 0 4px var(--iz-cream), 0 0 14px rgba(201, 162, 92, 0.5);
+  position: relative;
+}
+#ms-isabel .ms-avatar.isabel-av::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, white 1px, transparent 1.5px),
+    radial-gradient(circle, white 1px, transparent 1.5px),
+    radial-gradient(circle, white 1px, transparent 1.5px),
+    radial-gradient(circle, var(--iz-gold-light) 1px, transparent 1.5px);
+  background-size: 40px 40px, 55px 55px, 30px 30px, 45px 45px;
+  background-position: 10px 15px, 70px 40px, 120px 90px, 40px 110px;
+  animation: iz-sparkle 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+#ms-isabel .ms-avatar.isabel-av::after {
+  content: "I · T";
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  font-family: 'Beau Rivage', cursive;
+  font-size: 15px;
+  color: var(--iz-gold);
+  background: var(--iz-cream);
+  padding: 1px 6px 2px;
+  border-radius: 10px;
+  border: 1px solid var(--iz-gold);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#ms-isabel .ms-details-box {
+  background: var(--iz-cream);
+  border: 1px solid var(--iz-gold);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(232, 87, 127, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+#ms-isabel .ms-details-box::after {
+  content: "✦";
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
+  color: var(--iz-gold);
+  font-size: 10px;
+  opacity: 0.6;
+}
+#ms-isabel .ms-details-title {
+  background: linear-gradient(120deg, var(--iz-rose), var(--iz-gold) 140%);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  letter-spacing: 0.4px;
+}
+#ms-isabel .ms-detail-label {
+  color: var(--iz-rose);
+}
+
+/* ── section titles/bodies: editorial italic banners over a faint
+   dotted lace texture, rounded to soften the Win98 chrome ── */
+#ms-isabel .ms-section-title {
+  background: linear-gradient(100deg, var(--iz-rose) 0%, var(--iz-blush-deep) 45%, var(--iz-gold) 130%);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 8px 8px 0 0;
+}
+#ms-isabel .ms-section-title::before {
+  content: "✧ ";
+}
+
+#ms-isabel .ms-section-body {
+  background-color: var(--iz-cream);
+  border-color: var(--iz-gold-light);
+  border-radius: 0 0 8px 8px;
+  background-image:
+    linear-gradient(rgba(255, 250, 243, 0.86), rgba(255, 250, 243, 0.86)),
+    url('assets/lace.jpg');
+  background-repeat: repeat, repeat;
+  background-size: auto, 260px auto;
+}
+
+#isabel-about::first-letter {
+  font-family: 'Beau Rivage', cursive;
+  font-size: 2.6em;
+  color: var(--iz-gold);
+  float: left;
+  line-height: 0.7;
+  padding: 4px 6px 0 0;
+}
+
+#ms-isabel .ms-interest-label {
+  color: var(--iz-rose);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+#ms-isabel .ms-interest-row {
+  border-bottom: 1px dotted var(--iz-gold-light);
+}
+#ms-isabel .ms-comment-from {
+  color: var(--iz-rose);
+  font-family: 'Playfair Display', serif;
+}
+#ms-isabel .ms-comment-pic {
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--iz-blush), var(--iz-lilac));
+  border: 2px solid var(--iz-gold-light);
+  color: var(--iz-rose);
 }

@@ -8,24 +8,30 @@
 <body>
 <div id="desktop">
   <div class="icon" style="top:20px;left:20px" ondblclick="openWindow('myspace')">
-    <div class="icon-img">🌐</div>
+    <img src="assets/myspace.png" class="icon-img" alt="MySpace">
     <span>MySpace</span>
   </div>
- 
+
   <div class="icon" style="top:110px;left:20px" ondblclick="openWindow('aim')">
-    <div class="icon-img">💬</div>
+    <img src="assets/tinychat.png" class="icon-img" alt="TinyChat">
     <span>TinyChat</span>
   </div>
- 
+
   <div class="icon" style="top:200px;left:20px" ondblclick="openWindow('browser')">
-    <div class="icon-img">🔵</div>
+    <img src="assets/internetexplorer.png" class="icon-img" alt="Internet Explorer">
     <span>Internet Explorer</span>
   </div>
- 
+
   <div class="icon" style="top:20px;left:110px" ondblclick="openWindow('photos')">
-    <div class="icon-img">🖼️</div>
+    <img src="assets/folder.png" class="icon-img" alt="My Photos">
     <span>My Photos</span>
   </div>
+
+  <div class="icon" style="top:110px;left:110px" ondblclick="openWindow('journal')">
+  <img src="assets/lj.png" class="icon-img" alt="LiveJournal">
+  <span>LiveJournal</span>
+</div>
+</div>
  
   <div class="window focused" id="win-myspace" style="top:40px;left:160px;width:640px;height:520px;">
     <div class="titlebar" onmousedown="startDrag(event,'win-myspace')">
@@ -254,6 +260,7 @@
       </div>
     </div>
   </div>
+  </div>
       <div class="ms-profile-wrapper" id="ms-isabel">
         <div class="ms-profile-header">
           <span class="ms-username" style="font-family:Georgia,serif;font-style:italic;color:#880044">istiny888</span>
@@ -268,7 +275,7 @@
         </div>
         <div class="ms-grid">
           <div class="ms-leftcol">
-            <div class="ms-avatar isabel-av">[ placeholder again soz ]</div>
+            <div class="ms-avatar isabel-av">[ still a placeholder]</div>
             <div style="text-align:center;font-size:9px;color:#555;margin-bottom:8px;font-style:italic">Isabel is female and 23 years old.</div>
             <div class="ms-details-box">
               <div class="ms-details-title">Contacting Isabel</div>
@@ -679,13 +686,21 @@ I keep looking at her profile picture. I keep wondering why this happened to me.
 </div>
  
 <div id="taskbar">
-  <button id="start-btn">🪟 Start</button>
+  <img src="assets/winlogo.png" class="win-logo"/>
+  <button id="start-btn">Start</button>
   <div class="taskbar-divider"></div>
-  <button class="taskbar-btn" id="tb-myspace" onclick="toggleWindow('myspace')">🌐 MySpace</button>
-  <button class="taskbar-btn" id="tb-aim" onclick="toggleWindow('aim')">💬 TinyChat</button>
-  <!-- diary.txt taskbar button removed along with the window above -->
-  <button class="taskbar-btn" id="tb-browser" onclick="toggleWindow('browser')">🔵 Internet Explorer</button>
-  <button class="taskbar-btn" id="tb-photos" onclick="toggleWindow('photos')">My Pictures</button>
+  <button class="taskbar-btn" id="tb-myspace" onclick="toggleWindow('myspace')">
+    <img src="assets/myspace.png" class="tb-icon" alt="">MySpace
+  </button>
+  <button class="taskbar-btn" id="tb-aim" onclick="toggleWindow('aim')">
+    <img src="assets/tinychat.png" class="tb-icon" alt="">TinyChat
+  </button>
+  <button class="taskbar-btn" id="tb-browser" onclick="toggleWindow('browser')">
+    <img src="assets/internetexplorer.png" class="tb-icon" alt="">Internet Explorer
+  </button>
+  <button class="taskbar-btn" id="tb-photos" onclick="toggleWindow('photos')">
+    <img src="assets/folder.png" class="tb-icon" alt="">My Pictures
+  </button>
   <div id="clock">00:00</div>
 </div>
  
