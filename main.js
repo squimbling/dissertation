@@ -310,7 +310,10 @@ function buildTestPanel() {
   tools.className = "test-panel-tools";
   const select = document.createElement("select");
   select.innerHTML = '<option value="">skip to event…</option>' +
-    story.map((s, i) => `<option value="${s.id}">${i + 1}. ${s.id}</option>`).join("");
+    story
+      .filter((s) => s.id !== "shutdown")
+      .map((s, i) => `<option value="${s.id}">${i + 1}. ${s.id}</option>`)
+      .join("");
   select.onchange = () => {
     if (select.value) location.search = "?step=" + select.value;
   };
