@@ -1119,7 +1119,7 @@ const startingMail = [
     from: "University of Manchester Alumni",
     subject: "Manchester Alumni News: Summer 2008",
     received: "15/05/2008",
-    body: "Dear Dylan,\n\nWelcome to the summer edition of Manchester Alumni News.\n\nIn this issue:\n- Class of 2006: where are they now? We catch up with graduates working in London, New York and Tokyo.\n- Save the date: School of Arts, Histories and Cultures reunion, Saturday 18 October.\n- Update your details so we can keep in touch.\n\nWe'd love to hear what you're doing now. Reply and tell us your news!\n\nThe Alumni Relations Team\nThe University of Manchester",
+    body: "Dear Dylan,\n\nWelcome to the summer edition of Manchester Alumni News.\n\nIn this issue:\n- Class of 2006: where are they now? We catch up with graduates working in London, New York and Tokyo.\n- Save the date: School of Arts, Histories and Cultures reunion, Saturday 18 October.\n- Update your details so we can keep in touch.\n\nWe'd love to hear what you're doing now. Reply and tell us your news!\n\nAlumni Relations Team\nThe University of Manchester",
   },
   {
     from: "Windows Live Hotmail",
@@ -1199,7 +1199,7 @@ const junkMail = [
   {
     from: "Amazon.co.uk",
     subject: "Your Amazon.co.uk order has been dispatched",
-    body: "Hello,\n\nWe thought you'd like to know that we've dispatched your item(s).\n\nThe Vrigin Suicides (Paperback)\nQty: 1\n\nYour order is being sent by Royal Mail 2nd Class.",
+    body: "Hello,\n\nWe thought you'd like to know that we've dispatched your item(s).\n\nThe Virgin Suicides (Paperback)\nQty: 1\n\nYour order is being sent by Royal Mail 2nd Class.",
   },
   {
     from: "Orange",
@@ -2159,7 +2159,7 @@ function navigateTo(page) {
   }
   if (newsClick >= 2) {
     document.getElementById("bbc-news-date").textContent =
-      "Wednesday 28 May 1998";
+      "Wednesday 28 May 2008";
   }
 
   document
