@@ -228,6 +228,13 @@ const story = [
       setTimeout(() => clippySay("final1"), 2000);
     },
     doneWhen: ["clippy:the-end"],
+    pauseAfter: 2500,
+  },
+  {
+    id: "shutdown",
+    start() {
+      shutDown();
+    },
   },
 ];
 
@@ -326,6 +333,20 @@ function buildTestPanel() {
     show();
     try { localStorage.setItem("testPanel", open ? "open" : "closed"); } catch (e) {}
   };
+}
+
+function shutDown() {
+  if (catchingUp) return;
+  try { if (typeof wpAudio !== "undefined") wpAudio.pause(); } catch (e) {}
+  try { if (clippy) clippy.hide(); } catch (e) {}
+  const bubble = document.getElementById("clippy-bubble");
+  if (bubble) bubble.style.display = "none";
+  const screen = document.getElementById("shutdown-screen");
+  screen.classList.add("waiting");
+  setTimeout(() => {
+    screen.classList.remove("waiting");
+    screen.classList.add("safe");
+  }, 6000);
 }
 
 function reveal(name) {
@@ -596,7 +617,7 @@ const chats = {
         choices: [
           {text: "That's probably for the best."}
         ]
-      }
+      },
       better: {
         line: "Awh. Is it your friend from London? I'm so sorry to hear that, what a horrible way to go :(",
         choices: [
@@ -863,6 +884,13 @@ chat: {
       { text: "I miss Isabel.", next: "who" }
     ],
   },
+  who: {
+    line: ["Isabel? The girl from the news?", "Oh Dyl. I didn't know you two were close."],
+    choices: [
+      { text: "We were.", next: "trouble" },
+      { text: "She's still messaging me.", next: "messaging" }
+    ],
+  },
   messaging: {
     line: ["Um. Gone as in dead?"],
     choices: [
@@ -929,7 +957,7 @@ chat: {
   },
 
   thanks: {
-    line: ["I'm glad we spoke, Dylan. I miss you.", "Come and visit me soon?", "I'll pay your way down. :-)'"],
+    line: ["I'm glad we spoke, Dylan. I miss you.", "Come and visit me soon?", "I'll pay your way down. :-)"],
     dylanLogsOff: true,
   },
     },
@@ -1605,11 +1633,11 @@ const clippyDialogue = {
   },
   speech8: {
     line: "And sometimes, people are just mighty unlucky.",
-    choices: [{ text: ">", next: "speech9" }],
+    choices: [{ text: ">", next: "speech10" }],
   },
   speech10: {
     line: "I don't know.",
-    choices: [{ text: ">", next: "speech11" }],
+    choices: [{ text: ">", next: "speech12" }],
   },
   speech12: {
     line: "I'll probably be retired in a few years...",
