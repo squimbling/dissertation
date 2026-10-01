@@ -591,6 +591,12 @@ const chats = {
         {text: "Sure.", next: "close"},
       ],
     },
+      tryingToHelp: {
+        line: ["Okay I keep saying the wrong thing.", "Mayb I should leave u 2 it??"],
+        choices: [
+          {text: "That's probably for the best."}
+        ]
+      }
       better: {
         line: "Awh. Is it your friend from London? I'm so sorry to hear that, what a horrible way to go :(",
         choices: [
@@ -689,7 +695,7 @@ const chats = {
         ],
       },
       why: {
-        line: "bc i couldnt stop looking at u that day and i never told u why. so shh and let me tell u",
+        line: "bc i couldnt stop looking at u that day and i never told u why. so shh and let me tell you",
         choices: [
           { text: "I'm listening.", next: "coat" },
           { text: "You're being weird, Iz.", next: "coat" },
@@ -772,7 +778,7 @@ const chats = {
       yourTurn: {
         line: "ok. tell me something true ! your turn sweetness xo",
         choices: [
-          { text: "I kept the coat on the whole train home so I wouldn't forget that day.", next: "glitch" },
+          { text: "I wore the coat the coat for a week afterwards so I wouldn't forget that day.", next: "glitch" },
           { text: "I nearly didn't come.", next: "nearly" },
         ],
       },
