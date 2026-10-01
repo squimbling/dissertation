@@ -230,7 +230,7 @@ const story = [
   },
 ];
 
-const PAUSE_BETWEEN_EVENTS = 3000;
+const PAUSE_BETWEEN_EVENTS = 8000;
 
 let stepIndex = -1;
 let stepProgress = new Set();
@@ -1527,8 +1527,8 @@ function placeClippy() {
 }
 const clippyDialogue = {
   welcome: {
-    line: "Welcome back, Dylan! It's been one hour and 58 minutes since I last saw you. That's a new record!",
-    choices: [{ text: "I had to have my tea...", next: "welcome2" }],
+    line: "Welcome back, Dylan! It's been one hour and 58 minutes since I last saw you. That's a new record of time offline!",
+    choices: [{ text: "Dad made us go out for tea...", next: "welcome2" }],
   },
   welcome2: {
     line: "Remember, if you need help with anything, just summon me with that need a hint button.",
