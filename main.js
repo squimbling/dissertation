@@ -231,7 +231,7 @@ const story = [
   },
 ];
 
-const PAUSE_BETWEEN_EVENTS = 8000;
+const PAUSE_BETWEEN_EVENTS = 10000;
 
 let stepIndex = -1;
 let stepProgress = new Set();
@@ -577,7 +577,7 @@ const chats = {
           "We say he's a hardass but he never left your dad's side after your ma died",
           "Waif I'm so sorry",
           "Oh Dylan",
-          "Fuck. I don't know what to say."
+          "Jfc.Idk what to say"
         ],
         choices: [
           {text: "Just don't say anything, then...", next: "saysSomethingAnyway"},

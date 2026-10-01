@@ -834,13 +834,13 @@ A new article about my Izzy was published, and it was the same old crap they in 
 
 At least when mam died, I got casserole. There was this weird period after dad told our next door neighbour mam hadn't made it out the hospital, where neighbours would ring the doorbell then run away like they were on fire, leaving casseroles in foil and dishes on the doorstep. They never came to collect their dishes back, so our cupboards are still mostly casserole dish. My favourite was Mrs. Lethby's tuna casserole. What I wouldn't give for some now.
 
-I might go and knock on her door and ask. "Hey Mrs. Lethby, I'm a raging homosexual and my long-distance girlfriend who I was saving every penny to be with has died. Get the oven on and open up some tinned tuna."
+I might go and knock on her door and ask. "Hey Mrs. Lethby, I'm a raging homosexual and my long-distance girlfriend who I was saving every penny to be with has died. Whack the oven on and open up some tinned tuna, would you?"
 
 Probably wouldn't go down too well. A bit like the Jameson's corned beef casserole.
 
 I don't know why I'm joking. I'm not even hungry. If I don't laugh I'll cry, but I'm not laughing either.
 
-I miss her so much. If she was here, she would laugh that sweet fairy giggle and tell me she loved how dark I was.</div>
+I miss her so much. If she was here, she would laugh her pixie laugh and tell me she loved how dark I was.</div>
                   <div class="lj-footer">( <a>Leave a comment</a> )</div>
                 </div>
               </div>
@@ -1233,14 +1233,21 @@ let renderLoop;
 let presets;
 let wpAnalyser;
 
+let wpCheckTimer = null;
+
 function wpCheckAudioReachesVisualiser() {
-  setTimeout(() => {
-    if (!wpAnalyser || wpAudio.paused) return;
-    const data = new Uint8Array(wpAnalyser.fftSize);
-    wpAnalyser.getByteTimeDomainData(data);
-    const silent = data.every((v) => v === 128);
-    if (silent) wpShowVisError("the visualiser can't hear this track (the music site is blocking it)");
-  }, 4000);
+  clearInterval(wpCheckTimer);
+  const data = new Float32Array(2048);
+  let checks = 0;
+  wpCheckTimer = setInterval(() => {
+    if (!wpAnalyser || wpAudio.paused) return clearInterval(wpCheckTimer);
+    wpAnalyser.getFloatTimeDomainData(data);
+    if (data.some((v) => Math.abs(v) > 0.0005)) return clearInterval(wpCheckTimer);
+    if (++checks >= 20) {
+      clearInterval(wpCheckTimer);
+      wpShowVisError("the visualiser can't hear this track (the music site is blocking it)");
+    }
+  }, 1000);
 }
 
 function wpInitAudio() {
@@ -1326,6 +1333,8 @@ async function wpPlayTrack(i) {
     wpInitAudio();
     await wpCtx.resume();
     wpCurrent = i;
+    wpBuildPlaylist();
+    document.getElementById("wp-vis-error").style.display = "none";
     wpAudio.src = wpTracks[i].src;
     document.getElementById('wp-track-name').textContent = '♪ ' + wpTracks[i].title;
     wpAudio.volume = parseFloat(
