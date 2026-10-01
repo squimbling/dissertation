@@ -936,28 +936,28 @@ chat: {
         ],
       },
       howKnow: {
-        line: "ur always awake at 3 silly. ur little green dot never goes off xo",
+        line: "ur always awake at 3 silly. ur little green dot never goes off",
         choices: [
           { text: "I need to ask you something.", next: "ask" },
           { text: "I missed you.", next: "missed" },
         ],
       },
       missed: {
-        line: "missed u more!! its thursday tomorrow right? call me",
+        line: "missed u more !! its thursday tomorrow right? call me xoxo",
         choices: [
           { text: "It's Thursday now, Iz.", next: "thursday" },
           { text: "Iz, why were you on the A316?", next: "why" },
         ],
       },
       thursday: {
-        line: "is it? oh. i lose track a bit lately",
+        line: "is it? oh... i lose track a bit lately :/",
         choices: [
           { text: "Why were you on the A316 at 11pm on a Monday?", next: "why" },
           { text: "Tell me about your day.", next: "day" },
         ],
       },
       ask: {
-        line: "ooh serious dyl. go on then",
+        line: "ooh serious dyl... go on then :D",
         choices: [
           { text: "Why were you on the A316 at 11pm on a Monday?", next: "why" },
           { text: "Who was driving the other car?", next: "car" },
@@ -978,7 +978,7 @@ chat: {
         ],
       },
       car: {
-        line: ["what car?", "dyl there wasnt a car"],
+        line: ["what car?", "dylan there wasnt a car ??"],
         choices: [
           { text: "The one that hit you.", next: "hit" },
           { text: "Was it Tyler?", next: "tyler" },
@@ -992,14 +992,14 @@ chat: {
         ],
       },
       hit: {
-        line: ["it was dark", "and i was just so tired", "i just felt very very tired"],
+        line: ["it was dark", "and i was so tired...", "i just felt so very tired :("],
         choices: [
           { text: "That's not what happened to you.", next: "breaking" },
           { text: "That's what happened to mam.", next: "breaking" },
         ],
       },
       breaking: {
-        line: ["dyl i dont", "i dont remember a", "i dont remem"],
+        line: ["dyl i dont", "i dont remem"],
         choices: [
           { text: "Tell me what happened, Isabel.", next: "cutOff" },
           { text: "Okay. Okay. Forget it.", next: "steady" },
@@ -1017,14 +1017,14 @@ chat: {
         ],
       },
       day: {
-        line: "theyre putting my coats in lethaby!! did u see? everyones going to see women in the walls",
+        line: "theyre putting my coats in lethaby eeeee !! did u see? everyones going to see women in the walls",
         choices: [
           { text: "I saw.", next: "sleep" },
           { text: "I'll come down for it.", next: "sleep" },
         ],
       },
       sleep: {
-        line: "go to sleep dyl. i'll still be here x",
+        line: "go to sleep dyl. i'll still be here :)x",
         choices: [
           { text: "Promise?" },
           { text: "Goodnight, Iz." },
@@ -1089,7 +1089,7 @@ chat: {
       story: {
         line: [
           "When we first properly saw each other after we met. I took you to Charlie’s Vodka bar and we were both so drunk we got thrown out. You asked me to tell you something true, and I blurted out I love you before I could even think about it. I tried to cover up my tracks by asking what tell me something true meant.",
-          "And you said, I was so perfect I had to be fake. A vision, a dream. So you needed me to tell you something true.",
+          "And you said, I was so perfect I had to be fake, a girl you'd dreamed of. So you needed me to tell you something true.",
           "I think you said I love you back. But even if you didn’t, you showed it to me across the past ten months.",
           "I’ll never forget that, Dylisa.",
           "I love you!",
@@ -1151,7 +1151,7 @@ const bouncedMail = [
   {
     from: "Mail Delivery Subsystem",
     subject: "Delivery Status Notification (Failure)",
-    body: "Delivery to the following recipient failed permanently:\n\n     istiny888@hotmail.co.uk\n\nThe account you tried to reach has been disabled.\n\n----- Original message -----\nTo: istiny888@hotmail.co.uk\nSubject: tell me something true\nSent: 02/07/2008 04:12\n\nAre you real? Just say yes or no. I won't be angry either way.",
+    body: "Delivery to the following recipient failed permanently:\n\n     istiny888@hotmail.co.uk\n\nThe account you tried to reach has been disabled.\n\n----- Original message -----\nTo: istiny888@hotmail.co.uk\nSubject: tell me something true\nSent: 02/07/2008 04:12\n\niz please im losing my fuckinf mind here",
   },
 ];
 
@@ -2037,7 +2037,7 @@ const buddyColours = {
 };
 
 const msnContacts = {
-  dylan: { name: "dyl ~ insomniac ☾", email: "dylisastar@hotmail.co.uk" },
+  dylan: { name: "dyl ☾", email: "dylisastar@hotmail.co.uk" },
   istiny888: { name: "iz ~*tell me something true*~ ♥", email: "istiny888@hotmail.com" },
   Xx_Jess_Xx: { name: "Jess xXx single n ready 2 mingle xXx", email: "xx_jess_xx@hotmail.co.uk" },
   "Marnie Holloway": { name: "Marnie Holloway", email: "marnie.holloway@btinternet.com" },
