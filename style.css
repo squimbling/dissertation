@@ -81,7 +81,7 @@ body {
   color: white;
   font-size: 11px;
   margin-top: 2px;
-  text-shadow: 1px 1px 2px black; 
+  text-shadow: 1px 1px 2px black;
 }
 
 .icon .icon-img {
@@ -213,7 +213,6 @@ width: 32px;
   cursor: se-resize;
 }
 
-/* ── TASKBAR ── */
 #taskbar {
   position: fixed;
   bottom: 0;
@@ -271,7 +270,7 @@ width: 32px;
   gap: 4px;
 }
 .taskbar-btn.visible {
-  display: inline-flex;   /* was "block" — inline-flex keeps the icon+text aligned */
+  display: inline-flex;
 }
 .taskbar-btn.focused {
   border-top: 2px solid var(--win-border-darker);
@@ -318,8 +317,7 @@ width: 32px;
   align-items: center;
 }
 .ms-topbar .ms-logo {
-  font-family: Georgia, serif;
-  font-style: italic;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: bold;
   color: white;
@@ -611,7 +609,6 @@ width: 32px;
   font-weight: bold;
 }
 
-/* on god i cant remember if this is for ms only or for the entire computer...*/
 .ms-home {
   padding: 10px;
   display: none;
@@ -659,7 +656,6 @@ width: 32px;
   font-size: 10px;
 }
 
-/* narrative trigger i may remove lol */
 .narrative-box {
   background: #fffacc;
   border: 1px solid #ccaa00;
@@ -877,6 +873,67 @@ width: 32px;
   display: block;
 }
 
+#clippy-container {
+  position: fixed;
+  bottom: 140px;
+  left: 16px;
+  z-index: 600;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+#clippy-bubble {
+  background: #fffff0;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 10px 12px;
+  max-width: 220px;
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+  position: relative;
+  margin-bottom: 8px;
+}
+
+#clippy-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 24px;
+  border-width: 8px 8px 0 0;
+  border-style: solid;
+  border-color: #fffff0 transparent transparent transparent;
+}
+
+#clippy-text {
+  margin-bottom: 6px;
+}
+
+#clippy-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.clippy-choice-btn {
+  font-size: 10px;
+  padding: 3px 6px;
+  background: var(--win-grey);
+  border-top: 1px solid var(--win-border-light);
+  border-left: 1px solid var(--win-border-light);
+  border-right: 1px solid var(--win-border-dark);
+  border-bottom: 1px solid var(--win-border-dark);
+  cursor: pointer;
+  text-align: left;
+}
+.clippy-choice-btn:active {
+  border-top: 1px solid var(--win-border-dark);
+  border-left: 1px solid var(--win-border-dark);
+  border-right: 1px solid var(--win-border-light);
+  border-bottom: 1px solid var(--win-border-light);
+}
 
 :root {
   --iz-blush: #ffd9e8;
@@ -900,7 +957,6 @@ width: 32px;
   color: var(--iz-ink);
 }
 
-/* ── header: soft gradient banner, cursive signature, lace scallop trim ── */
 #ms-isabel .ms-profile-header {
   position: relative;
   background: linear-gradient(135deg, var(--iz-blush) 0%, var(--iz-lilac) 100%);
@@ -926,11 +982,7 @@ width: 32px;
   background-repeat: repeat-x;
   opacity: 0.9;
 }
-/* angel png charm, top-right corner of the banner.
-   drop your file at assets/angel.png (transparent bg, tall/portrait
-   crops read best) — swap the filename below if yours is named
-   differently. sizing is deliberately small so it reads as a charm,
-   not a stamp; bump background-size if you want it bigger. */
+
 #ms-isabel .ms-profile-header {
   background-image:
     linear-gradient(135deg, var(--iz-blush) 0%, var(--iz-lilac) 100%),
@@ -958,7 +1010,6 @@ width: 32px;
 #ms-isabel .ms-status-badge.offline { background: var(--iz-lilac);       border-color: var(--iz-gold); color: var(--iz-ink); }
 #ms-isabel .ms-status-badge.away    { background: var(--iz-gold-light);  border-color: var(--iz-gold); color: #7a5a1e; }
 
-/* ── profile tabs ── */
 #ms-isabel .ms-profile-tabs {
   background: linear-gradient(to right, var(--iz-blush), var(--iz-lilac));
   border-bottom: 2px solid var(--iz-gold);
@@ -975,7 +1026,6 @@ width: 32px;
   color: var(--iz-rose);
   font-weight: bold;
 }
-
 
 #ms-isabel .ms-grid {
   background-color: var(--iz-cream);
@@ -1009,20 +1059,6 @@ width: 32px;
   border-radius: 4px;
   box-shadow: 0 0 0 4px var(--iz-cream), 0 0 14px rgba(201, 162, 92, 0.5);
   position: relative;
-}
-#ms-isabel .ms-avatar.isabel-av::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle, white 1px, transparent 1.5px),
-    radial-gradient(circle, white 1px, transparent 1.5px),
-    radial-gradient(circle, white 1px, transparent 1.5px),
-    radial-gradient(circle, var(--iz-gold-light) 1px, transparent 1.5px);
-  background-size: 40px 40px, 55px 55px, 30px 30px, 45px 45px;
-  background-position: 10px 15px, 70px 40px, 120px 90px, 40px 110px;
-  animation: iz-sparkle 3.5s ease-in-out infinite;
-  pointer-events: none;
 }
 #ms-isabel .ms-avatar.isabel-av::after {
   content: "I · T";
@@ -1066,8 +1102,6 @@ width: 32px;
   color: var(--iz-rose);
 }
 
-/* ── section titles/bodies: editorial italic banners over a faint
-   dotted lace texture, rounded to soften the Win98 chrome ── */
 #ms-isabel .ms-section-title {
   background: linear-gradient(100deg, var(--iz-rose) 0%, var(--iz-blush-deep) 45%, var(--iz-gold) 130%);
   font-family: 'Playfair Display', Georgia, serif;
@@ -1118,4 +1152,1040 @@ width: 32px;
   background: linear-gradient(135deg, var(--iz-blush), var(--iz-lilac));
   border: 2px solid var(--iz-gold-light);
   color: var(--iz-rose);
+}
+.aim-from-friend {
+  color: #006400;
+  font-weight: bold;
+}
+
+.webpage.lj {
+  --lj-bg: #0a0c0f;
+  --lj-line: #1e2126;
+  --lj-dim: #4d5259;
+  --lj-mid: #7d828a;
+  --lj-text: #b3b7be;
+  --lj-moon: #e4e2da;
+  margin: -10px;
+  min-height: 100%;
+  background-color: var(--lj-bg);
+
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  font-family: "Special Elite", "Courier New", Courier, monospace;
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--lj-text);
+  text-shadow: 0 0 1px rgba(210, 210, 200, 0.18);
+}
+.webpage.lj a {
+  color: var(--lj-mid);
+  text-decoration: none;
+  cursor: pointer;
+}
+.webpage.lj a:hover {
+  color: var(--lj-moon);
+}
+
+.lj-sitebar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 10px;
+  background: #121418;
+  border-bottom: 1px solid var(--lj-line);
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 10px;
+  color: var(--lj-dim);
+  text-shadow: none;
+}
+.lj-sitebar b {
+  color: var(--lj-mid);
+  font-family: Georgia, serif;
+  font-size: 11px;
+  font-weight: normal;
+  margin-right: 6px;
+}
+.webpage.lj .lj-sitebar a {
+  color: var(--lj-dim);
+}
+.lj-logo {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0.7);
+}
+.lj-sitebar-right {
+  margin-left: auto;
+}
+
+.lj-header {
+  position: relative;
+  padding: 46px 28px 26px;
+  border-bottom: 1px solid var(--lj-line);
+  overflow: hidden;
+}
+.lj-header::before {
+  content: "";
+  position: absolute;
+  right: 34px;
+  top: 22px;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 38%, rgba(70, 72, 78, 0.28) 0 6px, transparent 9px),
+    radial-gradient(circle at 62% 62%, rgba(70, 72, 78, 0.22) 0 9px, transparent 13px),
+    radial-gradient(circle at 70% 30%, rgba(70, 72, 78, 0.18) 0 3px, transparent 6px),
+    radial-gradient(circle at 40% 72%, rgba(70, 72, 78, 0.16) 0 2px, transparent 5px),
+    radial-gradient(circle at 35% 35%, #dddbd3, #9a9c9f 62%, #3d4046 100%);
+  box-shadow: 0 0 60px rgba(228, 226, 218, 0.12);
+  opacity: 0.85;
+}
+.lj-title {
+  position: relative;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+  color: var(--lj-moon);
+}
+.lj-subtitle {
+  position: relative;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--lj-dim);
+  margin-top: 4px;
+}
+.lj-nav {
+  padding: 10px 28px;
+  border-bottom: 1px dashed var(--lj-line);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  color: var(--lj-line);
+}
+.webpage.lj .lj-nav a.current {
+  color: var(--lj-moon);
+}
+.webpage.lj a.lj-delete {
+  color: #8a4a4a;
+}
+
+.lj-user {
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--lj-moon);
+}
+.lj-user::before {
+  content: "👤";
+  font-size: 9px;
+  margin-right: 3px;
+  filter: grayscale(1) brightness(0.8);
+}
+
+.lj-entries {
+  padding: 30px 28px 60px;
+}
+.lj-entry {
+  margin-bottom: 54px;
+}
+.lj-date {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: lowercase;
+  color: var(--lj-dim);
+  border-bottom: 1px solid var(--lj-line);
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+}
+.lj-entry-box {
+  display: flex;
+  gap: 16px;
+}
+.lj-userpic {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #2a2d33;
+  background: #111317;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  filter: grayscale(1) brightness(1.1);
+}
+.lj-userpic.small {
+  width: 26px;
+  height: 26px;
+  font-size: 12px;
+}
+.lj-entry-main {
+  flex: 1;
+  min-width: 0;
+}
+.lj-subject {
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: var(--lj-moon);
+  margin-bottom: 10px;
+}
+.lj-subject:empty {
+  display: none;
+}
+
+.lj-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.lj-security {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  padding: 0 6px;
+  border: 1px solid var(--lj-line);
+}
+.lj-security.private {
+  color: var(--lj-mid);
+}
+.lj-security.public {
+  color: var(--lj-moon);
+  border-color: #3a3d43;
+}
+.lj-security.leaked {
+  color: #b06a6a;
+  border-color: #5a3434;
+}
+.lj-text {
+  font-size: 12px;
+  line-height: 1.75;
+}
+.lj-footer {
+  margin-top: 14px;
+  text-align: right;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--lj-dim);
+}
+
+.lj-comments {
+  margin: 14px 0 0 52px;
+  border-left: 1px solid var(--lj-line);
+}
+.lj-comment {
+  display: flex;
+  gap: 10px;
+  padding: 8px 0 8px 12px;
+  font-size: 11px;
+  color: #969aa1;
+}
+.lj-comment-head {
+  font-size: 10px;
+  margin-bottom: 2px;
+}
+.lj-comment-date {
+  color: var(--lj-dim);
+  margin-left: 6px;
+}
+.lj-deleted {
+  margin: 60px 28px;
+  padding: 14px 16px;
+  border: 1px solid var(--lj-line);
+  color: var(--lj-mid);
+  font-size: 11px;
+}
+
+#boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  transition: opacity 0.7s ease;
+}
+#boot-screen.done {
+  opacity: 0;
+  pointer-events: none;
+}
+.boot-logo {
+  width: 140px;
+  height: auto;
+}
+.boot-bar {
+  position: relative;
+  width: 150px;
+  height: 14px;
+  border: 2px solid #b2b2b2;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.boot-bar span {
+  position: absolute;
+  top: 2px;
+  left: -30px;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(#5f7fff, #1c3ad9);
+  border-radius: 1px;
+  animation: boot-slide 1.6s linear infinite;
+}
+.boot-bar span:nth-child(2) { animation-delay: 0.1s; }
+.boot-bar span:nth-child(3) { animation-delay: 0.2s; }
+@keyframes boot-slide {
+  from { left: -30px; }
+  to { left: 170px; }
+}
+
+.notepad-text {
+  background: #fff;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  padding: 6px 8px;
+  overflow-y: auto;
+  flex: 1;
+  user-select: text;
+}
+.txt-icon {
+  font-size: 36px;
+  line-height: 48px;
+  text-align: center;
+}
+
+.mail-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  background: #fff;
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+}
+.mail-folders {
+  width: 130px;
+  border-right: 1px solid #a0a0a0;
+  padding: 4px 0;
+  background: #fff;
+}
+.mail-folder {
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+.mail-folder.current {
+  background: #316ac5;
+  color: #fff;
+}
+.mail-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.mail-list-head,
+.mail-row {
+  display: grid;
+  grid-template-columns: 30% 1fr 90px;
+  gap: 6px;
+  padding: 2px 6px;
+}
+.mail-list-head {
+  background: #ece9d8;
+  border-bottom: 1px solid #a0a0a0;
+}
+.mail-list {
+  height: 40%;
+  overflow-y: auto;
+  border-bottom: 3px solid #ece9d8;
+}
+.mail-row {
+  cursor: pointer;
+}
+.mail-row span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.mail-row.unread {
+  font-weight: bold;
+}
+.mail-row.selected {
+  background: #316ac5;
+  color: #fff;
+}
+.mail-preview {
+  flex: 1;
+  overflow-y: auto;
+  user-select: text;
+}
+.mail-preview-head {
+  background: #ece9d8;
+  padding: 4px 8px;
+  border-bottom: 1px solid #a0a0a0;
+  line-height: 1.6;
+}
+.mail-preview-body {
+  padding: 8px;
+  white-space: pre-wrap;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.mail-empty {
+  padding: 20px;
+  color: #888;
+  text-align: center;
+}
+
+.ms-overflow {
+  display: none !important;
+}
+.ms-comment-count {
+  font-size: 10px;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+#ms-dylan {
+  --dy-bg: #0a0c0f;
+  --dy-line: #1e2126;
+  --dy-dim: #4d5259;
+  --dy-mid: #7d828a;
+  --dy-text: #b3b7be;
+  --dy-moon: #e4e2da;
+  background-color: var(--dy-bg);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  font-family: "Special Elite", "Courier New", Courier, monospace;
+  color: var(--dy-text);
+  text-shadow: 0 0 1px rgba(210, 210, 200, 0.18);
+}
+#ms-dylan a {
+  color: var(--dy-mid) !important;
+  text-decoration: none;
+}
+#ms-dylan a:hover {
+  color: var(--dy-moon) !important;
+}
+
+#ms-dylan .ms-profile-header {
+  position: relative;
+  background: transparent;
+  border-bottom: 1px solid var(--dy-line);
+  padding: 34px 20px 18px;
+  overflow: hidden;
+  color: var(--dy-dim);
+}
+#ms-dylan .ms-profile-header::after {
+  content: "";
+  position: absolute;
+  right: 26px;
+  top: 12px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 38%, rgba(70, 72, 78, 0.28) 0 5px, transparent 8px),
+    radial-gradient(circle at 62% 62%, rgba(70, 72, 78, 0.22) 0 7px, transparent 11px),
+    radial-gradient(circle at 70% 30%, rgba(70, 72, 78, 0.18) 0 2px, transparent 5px),
+    radial-gradient(circle at 35% 35%, #dddbd3, #9a9c9f 62%, #3d4046 100%);
+  box-shadow: 0 0 50px rgba(228, 226, 218, 0.12);
+  opacity: 0.85;
+}
+#ms-dylan .ms-username {
+  font-family: "Special Elite", "Courier New", monospace !important;
+  font-style: normal !important;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: var(--dy-moon);
+}
+#ms-dylan .ms-profile-header span[style]:not(.ms-username) {
+  color: var(--dy-dim) !important;
+}
+#ms-dylan .ms-status-badge {
+  background: transparent;
+  border: 1px solid var(--dy-line);
+  color: var(--dy-mid);
+  border-radius: 0;
+  font-family: inherit;
+}
+
+#ms-dylan .ms-profile-tabs {
+  background: transparent;
+  border-bottom: 1px dashed var(--dy-line);
+  padding: 0 14px;
+}
+#ms-dylan .ms-tab {
+  background: transparent;
+  border: none;
+  color: var(--dy-dim);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  border-radius: 0;
+}
+#ms-dylan .ms-tab.active {
+  color: var(--dy-moon);
+  background: transparent;
+  border-bottom: 1px solid var(--dy-moon);
+}
+
+#ms-dylan .ms-grid {
+  background: transparent;
+  gap: 22px;
+  padding: 20px;
+}
+#ms-dylan .ms-leftcol,
+#ms-dylan .ms-rightcol {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+#ms-dylan .ms-avatar.dylan-av {
+  background: #111317;
+  border: 1px solid #2a2d33;
+  color: var(--dy-dim);
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+#ms-dylan .ms-leftcol > div[style] {
+  color: var(--dy-dim) !important;
+  font-style: normal !important;
+}
+#ms-dylan .ms-details-box {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--dy-line);
+  padding: 8px 0;
+  margin-bottom: 12px;
+}
+#ms-dylan .ms-details-title,
+#ms-dylan .ms-section-title {
+  background: transparent;
+  border: none;
+  color: var(--dy-moon);
+  font-family: inherit;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: lowercase;
+  padding: 0 0 6px;
+  border-bottom: 1px solid var(--dy-line);
+  margin: 18px 0 10px;
+}
+#ms-dylan .ms-details-title {
+  margin-top: 0;
+  border-bottom: none;
+}
+#ms-dylan .ms-detail-row {
+  font-size: 11px;
+  color: var(--dy-text);
+}
+#ms-dylan .ms-detail-label,
+#ms-dylan .ms-interest-label {
+  color: var(--dy-dim);
+  font-weight: normal;
+  background: transparent;
+}
+#ms-dylan .ms-section-title span[style] {
+  color: var(--dy-dim) !important;
+}
+#ms-dylan .ms-section-body {
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--dy-text);
+  padding: 0;
+}
+#ms-dylan .ms-glitter {
+  display: none;
+}
+#ms-dylan .ms-interest-row {
+  border-bottom: 1px dotted var(--dy-line);
+  background: transparent;
+}
+
+#ms-dylan .ms-comment {
+  background: transparent;
+  border: none;
+  border-left: 1px solid var(--dy-line);
+  padding: 6px 0 6px 12px;
+  margin-bottom: 8px;
+  font-size: 11px;
+  color: #969aa1;
+}
+#ms-dylan .ms-comment-pic,
+#ms-dylan .ms-friend-pic {
+  background: #111317;
+  border: 1px solid #2a2d33;
+  filter: grayscale(1);
+}
+#ms-dylan .ms-comment-from,
+#ms-dylan .ms-friend-name {
+  color: var(--dy-moon);
+  font-weight: normal;
+}
+#ms-dylan .ms-comment-date {
+  color: var(--dy-dim);
+}
+
+#test-panel {
+  position: fixed;
+  top: 6px;
+  right: 6px;
+  z-index: 99999;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 4px 6px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #555;
+  color: #fff;
+  font: 11px Tahoma, sans-serif;
+}
+#test-panel select,
+#test-panel button {
+  font: 11px Tahoma, sans-serif;
+}
+
+.aim-date {
+  margin: 22px 0 8px;
+  padding-top: 10px;
+  border-top: 1px dashed #b8b8d0;
+  text-align: center;
+  font-size: 10px;
+  color: #777;
+  letter-spacing: 0.05em;
+}
+
+.ms-brand {
+  margin-top: 18px;
+  padding: 10px 14px 9px;
+  background: linear-gradient(#1d4fae, #003399);
+  border: 1px solid #002266;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.ms-brand-logo {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+  text-transform: lowercase;
+}
+.ms-brand-logo span {
+  font-weight: normal;
+  font-size: 15px;
+  color: #b3ccff;
+  letter-spacing: 0;
+}
+.ms-brand-tag {
+  margin-top: 3px;
+  font-size: 11px;
+  color: #cfe0ff;
+}
+.ms-footer {
+  margin-top: 8px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  line-height: 1.6;
+  color: #999;
+}
+.ms-footer a {
+  color: #003399;
+  cursor: pointer;
+}
+
+.title-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  vertical-align: -3px;
+  margin-right: 5px;
+}
+.title-left {
+  display: flex;
+  align-items: center;
+}
+.fav-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  vertical-align: -2px;
+  margin-right: 5px;
+}
+
+.webpage.hotmail {
+  margin: -10px;
+  background: #fff;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.hm-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: linear-gradient(#3b7fd4, #1d5bb5);
+  color: #fff;
+}
+.hm-brand {
+  font-size: 16px;
+  font-weight: normal;
+  color: #ffd35a;
+}
+.hm-brand b {
+  color: #fff;
+  font-weight: normal;
+  margin-right: 3px;
+}
+.hm-user {
+  font-size: 10px;
+  color: #dbe7fb;
+}
+.webpage.hotmail .hm-user a {
+  color: #fff;
+}
+.hm-toolbar {
+  padding: 4px 10px;
+  background: #eef3fb;
+  border-bottom: 1px solid #c4d3ea;
+}
+.webpage.hotmail .hm-toolbar a {
+  color: #1d4f9c;
+  margin-right: 12px;
+  font-size: 11px;
+}
+.webpage.hotmail .mail-body {
+  height: 330px;
+  flex: none;
+}
+.webpage.hotmail .mail-folders {
+  background: #f5f8fd;
+  border-right: 1px solid #c4d3ea;
+  width: 110px;
+}
+.webpage.hotmail .mail-folder {
+  padding: 4px 10px;
+}
+.webpage.hotmail .mail-folder.current {
+  background: #d6e4f7;
+  color: #1d3f75;
+}
+.hm-inbox-title {
+  font-size: 15px;
+  color: #1d3f75;
+  padding: 6px 8px 4px;
+}
+.webpage.hotmail .mail-list-head {
+  background: #eef3fb;
+  border-top: 1px solid #c4d3ea;
+  border-bottom: 1px solid #c4d3ea;
+  color: #555;
+}
+.webpage.hotmail .mail-list {
+  height: 38%;
+  border-bottom: 2px solid #c4d3ea;
+}
+.webpage.hotmail .mail-row.selected {
+  background: #d6e4f7;
+  color: #000;
+}
+.webpage.hotmail .mail-preview-head {
+  background: #f5f8fd;
+  border-bottom: 1px solid #c4d3ea;
+}
+.hm-status {
+  padding: 4px 10px;
+  background: #eef3fb;
+  border-top: 1px solid #c4d3ea;
+  color: #666;
+  font-size: 10px;
+}
+
+.bbc-layout {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.bbc-article {
+  flex: 1;
+  min-width: 0;
+}
+.bbc-figure {
+  margin: 6px 0 12px;
+}
+.bbc-figure img {
+  width: 100%;
+  display: block;
+  border: 1px solid #ccc;
+}
+.bbc-figure figcaption {
+  font-size: 10px;
+  color: #666;
+  padding: 3px 0;
+  border-bottom: 1px solid #ddd;
+}
+.bbc-sidebar {
+  flex: 0 0 140px;
+  border-top: 3px solid #990000;
+  background: #f4f4f4;
+  padding: 6px 8px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.bbc-sidebar-title {
+  font-size: 11px;
+  font-weight: bold;
+  color: #990000;
+  margin-bottom: 6px;
+}
+.bbc-sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.bbc-sidebar li {
+  font-size: 11px;
+  line-height: 1.35;
+  color: #1f3f7f;
+  padding: 5px 0;
+  border-top: 1px dotted #bbb;
+  cursor: default;
+}
+.lj-padlock {
+  width: 8px;
+  height: 9px;
+  vertical-align: -1px;
+  margin-right: 4px;
+}
+
+.boot-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.boot-press,
+.boot-95 {
+  display: none;
+}
+#boot-screen.ready .boot-loading,
+#boot-screen.win95 .boot-loading {
+  display: none;
+}
+#boot-screen.ready {
+  cursor: pointer;
+}
+#boot-screen.ready .boot-press {
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  color: #c0c0c0;
+}
+.boot-cursor {
+  animation: boot-blink 1s steps(1) infinite;
+}
+@keyframes boot-blink {
+  50% { opacity: 0; }
+}
+
+#boot-screen.win95 {
+  background: #000;
+}
+#boot-screen.win95 .boot-95 {
+  display: flex;
+  position: absolute;
+  inset: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: boot-95-in 0.8s ease-out;
+}
+@keyframes boot-95-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.boot-95-sky {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 22% 9% at 18% 22%, rgba(255, 255, 255, 0.85), transparent 70%),
+    radial-gradient(ellipse 30% 11% at 72% 16%, rgba(255, 255, 255, 0.8), transparent 70%),
+    radial-gradient(ellipse 26% 10% at 58% 78%, rgba(255, 255, 255, 0.75), transparent 70%),
+    radial-gradient(ellipse 34% 12% at 12% 70%, rgba(255, 255, 255, 0.7), transparent 70%),
+    radial-gradient(ellipse 18% 8% at 88% 55%, rgba(255, 255, 255, 0.7), transparent 70%),
+    linear-gradient(#3d78c9, #7fb2ea 60%, #a9ccf3);
+}
+.boot-95-logo {
+  position: relative;
+  width: 150px;
+  height: auto;
+  filter: drop-shadow(3px 4px 3px rgba(0, 0, 0, 0.35));
+}
+.boot-95-title {
+  position: relative;
+  margin-top: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 44px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.35);
+  letter-spacing: -1px;
+}
+.boot-95-title sup {
+  font-size: 22px;
+  margin-left: 4px;
+  color: #ffe36e;
+}
+
+.boot-95-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 10px;
+  background: linear-gradient(90deg, #1b3fa7, #4aa3ff, #7ee0ff, #4aa3ff, #1b3fa7, #4aa3ff, #7ee0ff, #4aa3ff, #1b3fa7);
+  background-size: 50% 100%;
+  animation: boot-95-bar 1.2s linear infinite;
+}
+@keyframes boot-95-bar {
+  from { background-position: 0 0; }
+  to { background-position: 100% 0; }
+}
+.aim-from-player {
+  color: #800000;
+}
+
+.ie-history {
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 11px;
+  background: #fff;
+  border: 1px solid #c7c7c7;
+  margin-bottom: 8px;
+}
+.ie-history-title {
+  background: linear-gradient(#f3f3f3, #dcdcdc);
+  border-bottom: 1px solid #c7c7c7;
+  padding: 4px 8px;
+  font-weight: bold;
+}
+.ie-history-view {
+  padding: 3px 8px;
+  color: #666;
+  border-bottom: 1px solid #eee;
+}
+.ie-history-day {
+  padding: 6px 8px 2px;
+  font-weight: bold;
+  color: #1d3f75;
+}
+.ie-history-row {
+  padding: 1px 8px 1px 22px;
+  color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ie-history-time {
+  display: inline-block;
+  width: 42px;
+  color: #999;
+}
+
+.photo-thumb {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border: 1px solid #999;
+  display: block;
+  cursor: pointer;
+}
+#photo-viewer {
+  display: none;
+  position: absolute;
+  inset: 22px 2px 2px 2px;
+  background: #000;
+  flex-direction: column;
+  z-index: 5;
+  cursor: pointer;
+}
+.photo-viewer-bar {
+  display: flex;
+  justify-content: space-between;
+  background: #ece9d8;
+  font-size: 11px;
+  padding: 3px 6px;
+  border-bottom: 1px solid #999;
+}
+#photo-viewer-img {
+  flex: 1;
+  min-height: 0;
+  object-fit: contain;
+  width: 100%;
+}
+.ms-avatar img,
+.ms-profile-link-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.lj-userpic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.msn-to {
+  padding: 4px 8px;
+  background: linear-gradient(#f6f9fd, #dde8f4);
+  border-bottom: 1px solid #a9bfd6;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: 11px;
+  color: #444;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+.msn-to b {
+  font-weight: normal;
+  color: #000;
+}
+.msn-email {
+  color: #777;
+}
+#aim-chat-log {
+  background: #fff;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+}
+#aim-chat-log .aim-msg {
+  margin-bottom: 1px;
+}
+.msn-says {
+  color: #707070;
+  font-size: 11px;
+  margin-top: 6px;
+}
+.msn-text {
+  padding-left: 12px;
+}
+#aim-chat-log .aim-from-system {
+  color: #7a8a9a;
+  font-style: normal;
+  margin: 6px 0;
+}
+#aim-chat-log .aim-date {
+  border-top-color: #c9d7e6;
+}
+#aim-input {
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
 }

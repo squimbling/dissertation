@@ -2,40 +2,72 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap">
 <link rel="stylesheet" href="style.css">
 <title>Tell Me Something True</title>
 </head>
 <body>
+
+<div id="boot-screen">
+
+  <div class="boot-loading">
+    <img src="assets/winlogo.png" alt="" class="boot-logo">
+    <div class="boot-bar"><span></span><span></span><span></span></div>
+  </div>
+
+  <div class="boot-press">Press any key or click to start<span class="boot-cursor">_</span></div>
+
+  <div class="boot-95">
+    <div class="boot-95-sky"></div>
+    <img src="assets/winlogo.png" alt="" class="boot-95-logo">
+    <div class="boot-95-title">Windows<sup>95</sup></div>
+  </div>
+</div>
 <div id="desktop">
-  <div class="icon" style="top:20px;left:20px" ondblclick="openWindow('myspace')">
+  <div class="icon" style="top:20px;left:20px" onclick="openWindow('myspace')">
     <img src="assets/myspace.png" class="icon-img" alt="MySpace">
     <span>MySpace</span>
   </div>
 
-  <div class="icon" style="top:110px;left:20px" ondblclick="openWindow('aim')">
-    <img src="assets/tinychat.png" class="icon-img" alt="TinyChat">
-    <span>TinyChat</span>
+  <div class="icon" style="top:110px;left:20px" onclick="openWindow('aim')">
+    <img src="assets/messenger.svg" class="icon-img" alt="Windows Live Messenger">
+    <span>Windows Live Messenger</span>
   </div>
 
-  <div class="icon" style="top:200px;left:20px" ondblclick="openWindow('browser')">
+  <div class="icon" style="top:200px;left:20px" onclick="openWindow('browser')">
     <img src="assets/internetexplorer.png" class="icon-img" alt="Internet Explorer">
     <span>Internet Explorer</span>
   </div>
 
-  <div class="icon" style="top:20px;left:110px" ondblclick="openWindow('photos')">
+  <div class="icon" style="top:20px;left:110px" onclick="openWindow('photos')">
     <img src="assets/folder.png" class="icon-img" alt="My Photos">
     <span>My Photos</span>
   </div>
 
-  <div class="icon" style="top:110px;left:110px" ondblclick="openWindow('journal')">
+  <div class="icon" style="top:290px;left:20px" onclick="openWindow('hotmail')">
+    <img src="assets/mail.svg" class="icon-img" alt="Hotmail">
+    <span>Hotmail</span>
+  </div>
+
+  <div class="icon" style="top:290px;left:110px;display:none" data-story="casenotes-icon" onclick="openWindow('casenotes')">
+    <img src="assets/notepad.svg" class="icon-img" alt="A316.txt">
+    <span>A316.txt</span>
+  </div>
+
+  <div class="icon" style="top:200px;left:110px;display:none" data-story="notepad-icon" onclick="openWindow('notepad')">
+    <img src="assets/notepad.svg" class="icon-img" alt="journal.txt">
+    <span>journal.txt</span>
+  </div>
+
+  <div class="icon" style="top:110px;left:110px" onclick="openWindow('journal')">
   <img src="assets/lj.png" class="icon-img" alt="LiveJournal">
   <span>LiveJournal</span>
 </div>
 </div>
- 
+
   <div class="window focused" id="win-myspace" style="top:40px;left:160px;width:640px;height:520px;">
     <div class="titlebar" onmousedown="startDrag(event,'win-myspace')">
-      <div class="title-left">🌐 <span id="myspace-title">MySpace.com</span></div>
+      <div class="title-left"><img src="assets/myspace.png" class="title-icon" alt=""><span id="myspace-title">MySpace.com</span></div>
       <div class="win-controls">
         <div class="win-btn" onclick="minimizeWindow('myspace')">_</div>
         <div class="win-btn">□</div>
@@ -43,7 +75,7 @@
       </div>
     </div>
     <div class="content" id="myspace-content" style="padding:0;font-size:11px">
- 
+
       <div class="ms-topbar">
         <span class="ms-logo">myspace</span>
         <div>
@@ -62,28 +94,32 @@
         <a>Groups</a>
         <a>Explore</a>
       </div>
- 
-      <!-- narrative trigger again remove this for storynodes -->
+
       <div class="narrative-box" id="narrative-box"></div>
- 
+
       <div class="ms-home visible" id="ms-home">
         <h3>👥 Friends List</h3>
         <div class="ms-profile-link" onclick="msShowProfile('dylan')">
-          <div class="ms-profile-link-pic">🌙</div>
+          <div class="ms-profile-link-pic"><img src="assets/photos/dylan-pfp.jpg" alt=""></div>
           <div class="ms-profile-link-info">
             <div class="ms-profile-link-name">dylisastar</div>
             <div class="ms-profile-link-status" id="dylan-home-status">● online</div>
           </div>
         </div>
         <div class="ms-profile-link" onclick="msShowProfile('isabel')">
-          <div class="ms-profile-link-pic">💗</div>
+          <div class="ms-profile-link-pic"><img src="assets/photos/isabel-pfp.jpg" alt=""></div>
           <div class="ms-profile-link-info">
             <div class="ms-profile-link-name">istiny888 (Isabel)</div>
-            <div class="ms-profile-link-status" id="isabel-home-status">● offline — last seen 24/05/2008</div>
+            <div class="ms-profile-link-status" id="isabel-home-status">● offline, last seen 24/05/2008</div>
           </div>
         </div>
-        <div style="margin-top:16px;padding:8px;background:#fff3f3;border:1px solid #ffaaaa;font-size:10px;color:#880000;font-family:monospace">
-          MySpace.com — <em>a place for friends.</em>
+        <div class="ms-brand">
+          <div class="ms-brand-logo">myspace<span>.com</span></div>
+          <div class="ms-brand-tag">a place for friends</div>
+        </div>
+        <div class="ms-footer">
+          <a>About</a> | <a>FAQ</a> | <a>Terms</a> | <a>Privacy</a> | <a>Safety Tips</a> | <a>Contact MySpace</a><br>
+          &copy; 2003-2008 MySpace.com. All Rights Reserved.
         </div>
       </div>
       <div class="ms-profile-wrapper" id="ms-dylan">
@@ -95,111 +131,31 @@
         <div class="ms-profile-tabs">
           <div class="ms-tab active" onclick="msShowAboutme()" id="profile-tab">Profile</div>
           <div class="ms-tab">Friends (29)</div>
-          <div class="ms-tab" onclick="msShowBlog()" id="blog-tab" >Blog (19)</div>
           <div class="ms-tab">Photos (3)</div>
         </div>
         <div class="ms-grid">
           <div class="ms-leftcol">
-            <div class="ms-avatar dylan-av">[ placeholder ]</div>
+            <div class="ms-avatar dylan-av"><img src="assets/photos/dylan-pfp.jpg" alt=""></div>
             <div style="text-align:center;font-size:9px;color:#555;margin-bottom:8px;font-style:italic">Dylan is female and 24 years old.</div>
             <div class="ms-details-box">
               <div class="ms-details-title">Contacting Dylan</div>
               <div class="ms-detail-row"><a style="cursor:pointer;color:#0033CC">Send Message</a></div>
               <div class="ms-detail-row"><a style="cursor:pointer;color:#0033CC">Add to Friends</a></div>
               <div class="ms-detail-row"><a style="cursor:pointer;color:#0033CC">Add to Favorites</a></div>
+              <div class="ms-detail-row" data-story="delete-buttons" style="display:none"><a style="cursor:pointer;color:#cc0000" onclick="deleteMyspace()">Delete Profile</a></div>
             </div>
             <div class="ms-details-box">
               <div class="ms-details-title">Dylan's Details</div>
               <div class="ms-detail-row"><span class="ms-detail-label">Status:</span> In a relationship</div>
               <div class="ms-detail-row"><span class="ms-detail-label">Here for:</span> Friends</div>
               <div class="ms-detail-row"><span class="ms-detail-label">Hometown:</span> Los Angeles, obviously.</div>
-              <div class="ms-detail-row"><span class="ms-detail-label">Sign:</span> Virgo</div> 
+              <div class="ms-detail-row"><span class="ms-detail-label">Sign:</span> Virgo</div>
               <div class="ms-detail-row"><span class="ms-detail-label">Body Type:</span> 0'1"</div>
-            </div>
-            <div style="background:#000;border:1px solid #663399;padding:5px;color:#C9A8E0;font-size:9px;font-style:italic;text-align:center;overflow:hidden">
-              <marquee behavior="scroll" direction="left" scrollamount="2"></marquee>
             </div>
           </div>
           <div class="ms-rightcol">
-            <div class="webpage" id="page-blog">
-              <div style="border-bottom:2px solid #663399;padding-bottom:6px;margin-bottom:12px">
-                <h1 style="font-family:Georgia,serif;font-style:italic;color:#663399;margin:0;font-size:20px">things i think about</h1>
-                <p style="font-size:10px;color:#999;margin:2px 0 0">dylan's blog — blogspot.com/planetdylan</p>
-              </div>
-     
-              <!-- PUBLIC: anyone can read these, incl. comments -->
-              <div id="blog-public-posts">
-                <div style="margin-bottom:18px">
-                  <div style="font-weight:bold;font-size:13px;color:#333">half-finished thoughts on Francesca Woodman</div>
-                  <div style="font-size:10px;color:#999;margin-bottom:6px">posted 12/05/2008</div>
-                  <div style="font-size:11px;line-height:1.5;color:#333">
-                    I took photos of someone in January. There’s this one of her on the beach, a gaussian blur, a memory of a woman, like she’s become one with the sand, but also an object, an angel-woman-sand-monster-thing, and the more I look at it, the more I don’t know what it is I’m looking at anymore. I think life’s a bit like that anyway. The more I know the less I understand. 
-                    Or maybe I’m just trying to project Woodman too much into my photography.
-    
-                    Here’s another photo I took in her style recently. If you think it’s derivative, keep it to yourself.</div>
-                  <div class="ms-section-title" style="font-size:10px;margin-top:8px">comments (1)</div>
-                  <div class="ms-comment">
-                    <div class="ms-comment-pic">👤</div>
-                    <div>
-                      <div class="ms-comment-from" onclick="msShowProfile('isabel')">istiny888</div>
-                      <div class="ms-comment-date">posted 14/05/2008</div>
-                      <div>your posts always make me think. do u ever feel like you're disappearing into the wall a bit. anyway call me soon???? xoxo</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-     
-              <!-- PRIVATE: locked journal, only visible to Dylan/the player -->
-              <div id="blog-private-section" style="margin-top:14px;border-top:1px dashed #aaa;padding-top:10px">
-                <div class="ms-section-title" style="font-size:10px">🔒 private entries — only visible to you</div>
-     
-                <div style="margin-top:10px;margin-bottom:16px" id="blog-private-1">
-                  <div style="font-size:10px;color:#999;margin-bottom:6px">22/4/2008</div>
-                  <div style="font-size:11px;line-height:1.6;color:#333;white-space:pre-wrap">Long time, no talk. So annoying when you spend all this money on your own computer then it doesn't fucking well work. They're more than happy to take my money, but when it doesn't work? I'm on my own.
-     
-    I found something online that said writing can help get your emotions out. I need help with that. Growing up in a family that's been addicted to emotional repression since the only one who could feel died will do that to you. Aside from this, I don't think I can do anything about why I feel so terrible all the time. I know why I feel terrible, at least. I'm 24 and I live in Shitley Bay in my childhood home, with a dad who stopped giving a fuck and my little siblings who think the height of comedy is mildly inconveniencing and aggravating me. But there's literally nothing I can do about that until I'm out of here for London.
-     
-    I feel like I'm trapped inside boxes. Box room, box bed, walking down box roads until I get to the box pub and pull box pints for boxy men who call me Morticia and grab my arse. There's no escape from these boxes. I'm saving every penny I own to get the hell out of here, so it's not like I can have a laugh with mates or anything. The cinema tends to cost money, and what's the point? The screen's another big box. Most of my friends are all across the country, anyway. Especially Isabel. It will all be okay when I see Isabel.
-     
-    But I love my computer. It's the only place I ever feel properly at home. I am safe in pixels. I have this perfect, pristine world at my hands, free to explore everything. It's like I'm turning over technicolour rocks in my own garden of Eden, peering through endless fishtanks in the largest aquarium. Some things I'm not supposed to see so I leave them be, wondering past to the next tank. Some fish are so beautiful I try and catch them for my own. It is mine, all mine, and I watch the fish glide past and feel so safe and happy it burns all over my body.
-     
-    So real life is tragic, sure. But I have my own secret world. And at least I have somewhere I can be honest without my kid siblings sneaking in and trying to read my diary. Password protection.</div>
-                </div>
-     
-                <!-- These two entries are revealed by unlockPrivateBlogEntries() once Dylan
-                     has learned about the death and seen the mourning comments on Isabel's
-                     MySpace — this is the "new private journal updates" beat. -->
-                <div id="blog-private-new" style="display:none">
-                  <div style="margin-bottom:16px" id="blog-private-2">
-                    <div style="font-size:10px;color:#880000;margin-bottom:6px">20/5/2008 <span style="font-size:9px;border:1px solid #880000;padding:1px 4px;margin-left:4px">new</span></div>
-                    <div style="font-size:11px;line-height:1.6;color:#333;white-space:pre-wrap">I'm scared if I write she's dead it makes it real.
-     
-    It can't be real. Because it can't be. Because why would it?
-     
-    I keep writing that and deleting it and writing it again because I don't know how else to start.
-     
-    And Life cannot possibly be this cruel..
-     
-    This has to be a dream</div>
-                  </div>
-     
-                  <div style="margin-bottom:16px" id="blog-private-3">
-                    <div style="font-size:10px;color:#880000;margin-bottom:6px">28/5/2008 <span style="font-size:9px;border:1px solid #880000;padding:1px 4px;margin-left:4px">new</span></div>
-                    <div style="font-size:11px;line-height:1.6;color:#333;white-space:pre-wrap">It was not a dream. Sorry, Planet Earth for invading. You can stop with all your evil tests now. I don't know what I did in my past life to deserve all this. I don't know what you are testing me for. But I can't fucking handle it anymore.
-     
-    I found out from a news article. She died in a car crash. There are no fucking cars in London anyway. That's like, the number one thing people always say. NOBODY DRIVES IN LONDON.
-    A news article, like she was something that happened to the world instead of something that happened to me.
-     
-    I don't know who to tell. I keep picking up the phone and putting it down.
-     
-    I keep looking at her profile picture. I keep wondering why this happened to me.
-     
-    .</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="aboutme" onclick="msShowAboutme">
+
+            <div id="aboutme">
               <div class="ms-section-title">About me</div>
               <div class="ms-section-body">
               <div class="ms-glitter"></div>
@@ -216,7 +172,7 @@
                 <div class="ms-interest-row"><div class="ms-interest-label">General</div><div>ART. Probably geology? Photography. If I could afford a camera I'd probably be good at it. The stars. Fashion, though my style's very alternative.</div></div>
                 <div class="ms-interest-row"><div class="ms-interest-label">Music</div><div>Joanna Newsom, Mazzy Star, Boards of Canada, Crystal Castles, The Cure</div></div>
                 <div class="ms-interest-row"><div class="ms-interest-label">Movies</div><div>I've never really liked movies.</div></div>
-                <div class="ms-interest-row"><div class="ms-interest-label">Books</div><div><em>Rubyfruit Jungle</em> by Rita Mae Brown. <em>Strange Weather in Tokyo</em> by Hiromi Kawakami. <em>The Planets</em> by Dava Sobel — mam gave it to me before she kicked the bucket, silly bitch. LOL.</div></div>
+                <div class="ms-interest-row"><div class="ms-interest-label">Books</div><div><em>Rubyfruit Jungle</em> by Rita Mae Brown. <em>Strange Weather in Tokyo</em> by Hiromi Kawakami. <em>The Planets</em> by Dava Sobel. Mam gave it to me before she kicked the bucket, silly bitch. LOL.</div></div>
                 <div class="ms-interest-row"><div class="ms-interest-label">Heroes</div><div>She knows who she is...</div></div>
               </div>
               <div class="ms-section-title">Dylan's Comments</div>
@@ -246,20 +202,17 @@
                 </div>
               </div>
             </div>
-           <div class="ms-section-title">Dylan's Friends <span style="font-size:10px;font-style:normal;color:#C9A8E0;float:right">view all (47)</span></div>
+           <div class="ms-section-title">Dylan's Friends <span style="font-size:10px;font-style:normal;color:#C9A8E0;float:right">view all (29)</span></div>
             <div class="ms-section-body">
               <div class="ms-friends-grid">
-              <div class="ms-comment">
-                <div class="ms-comment-pic">👤</div>
                 <div><div class="ms-friend-pic" onclick="msShowProfile('isabel')">👤</div><div class="ms-friend-name" onclick="msShowProfile('isabel')">istiny888</div></div>
-                <div><div class="ms-friend-pic">👤</div><div class="ms-friend-name">jess!!</div></div>
+                <div><div class="ms-friend-pic">👤</div><div class="ms-friend-name">Xx_Jess_Xx</div></div>
               </div>
           </div>
-        
+
         </div>
       </div>
     </div>
-  </div>
   </div>
       <div class="ms-profile-wrapper" id="ms-isabel">
         <div class="ms-profile-header">
@@ -269,13 +222,12 @@
         </div>
         <div class="ms-profile-tabs">
           <div class="ms-tab active">Profile</div>
-          <div class="ms-tab">Friends (489)</div>
-          <div class="ms-tab">Blog (19)</div>
+          <div class="ms-tab">Friends (<span id="isabel-friends-count">489</span>)</div>
           <div class="ms-tab">Photos (267)</div>
         </div>
         <div class="ms-grid">
           <div class="ms-leftcol">
-            <div class="ms-avatar isabel-av">[ still a placeholder]</div>
+            <div class="ms-avatar isabel-av"><img src="assets/photos/isabel-pfp.jpg" alt=""></div>
             <div style="text-align:center;font-size:9px;color:#555;margin-bottom:8px;font-style:italic">Isabel is female and 23 years old.</div>
             <div class="ms-details-box">
               <div class="ms-details-title">Contacting Isabel</div>
@@ -296,7 +248,7 @@
               <div class="ms-section-body" id="isabel-about">
                 I'm looking for something real! Tell me something true :)<br><br>
                 I'm Isabel Tiley, remember my name! I'll be huge someday soon, and don't you want to be able to say you were here from day one?! xo
-                Tiley is pronounced like tiny, much like myself (I'm 5'0) Any dream I had of being a model was short-lived (ha ha!) but I amfar more interested in taking the pictures and creating the looks. I study fashion at CSAM!<br><br>
+                Tiley is pronounced like tiny, much like myself (I'm 5'0) Any dream I had of being a model was short-lived (ha ha!) but I amfar more interested in taking the pictures and creating the looks. I study fashion at CSM!<br><br>
                 I'm proudly bisexual, West Londoner born and bred, and I love you &lt;3
               </div>
             </div>
@@ -310,8 +262,40 @@
             </div>
             <div class="ms-section-title">Isabel's Comments</div>
             <div class="ms-section-body" id="isabel-comments">
-              <!-- fixed: these three comments were previously nested inside one
-                   another instead of being sibling .ms-comment blocks -->
+              <div class="ms-comment-count" id="isabel-comment-count"></div>
+
+              <div class="ms-comment" data-story="mourning-comments" style="display:none">
+                  <div class="ms-comment-pic">👤</div>
+                  <div>
+                    <div class="ms-comment-from">Claraaaa OwO</div>
+                    <div class="ms-comment-date">posted 30/05/2008</div>
+                    <div>Omg cant believe that stupid tut wuz the last time Id ever see her??? You were gonna be huge Izzy, rest EZ we all miss u so soso much oxo.</div>
+                  </div>
+                </div>
+              <div class="ms-comment" data-story="mourning-comments" style="display:none">
+                  <div class="ms-comment-pic">👤</div>
+                  <div>
+                    <div class="ms-comment-from">sophie_may</div>
+                    <div class="ms-comment-date">posted 29/05/2008</div>
+                    <div>I keep refreshing hoping she'll update, which is stupid I know but I can't come to terms with the fact she's gone... RIP Izzy I love you endlessly </div>
+                  </div>
+                </div>
+              <div class="ms-comment" data-story="mourning-comments" style="display:none">
+                  <div class="ms-comment-pic">👤</div>
+                  <div>
+                    <div class="ms-comment-from">JamieMAZZ</div>
+                    <div class="ms-comment-date">posted 29/05/2008</div>
+                    <div>ISABELAAAAA PLEASE I would rather it have been me than you... PLZ post I need to know u are still there sweetie &lt;/333 </div>
+                  </div>
+                </div>
+              <div class="ms-comment">
+                <div class="ms-comment-pic">👤</div>
+                <div>
+                  <div class="ms-comment-from" onclick="msShowProfile('dylan')">dylisastar</div>
+                  <div class="ms-comment-date">posted 20/05/2008</div>
+                  <div>Oh? I see Crystal Castles have made their way onto your favourites? Anything influencing that...? </div>
+                </div>
+              </div>
               <div class="ms-comment">
                 <div class="ms-comment-pic">👤</div>
                 <div>
@@ -321,7 +305,6 @@
                 </div>
               </div>
               <div class="ms-comment">
-                <!-- note, these comment pics need to change into actual photos. codebar.io pls help x-->
                 <div class="ms-comment-pic">👤</div>
                 <div>
                   <div class="ms-comment-from">Tomas</div>
@@ -329,84 +312,43 @@
                   <div>Heyyyy gorgeous, just checking in? Missed u @ workshop 2day. Hope all is gud xx</div>
                 </div>
               </div>
-              <div class="ms-comment">
-                <div class="ms-comment-pic">👤</div>
-                <div>
-                  <div class="ms-comment-from" onclick="msShowProfile('dylan')">dylisastar</div>
-                  <div class="ms-comment-date">posted 20/05/2008</div>
-                  <div>Oh? I see Crystal Castles have made their way onto your favourites? Anything influencing that...? </div>
-                </div>
-              </div>
- 
-              <!-- NEW: mourning comments. Hidden until revealMourningComments() runs
-                   (triggered the first time the player visits Isabel's profile after
-                   reading the BBC news article). Names/wording are placeholders —
-                   swap in whoever makes sense for your friend group. -->
-              <div id="isabel-mourning-comments" style="display:none">
-                <div class="ms-comment">
-                  <div class="ms-comment-pic">👤</div>
-                  <div>
-                    <div class="ms-comment-from">sophie_may</div>
-                    <div class="ms-comment-date">posted 29/05/2008</div>
-                    <div>I keep refreshing hoping she'll update, which is stupid I know but I can't come to terms with the fact she's gone... RIP Izzy I love you endlessly </div>
-                  </div>
-                </div>
-                <div class="ms-comment">
-                  <div class="ms-comment-pic">👤</div>
-                  <div>
-                    <div class="ms-comment-from">JamieMAZZ</div>
-                    <div class="ms-comment-date">posted 29/05/2008</div>
-                    <div>ISABELAAAAA PLEASE I would rather it have been me than you... PLZ post I need to know u are still there sweetie </333 </div>
-                  </div>
-                </div>
-                <div class="ms-comment">
-                  <div class="ms-comment-pic">👤</div>
-                  <div>
-                    <div class="ms-comment-from">Claraaaa OwO</div>
-                    <div class="ms-comment-date">posted 30/05/2008</div>
-                    <div>Omg cant believe that stupid tut wuz the last time Id ever see her??? You were gonna be huge Iz, rest EZ we all miss u so soso much oxo.</div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
- 
+
     </div>
     <div class="resize-handle" onmousedown="startResize(event,'win-myspace')"></div>
   </div>
- 
+
   <div class="window" id="win-aim" style="top:100px;left:180px;width:340px;height:380px;">
     <div class="titlebar" onmousedown="startDrag(event,'win-aim')">
-      <div class="title-left">💬 TinyChat — <span id="aim-title">Buddy List</span></div>
+      <div class="title-left"><img src="assets/messenger.svg" class="title-icon" alt=""><span id="aim-window-title">Windows Live Messenger</span><span id="aim-title" style="display:none"></span></div>
       <div class="win-controls">
         <div class="win-btn" onclick="minimizeWindow('aim')">_</div>
         <div class="win-btn">□</div>
         <div class="win-btn" onclick="closeWindow('aim')">✕</div>
       </div>
     </div>
-    <!--- note note note i need to see if i can update actually no i am tired. lol. no tiny chat conversation dynamic thing lol-->
+
    <div class="content" id="aim-content" style="padding:0;font-size:11px;display:flex;flex-direction:column">
-  <div id="aim-chat-log" style="flex:1;overflow-y:auto;padding:8px;background:#e8e8f8;font-family:'Courier New',monospace;font-size:11px">
-    <div class="aim-msg aim-from-system">— Welcome to TinyChat! —</div>
-    <div class="aim-msg aim-from-system">— <span id="aim-convo-date">It is 28 May 2008, 22:14</span> —</div>
-    <div class="aim-msg aim-from-system" style="margin-top:8px" id="aim-offline-msg">Stay safe and never give out personal information.</div>
+  <div class="msn-to" id="msn-to">To: </div>
+  <div id="aim-chat-log" style="flex:1;overflow-y:auto;padding:8px">
+    <div class="aim-msg aim-from-system" id="aim-offline-msg">Never give out your password or credit card number in an instant message conversation.</div>
   </div>
-  <div id="aim-choices" style="display:none;padding:4px;background:#f0f0f0"></div>
-  <div class="aim-input-row" id="aim-input-row" style="display:flex;gap:4px;padding:4px;background:#c0c0c0;border-top:1px solid #808080">
+  <div id="aim-choices" style="display:none;padding:4px;background:#dfe9f5;border-top:1px solid #a9bfd6"></div>
+  <div class="aim-input-row" id="aim-input-row" style="display:flex;gap:4px;padding:4px;background:#dfe9f5;border-top:1px solid #a9bfd6">
     <input id="aim-input" type="text" placeholder="type a message..." onkeydown="if(event.key==='Enter')sendAIM()" disabled>
     <button class="aim-send-btn" onclick="sendAIM()" id="aim-send-btn" disabled>Send</button>
   </div>
 </div>
-    <div class="statusbar" id="myspace-status">MySpace.com — a place for friends</div>
-    <div class="statusbar" id="aim-status">dylisastar: offline</div>
+    <div class="statusbar" id="aim-statusbar">&nbsp;</div>
     <div class="resize-handle" onmousedown="startResize(event,'win-aim')"></div>
   </div>
- 
+
   <div class="window" id="win-browser" style="top:60px;left:170px;width:540px;height:440px;">
     <div class="titlebar" onmousedown="startDrag(event,'win-browser')">
-      <div class="title-left">🔵 <span id="browser-title">New Tab — Internet Explorer</span></div>
+      <div class="title-left"><img src="assets/internetexplorer.png" class="title-icon" alt=""><span id="browser-title">New Tab - Internet Explorer</span></div>
       <div class="win-controls">
         <div class="win-btn" onclick="minimizeWindow('browser')">_</div>
         <div class="win-btn">□</div>
@@ -418,25 +360,33 @@
         <button onclick="browserBack()">◀</button>
         <button onclick="browserForward()">▶</button>
         <button onclick="navigateTo('home')">🏠</button>
+        <button data-story="history-button" style="display:none" onclick="navigateTo('history')">History</button>
         <input id="address-bar" type="text" value="about:blank" onkeydown="if(event.key==='Enter')browserNav(this.value)"/>
         <button onclick="browserNav(document.getElementById('address-bar').value)">Go</button>
       </div>
       <div id="browser-frame">
         <div class="webpage active browser-home-links" id="page-home">
           <h2 style="color:#003399;margin-bottom:8px">Favourites</h2>
-          <a id="link-news" onclick="navigateTo('news')">📰 BBC News — London &amp; Greater London <span id="lock-news" style="font-size:9px;color:#999">🔒 locked</span></a>
-          <a id="link-news2" onclick="navigateTo('news2')">📰 Isabel Tiley — search results <span id="lock-news2" style="font-size:9px;color:#999">🔒 locked</span></a>
-          <a onclick="navigateTo('blog')">📓 dylan's blog — things i think about</a>
+          <a id="link-news" onclick="navigateTo('news')"><img src="assets/internetexplorer.png" class="fav-icon" alt="">BBC News - London &amp; Greater London <span id="lock-news" style="font-size:9px;color:#999">(locked)</span></a>
+          <a id="link-news2" onclick="navigateTo('news2')"><img src="assets/internetexplorer.png" class="fav-icon" alt="">Isabel Tiley - search results <span id="lock-news2" style="font-size:9px;color:#999">(locked)</span></a>
+          <a onclick="navigateTo('blog')"><img src="assets/lj.png" class="fav-icon" alt="">bewarethefriendlystranger - LiveJournal</a>
+          <a onclick="navigateTo('hotmail')"><img src="assets/mail.svg" class="fav-icon" alt=""><span id="tb-mail-label">Windows Live Hotmail</span></a>
+          <a data-story="link-parents" style="display:none" onclick="navigateTo('parents')"><img src="assets/internetexplorer.png" class="fav-icon" alt="">Central Saint Martins mourns student killed in car accident <span style="font-size:9px;color:#cc0000">NEW</span></a>
+          <a data-story="link-exploits" style="display:none" onclick="navigateTo('exploits')"><img src="assets/internetexplorer.png" class="fav-icon" alt="">'Friends only' does not mean private, warn experts <span style="font-size:9px;color:#cc0000">NEW</span></a>
+          <a data-story="link-forums" style="display:none" onclick="navigateTo('forums')"><img src="assets/internetexplorer.png" class="fav-icon" alt="">losing someone - forum <span style="font-size:9px;color:#cc0000">NEW</span></a>
+          <a data-story="link-ljleak" style="display:none" onclick="navigateTo('ljleak')"><img src="assets/internetexplorer.png" class="fav-icon" alt="">BBC News - LiveJournal <span style="font-size:9px;color:#cc0000">NEW</span></a>
         </div>
         <div class="webpage" id="page-news">
-          <h1> BBC News — London & Greater London</h1>
-          <p id="bbc-news-date" style="font-size:11px;color:#999">Wednesday 28 May 2008</p> 
-<h2>Daughter of Ed Tiley killed in road traffic accident on A316</h2>
+          <h1> BBC News - London & Greater London</h1>
+          <div class="bbc-layout">
+            <div class="bbc-article">
+          <p id="bbc-news-date" style="font-size:11px;color:#999">Wednesday 28 May 2008</p>
+<h2>Daughter of Chiswick art dealer killed in road traffic accident on A316</h2>
 
 <img src="assets/iscar.jpg" style="width:100%;margin:8px 0" alt="A silver Peugeot Hybrid 2008 crashed into the underpass on the A316">
- 
+
 <p><b>An urgent appeal has been issued by the London Metropolitan Police following a fatal collision on the A316.</b></p>
- 
+
 <p>At approximately 10:58pm on 26 May, an unknown vehicle crashed into a silver Peugeot Hybrid 2008, causing a collision into the underpass.</p>
 
 <p>The owner of the vehicle, named locally as Isabel Tiley, was pronounced dead at the scene.</p>
@@ -444,24 +394,36 @@
 <p>Isabel, who was 23 years old and a Fashion student at Central Saint Martin's College, is believed to have suffered catastrophic brain injuries.</p>
 
 <p>She leaves behind her father, Ed Tiley, a notable London art dealer, and mother, Marisa Tiley-Renaud, daughter of French businessman Jean Renaud.</p>
- 
+
 <p>"She had the sort of energy you could feel from another room," said Tiley-Renaud, when asked for comment.</p>
 
 <p>"Her death will be felt far and wide, but of course it is felt the hardest in our little family.</p>
 
 <p>"I worry I will never be the same person after losing her."</p>
- 
-<p>"I will never know a greater loss than losing my daughter, and my grief is only worsened knowing what little information we have on her killer."</p>
- 
+
+<p>Ed Tiley adds: "I will never know a greater loss than losing my daughter, and my grief is only worsened knowing what little information we have on her killer."</p>
+
 <p>"Isabel's death being brought to justice will be the only thing to bring my wife and I any relief in these coming months."</p>
- 
+
 <p>London Metropolitan Police have put out an urgent appeal for witnesses, citing the lack of information on the vehicle that caused the collision as a "serious concern".</p>
- 
+
 <p>"We are potentially dealing with a hit-and-run, and we need to find the driver of the vehicle that caused this collision," said a spokesperson for the London Metropolitan Police.</p>
 
 <p>"We urge anyone with any information to come forward."</p>
 
 Anyone who can assist the police with their investigation is asked to call a designated hotline for Tiley's case on 020 4930 402. All calls will be treated as anonymous.
+            </div>
+            <div class="bbc-sidebar">
+              <div class="bbc-sidebar-title">Top London Stories</div>
+              <ul>
+                <li>Witness saw dark car 'speeding away' from A316 crash</li>
+                <li>Police appeal for drivers who used Chertsey Road</li>
+                <li>Drinking on the Tube to be banned from Sunday</li>
+                <li>Petrol prices hit fresh record high</li>
+                <li>Chiswick residents call for underpass safety review</li>
+              </ul>
+            </div>
+          </div>
           <a onclick="navigateTo('home')" style="font-size:11px">◀ back</a>
         </div>
         <div class="webpage" id="page-news2">
@@ -469,20 +431,20 @@ Anyone who can assist the police with their investigation is asked to call a des
           <p style="font-size:11px;color:#999">About 3 results</p>
           <div style="margin:10px 0;padding:8px;border:1px solid #ddd">
             <a onclick="navigateTo('news')">Woman, 23, killed in road traffic accident on A316</a>
-            <p style="font-size:11px;color:#666">BBC News — London & Greater London — ...named locally as Isabel Tiley of Chiswick...</p>
+            <p style="font-size:11px;color:#666">BBC News - London & Greater London - ...named locally as Isabel Tiley of Chiswick...</p>
           </div>
           <div style="margin:10px 0;padding:8px;border:1px solid #ddd">
-            <a onclick="alert('Page not found.')">Isabel Tiley — MySpace</a>
-            <p style="font-size:11px;color:#666">myspace.com — istiny888 — I\'m looking for something real! Tell me something true...</p>
+            <a onclick="alert('Page not found.')">Isabel Tiley - MySpace</a>
+            <p style="font-size:11px;color:#666">myspace.com - istiny888 - I\'m looking for something real! Tell me something true...</p>
           </div>
           <div style="margin:10px 0;padding:8px;border:1px solid #ddd;background:#fff8f8" id="search-result-3" style="display:none">
-            <a onclick="navigateTo('news3')">Isabelle Tiley, 1985–1998 — In Memoriam</a>
-            <p style="font-size:11px;color:#666">local-remembrance.co.uk — ...beloved daughter, remembered always...</p>
+            <a onclick="navigateTo('news3')">Isabelle Tiley, 1985–1998 - In Memoriam</a>
+            <p style="font-size:11px;color:#666">local-remembrance.co.uk - ...beloved daughter, remembered always...</p>
           </div>
           <a onclick="navigateTo('home')" style="font-size:11px">◀ back</a>
         </div>
         <div class="webpage" id="page-news3">
-  <h1>BBC News — London & Greater London</h1>
+  <h1>BBC News - London & Greater London</h1>
   <p style="font-size:11px;color:#999">Friday 30 May 2008</p>
 <h2>Central Saint Martins mourns student killed in car accident</h2>
 
@@ -518,7 +480,7 @@ Anyone who can assist the police with their investigation is asked to call a des
 
 <p>Although dates have yet to be confirmed, it is expected to be held at Lethaby Gallery in Granary Square.</p>
 
-<p>"We want to give Iz the chance to show her hard work off no matter what, and ensure her bright spirit burns on forever," said Jamie Masden, an MA Fashion student and close friend of Tiley.</p>
+<p>"We want to give Izzy the chance to show her hard work off no matter what, and ensure her bright spirit burns on forever," said Jamie Masden, an MA Fashion student and close friend of Tiley.</p>
 
 <p>"She truly was the best friend I ever had, and I know we all felt super close to her on the course.</p>
 
@@ -534,90 +496,396 @@ Anyone who can assist the police with their investigation is asked to call a des
   <p style="font-size:11px;color:#666;font-style:italic">The designated hotline for Tiley's case remains open: 020 4930 402.</p>
   <a onclick="navigateTo('home')" style="font-size:11px">◀ back</a>
 </div>
- 
-        <!-- NEW: page-blog replaces the old standalone diary.txt window.
-             "Public" posts are visible to anyone who visits the blog (incl. Isabel's
-             old comment, satisfying "look over old comments of isabel's on dylan's blog").
-             The "private journal" section below it represents Dylan's own locked
-             entries — written as if only she (the player) can see them. The original
-             22/4/2008 entry is available from the very start of the game; the two
-             entries about Isabel's death are hidden (display:none on #blog-private-new)
-             until unlockPrivateBlogEntries() is called from the narrative stage machine
-             in main.js. -->
-        <div class="webpage" id="page-blog">
-          <div style="border-bottom:2px solid #663399;padding-bottom:6px;margin-bottom:12px">
-            <h1 style="font-family:Georgia,serif;font-style:italic;color:#663399;margin:0;font-size:20px">things i think about</h1>
-            <p style="font-size:10px;color:#999;margin:2px 0 0">dylan's blog — blogspot.com/planetdylan</p>
-          </div>
- 
-          <!-- PUBLIC: anyone can read these, incl. comments -->
-          <div id="blog-public-posts">
-            <div style="margin-bottom:18px">
-              <div style="font-weight:bold;font-size:13px;color:#333">half-finished thoughts on Francesca Woodman</div>
-              <div style="font-size:10px;color:#999;margin-bottom:6px">posted 12/05/2008</div>
-              <div style="font-size:11px;line-height:1.5;color:#333">
-                I took photos of someone in January. There’s this one of her on the beach, a gaussian blur, a memory of a woman, like she’s become one with the sand, but also an object, an angel-woman-sand-monster-thing, and the more I look at it, the more I don’t know what it is I’m looking at anymore. I think life’s a bit like that anyway. The more I know the less I understand. 
-                Or maybe I’m just trying to project Woodman too much into my photography.
 
-                Here’s another photo I took in her style recently. If you think it’s derivative, keep it to yourself.</div>
-              <div class="ms-section-title" style="font-size:10px;margin-top:8px">comments (1)</div>
-              <div class="ms-comment">
-                <div class="ms-comment-pic">👤</div>
-                <div>
-                  <div class="ms-comment-from" onclick="msShowProfile('isabel')">istiny888</div>
-                  <div class="ms-comment-date">posted 14/05/2008</div>
-                  <div>your posts always make me think. do u ever feel like you're disappearing into the wall a bit. anyway call me soon???? xoxo</div>
+        <div class="webpage" id="page-parents">
+          <h1>BBC News - London &amp; Greater London</h1>
+          <div class="bbc-layout">
+            <div class="bbc-article">
+          <p style="font-size:11px;color:#999">Friday 30 May 2008</p>
+          <h2>Central Saint Martins mourns student killed in car accident</h2>
+
+          <p><b>The Central St Martin's College university community is mourning the "unfathomable loss" of an MA Fashion student.</b></p>
+
+          <p>Isabel Tiley, 23, was pronounced dead at the scene after being killed in a road traffic accident on the A316.</p>
+
+          <p>While the investigation is still ongoing, the London Metropolitan Police have said progressing the case has proven "exceedingly difficult" due to a lack of leads in identifying the perpetrator.</p>
+
+          <h3>"An unfathomable loss"</h3>
+
+          <p>Francis Hamilton, Dean of M School at CSM, has described the death of Tiley as "an unfathomable loss."</p>
+
+          <p>"There wasn't a person across the school who didn't know and love Isabel," he said.</p>
+
+          <p>"We cannot imagine what her friends, family, and loved ones must be feeling in this unimaginably difficult time, and CSM offers their sincerest condolences.</p>
+
+          <p>"We ask Isabel's family and closest friends have their privacy respected to allow them space to grieve such a loss."</p>
+
+          <p>Associate Lecturer Merete Hagen added: "She lit up every room she walked into."</p>
+
+          <p>"She was a beautiful girl. She always presented herself immaculately, taking bold risks which reflected her keen eye for fashion."</p>
+
+          <p>"But above that, she had such a genuine adoration for fashion. She did everything with such a warm, sunny, smile. I think we're all going to miss that."</p>
+
+          <h3>"The best friend I ever had"</h3>
+
+          <p>Students on the MA Fashion course at CSM are reportedly planning a private in memoriam exhibition for Isabel Tiley, featuring her work, and her livelihood.</p>
+
+          <p>The exhibition is said to feature Tiley's coursework throughout the year, including a posthumous imagining of her <em>Women in the Walls</em> garment collection. While dates are unconfirmed, it is set to be held in Lethaby Gallery, Granary Square.</p>
+
+          <p>"We want to give Izzy the chance to show her hard work off no matter what, and ensure her bright spirit burns on forever," said Jamie Masden, an MA fashion student and former close friend of Tiley.</p>
+
+          <p>"She truly was the best friend I ever had, and I know a lot of us felt super close to her.</p>
+
+          <p>"She had this way of talking to you and this brilliant spirit which made you feel like you'd known her your entire life."</p>
+
+          <p>Another student on the course, Katie Cheung, added that CSM wouldn't feel the same without her "infectious energy" and "incredible talent".</p>
+
+          <p>"She wanted to start her own label after she graduated and we all wanted to be a part of it," Cheung said.</p>
+
+          <p>"If there's one person we all knew would make it, it was Izzy. The fact we'll never get to see how huge she becomes is something I still can't come to terms with."</p>
+            </div>
+            <div class="bbc-sidebar">
+              <div class="bbc-sidebar-title">Top London Stories</div>
+              <ul>
+                <li>A316 hit-and-run: police 'confident' of arrest</li>
+                <li>Detectives examine CCTV from Chertsey Road</li>
+                <li>Man questioned over A316 crash released without charge</li>
+                <li>Tube drinks ban comes into force this weekend</li>
+                <li>Tiley family thank public for 'overwhelming' support</li>
+              </ul>
+            </div>
+          </div>
+          <a onclick="navigateTo('home')" style="font-size:11px">◀ back</a>
+        </div>
+        <div class="webpage" id="page-exploits">
+          <h1>BBC News - Technology</h1>
+          <div class="bbc-layout">
+            <div class="bbc-article">
+              <p style="font-size:11px;color:#999">Friday 13 June 2008</p>
+              <h2>'Friends only' does not mean private, warn experts</h2>
+              <figure class="bbc-figure">
+                <img src="assets/teenoncomputer.jpeg" alt="A teenager using a laptop in his bedroom">
+                <figcaption>Experts say many users do not know who can see what they post</figcaption>
+              </figure>
+
+          <p><b>Millions of people who share diaries, photos and messages on social networking sites may be revealing far more than they realise, security experts have warned.</b></p>
+
+          <p>Sites such as MySpace or Facebook allow users to mark posts as "private" or "friends only". But researchers say those settings offer little protection once information has been copied, cached or shared by someone else.</p>
+
+          <p>"People treat these sites like a locked diary under the bed," said Tom Reyes, an independent security consultant. "In reality it is more like a diary left on a bus. You are trusting the company, every one of your friends, and every program they have ever given their password to."</p>
+
+          <h3>Quizzes and add-ons</h3>
+
+          <p>Experts are particularly concerned about the growing number of quizzes, games, websites and "add-ons" that ask users to enter their login details or grant access to their profile.</p>
+
+          <p>Many are made by small, unregulated developers. Once installed, some can read a user's messages, friends list and private posts, and those of their friends.</p>
+
+          <p>"Nobody reads the small print on 'Which X Factor Judge are You?'," said Mr Reyes. "But that quiz may not only have a copy of everything you've written, but your login details."</p>
+
+          <h3>Nothing is ever deleted</h3>
+
+          <p>Campaigners also warn that deleting a post or an account does not guarantee it disappears. Search engines routinely store copies of web pages, and archive sites can keep them for years.</p>
+
+          <p>The warning follows a series of high-profile data losses, including the disappearance of two HM Revenue and Customs discs containing the details of 25 million people last November.</p>
+
+          <p>"We are the first generation to share every intimate areas of our lives in public, even if we don't really mean to," said Priya Shah of the online privacy group Open Doors. "We don't yet know what it means to have your worst night, or your private grief, sitting on a server somewhere forever."</p>
+
+          <h3>Profiles that outlive their owners</h3>
+
+          <p>Shah warns the permanency of the internet affects net users even beyond the grave. Families often have no way to access or close a loved one's account, and profiles can remain online for years, collecting messages from friends and strangers.</p>
+
+          <p>"There needs to be stricter regulations in what loved ones of the bereaved can do for their social networking pages," urged Shah. "The profile keeps living a life of its own, and the family has no say in it at all. Some report this worsens their grief."</p>
+
+          <p>Social networking firms say they take privacy seriously and encourage users to review their settings regularly.</p>
+                      </div>
+            <div class="bbc-sidebar">
+              <div class="bbc-sidebar-title">Top Technology Stories</div>
+              <ul>
+                <li>Secret documents left on commuter train</li>
+                <li>Apple unveils faster, cheaper 3G iPhone</li>
+                <li>BT faces questions over secret advert trials</li>
+                <li>Windows XP to be taken off shop shelves</li>
+                <li>US grocer says 4.2 million card numbers stolen</li>
+                <li>Credit crunch: house prices fall again</li>
+                <li>Microsoft walks away from Yahoo bid</li>
+              </ul>
+            </div>
+          </div>
+          <a onclick="navigateTo('home')" style="font-size:11px">◀ back</a>
+        </div>
+
+        <div class="webpage" id="page-history">
+          <div class="ie-history">
+            <div class="ie-history-title">History</div>
+            <div class="ie-history-view">View: By Date</div>
+            <div class="ie-history-day">Today</div>
+            <div class="ie-history-row"><span class="ie-history-time">03:02</span>Windows Live Hotmail - Inbox</div>
+            <div class="ie-history-row"><span class="ie-history-time">03:05</span>MySpace | istiny888</div>
+            <div class="ie-history-row"><span class="ie-history-time">03:41</span>Google Search: isabel tiley</div>
+            <div class="ie-history-row"><span class="ie-history-time">03:58</span>Google Search: isabel tiley funeral</div>
+            <div class="ie-history-row"><span class="ie-history-time">04:20</span>MySpace | istiny888</div>
+            <div class="ie-history-day">Saturday</div>
+            <div class="ie-history-row"><span class="ie-history-time">13:10</span>BBC Weather - Whitley Bay</div>
+            <div class="ie-history-row"><span class="ie-history-time">23:48</span>Google Search: ann demeulemeester autumn 2007</div>
+            <div class="ie-history-row"><span class="ie-history-time">00:30</span>Google Images: ann demeulemeester coat</div>
+            <div class="ie-history-row"><span class="ie-history-time">02:12</span>MySpace | istiny888</div>
+            <div class="ie-history-row"><span class="ie-history-time">02:13</span>MySpace | istiny888 - Photos</div>
+            <div class="ie-history-day">Friday</div>
+            <div class="ie-history-row"><span class="ie-history-time">01:17</span>Google Search: can you get messages from someone after they die</div>
+            <div class="ie-history-row"><span class="ie-history-time">01:19</span>Yahoo! Answers - can dead people talk to you</div>
+            <div class="ie-history-row"><span class="ie-history-time">02:44</span>Google Search: a316 chertsey road underpass</div>
+            <div class="ie-history-row"><span class="ie-history-time">02:50</span>Google Maps - Chertsey Road, Twickenham</div>
+            <div class="ie-history-row"><span class="ie-history-time">04:05</span>Windows Live Hotmail - Inbox</div>
+            <div class="ie-history-day">Thursday</div>
+            <div class="ie-history-row"><span class="ie-history-time">21:00</span>MySpace | istiny888</div>
+            <div class="ie-history-row"><span class="ie-history-time">21:30</span>MySpace | istiny888</div>
+            <div class="ie-history-row"><span class="ie-history-time">22:15</span>MySpace | istiny888</div>
+            <div class="ie-history-row"><span class="ie-history-time">22:48</span>MySpace | istiny888</div>
+            <div class="ie-history-row"><span class="ie-history-time">23:01</span>MySpace | istiny888</div>
+            <div class="ie-history-day">Wednesday</div>
+            <div class="ie-history-row"><span class="ie-history-time">02:20</span>Google Search: tyler myspace chiswick</div>
+            <div class="ie-history-row"><span class="ie-history-time">02:26</span>MySpace | Search: tyler</div>
+            <div class="ie-history-row"><span class="ie-history-time">03:40</span>Google Search: hit and run how long until police stop looking</div>
+            <div class="ie-history-row"><span class="ie-history-time">04:12</span>Google Search: how to fall asleep fast</div>
+            <div class="ie-history-day">Tuesday</div>
+            <div class="ie-history-row"><span class="ie-history-time">00:51</span>Google Search: lethaby gallery</div>
+            <div class="ie-history-row"><span class="ie-history-time">01:33</span>National Express - Newcastle to London Victoria</div>
+            <div class="ie-history-row"><span class="ie-history-time">01:34</span>National Express - Your basket</div>
+            <div class="ie-history-row"><span class="ie-history-time">03:03</span>Google Search: whitley bay 24 hour shop</div>
+            <div class="ie-history-day">Monday</div>
+            <div class="ie-history-row"><span class="ie-history-time">02:02</span>bewarethefriendlystranger - LiveJournal - Post an Entry</div>
+            <div class="ie-history-row"><span class="ie-history-time">02:47</span>bewarethefriendlystranger - LiveJournal - Post an Entry</div>
+            <div class="ie-history-row"><span class="ie-history-time">03:30</span>bewarethefriendlystranger - LiveJournal - Post an Entry</div>
+            <div class="ie-history-row"><span class="ie-history-time">04:15</span>Google Search: is it normal to not be able to write after someone dies</div>
+          </div>
+          <a onclick="navigateTo('home')" style="font-size:11px">◀ back</a>
+        </div>
+        <div class="webpage" id="page-forums">
+          <h1>losing someone - forum</h1>
+          <p>TODO: grief forum posts.</p>
+          <a onclick="navigateTo('home')" style="font-size:11px">◀ back</a>
+        </div>
+        <div class="webpage" id="page-ljleak">
+          <h1>BBC News - Technology</h1>
+          <div class="bbc-layout">
+            <div class="bbc-article">
+              <p style="font-size:11px;color:#999">Thursday 14 August 2008</p>
+              <h2>LiveJournal error exposes thousands of private diaries</h2>
+
+              <p><b>Social networking site LiveJournal is facing intense scrutiny as thousands of private online entries were made visible to the public for almost three days after an internal software fault.</b></p>
+
+              <p>Entries marked "private" or "friends only" were shown to anyone who visited the site between Monday and Wednesday. Many were copied by search engines before the fault was fixed.</p>
+
+              <p>In an online statement and mass communications email, LiveJournal apologised for "any inconvenience" and said it had asked search engines to remove the copies. It said the problem was caused by a software update.</p>
+
+              <p>LiveJournal refused to provide any further when a spokesperson contacted them.</p>
+
+              <p>Although the blogs have largely been set back to private, many users believe the damage is already done. One woman, who asked not to be named, said private entries about her experiences with depression had been read and commented on by strangers.</p>
+
+              <p>"I wrote those things as a way to work through all this noise in my head. I thought nobody would ever see them," she said. "Now I don't know who has."</p>
+
+              <h3>'Assume someone is reading'</h3>
+
+              <p>Security experts say the leak emphasises how little control users really have over what they post online, even when it is assumed to be private or for a limited audience.</p>
+
+              <p>"It cannot be stressed enough to Generation Y that a privacy setting is not a surefire lock," said Tom Reyes, an independent security consultant. "No matter how big the site, there is always room for error. What we are seeing here is a mass example of the consequences when young people share too much online."</p>
+
+              <p>Dr Helen Marsh, who researches young people's use of the internet, said millions of teenagers and students use sites like LiveJournal, MySpace and Facebook as diaries without understanding the risks.</p>
+
+              <p>"These massive websites promise their users private spaces, and they believe it," she said. "My advice is simple. If you would not want it read out in a crowded room, do not type it at all. Online, the only thing that is truly private is what you never write down."</p>
+
+              <h3>No way back</h3>
+
+              <p>Experts warn that once information has been copied, it is almost impossible to remove from the internet completely.</p>
+
+              <p>"You can delete your account tomorrow," adds Reyes. "But somewhere, a copy of what you wrote this week will still exist."</p>
+
+              <p>The Information Commissioner's Office said it was aware of the incident and was making enquiries.</p>
+            </div>
+            <div class="bbc-sidebar">
+              <div class="bbc-sidebar-title">Most Popular Stories Now</div>
+              <ul>
+                <li>A316 hit-and-run: 'no new leads', police admit</li>
+                <li>Tribute exhibition for Isabel Tiley opens at Lethaby Gallery</li>
+                <li>Credit crunch: one year on</li>
+                <li>Beijing 2008: Team GB gold rush continues</li>
+                <li>Hackers target Olympic ticket buyers</li>
+              </ul>
+            </div>
+          </div>
+          <a onclick="navigateTo('home')" style="font-size:11px">◀ back</a>
+        </div>
+        <div class="webpage hotmail" id="page-hotmail">
+          <div class="hm-top">
+            <span class="hm-brand"><b>Windows Live</b> Hotmail</span>
+            <span class="hm-user">dylisastar@hotmail.co.uk | <a>Sign out</a></span>
+          </div>
+          <div class="hm-toolbar"><a>New</a> <a>Reply</a> <a>Forward</a> <a>Delete</a> <a>Junk</a> <a>Mark as unread</a></div>
+          <div class="mail-body">
+            <div class="mail-folders">
+              <div class="mail-folder current"><b>Inbox</b> <span id="mail-unread"></span></div>
+              <div class="mail-folder">Junk</div>
+              <div class="mail-folder">Drafts</div>
+              <div class="mail-folder">Sent</div>
+              <div class="mail-folder">Deleted</div>
+            </div>
+            <div class="mail-main">
+              <div class="hm-inbox-title" id="mail-title">Inbox</div>
+              <div class="mail-list-head"><span>From</span><span>Subject</span><span>Date</span></div>
+              <div class="mail-list" id="mail-list"></div>
+              <div class="mail-preview" id="mail-preview"><div class="mail-empty">Select a message to read it.</div></div>
+            </div>
+          </div>
+          <div class="hm-status" id="mail-status">0 messages</div>
+        </div>
+
+        <div class="webpage lj" id="page-blog">
+          <div class="lj-sitebar">
+            <img src="assets/lj.png" class="lj-logo" alt=""><b>LiveJournal</b>
+            <a>Home</a><a>Post</a><a>Friends</a><a>Inbox</a>
+            <span class="lj-sitebar-right">Logged in as <span class="lj-user">bewarethefriendlystranger</span></span>
+          </div>
+          <div class="lj-header">
+            <div class="lj-title">things i think about</div>
+            <div class="lj-subtitle"><span class="lj-user">bewarethefriendlystranger</span></div>
+          </div>
+          <div class="lj-nav">
+            <a class="current">Recent Entries</a> | <a>Archive</a> | <a>Friends</a> | <a>User Info</a><span data-story="delete-buttons" style="display:none"> | <a class="lj-delete" onclick="deleteJournal()">Delete Journal</a></span>
+          </div>
+
+          <div class="lj-entries">
+            <div class="lj-entry" data-entry="entry4" data-story="blog-4" style="display:none">
+              <div class="lj-date"><span>Sunday, June 1st, 2008</span><span class="lj-security private" title="Only you can see this entry"><img src="assets/padlock.svg" class="lj-padlock" alt="">private</span></div>
+              <div class="lj-entry-box">
+                <div class="lj-userpic">🌙</div>
+                <div class="lj-entry-main">
+                  <div class="lj-subject"></div>
+                  <div class="lj-text" style="white-space:pre-wrap">Where do I even begin?
+
+She’s speaking to me. Iz is. Not in that new-wave way mam’s friends used to say, like speaking through the trees and flowers or shit. Like, actually speaking to me. As in, she fully messages me on Tiny. and responds.
+
+I’m recoiling at the fact I am even writing this down. If anyone found out, I’d be institutionalised. At this point, a padded cell holiday with whatever tranquilisers they pump you full of there sounds perfect right now.
+
+It's like my thoughts are knotted in one huge ball in my head and it just keeps growing bigger, weighing me down, but the more I try and undo it, the more tangled it gets... I'm being chewed up and spat out, I'm moving through quicksand, I can’t stomach food, I can’t face Gaz, I can't do anything but be consumed by it.
+
+I don’t know what to do, please just someone tell me what to do.</div>
+                  <div class="lj-footer">( <a>Leave a comment</a> )</div>
                 </div>
               </div>
             </div>
-          </div>
- 
-          <!-- PRIVATE: locked journal, only visible to Dylan/the player -->
-          <div id="blog-private-section" style="margin-top:14px;border-top:1px dashed #aaa;padding-top:10px">
-            <div class="ms-section-title" style="font-size:10px">🔒 private entries — only visible to you</div>
- 
-            <div style="margin-top:10px;margin-bottom:16px" id="blog-private-1">
-              <div style="font-size:10px;color:#999;margin-bottom:6px">22/4/2008</div>
-              <div style="font-size:11px;line-height:1.6;color:#333;white-space:pre-wrap">Long time, no talk. So annoying when you spend all this money on your own computer then it doesn't fucking well work. They're more than happy to take my money, but when it doesn't work? I'm on my own.
- 
-I found something online that said writing can help get your emotions out. I need help with that. Growing up in a family that's been addicted to emotional repression since the only one who could feel died will do that to you. Aside from this, I don't think I can do anything about why I feel so terrible all the time. I know why I feel terrible, at least. I'm 24 and I live in Shitley Bay in my childhood home, with a dad who stopped giving a fuck and my little siblings who think the height of comedy is mildly inconveniencing and aggravating me. But there's literally nothing I can do about that until I'm out of here for London.
- 
-I feel like I'm trapped inside boxes. Box room, box bed, walking down box roads until I get to the box pub and pull box pints for boxy men who call me Morticia and grab my arse. There's no escape from these boxes. I'm saving every penny I own to get the hell out of here, so it's not like I can have a laugh with mates or anything. The cinema tends to cost money, and what's the point? The screen's another big box. Most of my friends are all across the country, anyway. Especially Isabel. It will all be okay when I see Isabel.
- 
-But I love my computer. It's the only place I ever feel properly at home. I am safe in pixels. I have this perfect, pristine world at my hands, free to explore everything. It's like I'm turning over technicolour rocks in my own garden of Eden, peering through endless fishtanks in the largest aquarium. Some things I'm not supposed to see so I leave them be, wondering past to the next tank. Some fish are so beautiful I try and catch them for my own. It is mine, all mine, and I watch the fish glide past and feel so safe and happy it burns all over my body.
- 
-So real life is tragic, sure. But I have my own secret world. And at least I have somewhere I can be honest without my kid siblings sneaking in and trying to read my diary. Password protection.</div>
-            </div>
- 
-            <!-- These two entries are revealed by unlockPrivateBlogEntries() once Dylan
-                 has learned about the death and seen the mourning comments on Isabel's
-                 MySpace — this is the "new private journal updates" beat. -->
-            <div id="blog-private-new" style="display:none">
-              <div style="margin-bottom:16px" id="blog-private-2">
-                <div style="font-size:10px;color:#880000;margin-bottom:6px">20/5/2008 <span style="font-size:9px;border:1px solid #880000;padding:1px 4px;margin-left:4px">new</span></div>
-                <div style="font-size:11px;line-height:1.6;color:#333;white-space:pre-wrap">I'm scared if I write she's dead it makes it real.
- 
-It can't be real. Because it can't be. Because why would it?
- 
-I keep writing that and deleting it and writing it again because I don't know how else to start.
- 
-And Life cannot possibly be this cruel..
- 
-This has to be a dream</div>
+
+            <div class="lj-entry" data-entry="entry3" data-story="blog-3" style="display:none">
+              <div class="lj-date"><span>Saturday, May 31st, 2008</span><span class="lj-security private" title="Only you can see this entry"><img src="assets/padlock.svg" class="lj-padlock" alt="">private</span></div>
+              <div class="lj-entry-box">
+                <div class="lj-userpic">🌙</div>
+                <div class="lj-entry-main">
+                  <div class="lj-subject"></div>
+                  <div class="lj-text" style="white-space:pre-wrap">The most annoying part about when someone dies is how you hear the same things over and over again.
+
+When mam died, I couldn't go anywhere without being attacked by googly sympathy eyes and wobbling bottom lips, with people I barely remember telling me the same shit. <i>I'm sorry. She's in a better place. Everything happens for a reason. I can't even imagine what you and your brothers and sisters are going through.</i>
+
+Experiencing death is one of the weirdest things ever. We've all got to go through it, yet when it happens to someone else, we all lose our minds and forget how to actually be a real person. We just have to offer up whichever generic sympathy phrase first comes to mind with a clown-like look of sorrow before running away so we don't have to stew in the moment a second longer.
+
+A new article about my Izzy was published, and it was the same old crap they in the news when people die. Respect her family and friend's privacy. Well, do you know what? I wish people respected my privacy a little less. Because who do I talk to about this? My girlfriend is dead and I feel like I'm going to explode. I feel so utterly alone. If I tell anyone, I have to tell them I had a girlfriend in the first place.
+
+At least when mam died, I got casserole. There was this weird period after dad told our next door neighbour mam hadn't made it out the hospital, where neighbours would ring the doorbell then run away like they were on fire, leaving casseroles in foil and dishes on the doorstep. They never came to collect their dishes back, so our cupboards are still mostly casserole dish. My favourite was Mrs. Lethby's tuna casserole. What I wouldn't give for some now.
+
+I might go and knock on her door and ask. "Hey Mrs. Lethby, I'm a raging homosexual and my long-distance girlfriend who I was saving every penny to be with has died. Get the oven on and open up some tinned tuna."
+
+Probably wouldn't go down too well. A bit like the Jameson's corned beef casserole.
+
+I don't know why I'm joking. I'm not even hungry. If I don't laugh I'll cry, but I'm not laughing either.
+
+I miss her so much. If she was here, she would laugh that sweet fairy giggle and tell me she loved how dark I was.</div>
+                  <div class="lj-footer">( <a>Leave a comment</a> )</div>
+                </div>
               </div>
- 
-              <div style="margin-bottom:16px" id="blog-private-3">
-                <div style="font-size:10px;color:#880000;margin-bottom:6px">28/5/2008 <span style="font-size:9px;border:1px solid #880000;padding:1px 4px;margin-left:4px">new</span></div>
-                <div style="font-size:11px;line-height:1.6;color:#333;white-space:pre-wrap">It was not a dream. Sorry, Planet Earth for invading. You can stop with all your evil tests now. I don't know what I did in my past life to deserve all this. I don't know what you are testing me for. But I can't fucking handle it anymore.
- 
-I found out from a news article. She died in a car crash. There are no fucking cars in London anyway. That's like, the number one thing people always say. NOBODY DRIVES IN LONDON.
+            </div>
+
+            <div class="lj-entry" data-entry="grief2" data-story="blog-grief-2" style="display:none">
+              <div class="lj-date"><span>Wednesday, May 28th, 2008</span><span class="lj-security private" title="Only you can see this entry"><img src="assets/padlock.svg" class="lj-padlock" alt="">private</span></div>
+              <div class="lj-entry-box">
+                <div class="lj-userpic">🌙</div>
+                <div class="lj-entry-main">
+                  <div class="lj-subject"></div>
+                  <div class="lj-text" style="white-space:pre-wrap">Of course, it was not a dream. Sorry, Planet Earth for invading. I don't know what I did in my past life to deserve all this. I don't know what you are testing me for.
+
+I found out from a news article. She died in a car crash. There are no cars in London anyway. That's like, the number one thing people always say down there: NOBODY DRIVES IN LONDON.
 A news article, like she was something that happened to the world instead of something that happened to me.
- 
-I don't know who to tell. I keep picking up the phone and putting it down.
- 
-I keep looking at her profile picture. I keep wondering why this happened to me.
- 
+
+I don't know who to tell. I keep picking up the phone and putting it down. Nobody warned being in the closet could mean your world might end and you wouldn't even be able to tell people why. 
+
+I keep looking at her profile. I keep wondering why this happened to me.
+
 .</div>
+                  <div class="lj-footer">( <a>Leave a comment</a> )</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="lj-entry" data-entry="grief1" data-story="blog-grief-1" style="display:none">
+              <div class="lj-date"><span>Monday, May 26th, 2008</span><span class="lj-security private" title="Only you can see this entry"><img src="assets/padlock.svg" class="lj-padlock" alt="">private</span></div>
+              <div class="lj-entry-box">
+                <div class="lj-userpic">🌙</div>
+                <div class="lj-entry-main">
+                  <div class="lj-subject"></div>
+                  <div class="lj-text" style="white-space:pre-wrap">I'm scared if I write she's dead it makes it real.
+
+It can't be real. Because it can't be. Because why would it?
+
+I keep writing that and deleting it and writing it again because I don't know how else to start.
+
+This has to be a dream</div>
+                  <div class="lj-footer">( <a>Leave a comment</a> )</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="lj-entry" data-entry="apr22">
+              <div class="lj-date"><span>Tuesday, April 22nd, 2008</span><span class="lj-security private" title="Only you can see this entry"><img src="assets/padlock.svg" class="lj-padlock" alt="">private</span></div>
+              <div class="lj-entry-box">
+                <div class="lj-userpic">🌙</div>
+                <div class="lj-entry-main">
+                  <div class="lj-subject"></div>
+                  <div class="lj-text" style="white-space:pre-wrap">Long time, no talk. So annoying when you spend all this money on your own computer only for it to not work. Serves me right for buying off Jim in Cash Converters. At least it's my own, though.
+
+I remember when I saw a grief counsellor when mam died... she told me writing things down was cathartic. I see where she's coming from, but I hate it. I hate properly having to come to terms with things. I guess that's what growing up in a family that's been addicted to emotional repression since the only one who could feel died will do for you.
+
+That, and having approximately seventy siblings means anything you write in a real journal will inevitably be discovered and spread all across Shitley Bay Comprehensive.
+
+Aside from an insanely nosy yet emotionally stunted family, I don't think I can do anything about why I feel so terrible all the time. I know why I feel terrible, at least. I'm 24 and I live in Shitley Bay in my childhood bedroom, with a dad who stopped giving a fuck and my little siblings who think the height of comedy is mildly inconveniencing and aggravating me. But there's literally nothing I can do about that until I'm out of here for London.
+
+I feel like I'm trapped inside boxes. Box room, box bed, walking down box roads until I get to the box pub and pull box pints for boxy men who call me Morticia and grab my arse. There's no escape from these boxes. I'm saving every penny I own to get the hell out of here, so it's not like I can have a laugh with mates or anything. The cinema tends to cost money, and what's the point? The screen's another big box. Most of my friends are all across the country, anyway. Especially Isabel. It will all be okay when I see Isabel.
+
+But I love my computer. It's the only place I ever feel properly at home, the only time I can actually be me. I am safe in pixels. I have this perfect, pristine world at my hands, free to explore everything. It's like I'm turning over technicolour rocks in my own garden of Eden, peering through endless fishtanks in the largest aquarium. Some things I'm not supposed to see so I leave them be, wondering past to the next tank. Some fish are so beautiful I try and catch them for my own. It is mine, all mine, and I watch the fish glide past and feel so safe and happy it burns all over my body.
+
+When I was a kid, I used to be obsessed with finding secret realms and passages. Then I realised that's what the internet is, really. I have my own secret world. And at least I have somewhere I can attempt to be honest with myself, without my kid siblings sneaking in and trying to read my diary. Dear Mikey, Charlotte and Justin: Welcome to the age of total, password-protected privacy, bitches.</div>
+                  <div class="lj-footer">( <a>Leave a comment</a> )</div>
+                </div>
+              </div>
+            </div>
+            <div class="lj-entry" data-entry="woodman">
+              <div class="lj-date"><span>Monday, May 12th, 2008</span><span class="lj-security public" title="Anyone can see this entry">public</span></div>
+              <div class="lj-entry-box">
+                <div class="lj-userpic">🌙</div>
+                <div class="lj-entry-main">
+                  <div class="lj-subject">half-finished thoughts on Francesca Woodman</div>
+                  <div class="lj-text">
+                I took photos of someone in January. There’s this one of her on the beach, a gaussian blur, a memory of a woman, like she’s become one with the sand, but also an object, an angel-woman-sand-monster-thing, and the more I look at it, the more I don’t know what it is I’m looking at anymore. I think life’s a bit like that anyway. The more I know the less I understand.
+                Or maybe I’m just trying to project Woodman too much into my photography.
+
+                Here’s another photo I took in her style recently. If you think it’s derivative, keep it to yourself.</div>
+                  <div class="lj-footer">( <a>1 comment</a> | <a>Leave a comment</a> )</div>
+                </div>
+              </div>
+              <div class="lj-comments">
+                <div class="lj-comment">
+                  <div class="lj-userpic small"><img src="assets/photos/isabel-pfp.jpg" alt=""></div>
+                  <div>
+                    <div class="lj-comment-head"><span class="lj-user" onclick="openWindow('myspace'); msShowProfile('isabel')">istiny888</span> <span class="lj-comment-date">May 14th, 2008</span></div>
+                    <div>your posts always make me think. do u ever feel like you're disappearing into the wall a bit. anyway call me soon???? xoxo</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -627,10 +895,77 @@ I keep looking at her profile picture. I keep wondering why this happened to me.
     <div class="statusbar" id="browser-status">Done</div>
     <div class="resize-handle" onmousedown="startResize(event,'win-browser')"></div>
   </div>
- 
+
+  <div class="window" id="win-notepad" style="top:60px;left:220px;width:460px;height:420px;">
+    <div class="titlebar" onmousedown="startDrag(event,'win-notepad')">
+      <div class="title-left"><img src="assets/notepad.svg" class="title-icon" alt="">journal.txt - Notepad</div>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minimizeWindow('notepad')">_</div>
+        <div class="win-btn">□</div>
+        <div class="win-btn" onclick="closeWindow('notepad')">✕</div>
+      </div>
+    </div>
+    <div class="menubar"><span>File</span><span>Edit</span><span>Format</span><span>View</span><span>Help</span></div>
+    <div class="content notepad-text">03/09/2008
+
+When mam died, I remember becoming so obsessed with carbon monoxide I seriously don’t remember I sleeping once across the age of fourteen.
+
+It was like there was a block in my brain stopping me from understanding how my mam, who I'd seen in all her beautiful crystals and red hair knotted on top of her head, my mam, who had bought us tickets for an art fair in Newcastle that very weekend, my mam, who had only agreed to housesit as a favour to dad's parents, was never coming back. How could she not ever be coming back? She'd an unfinished pot in the shed, her favourite packet of Jammy Dodgers half eaten on her bedside, just waiting for her to take a nibble.
+
+I realised there’s something kind of wicked about carbon monoxide. It's not like you get a warning smell or symptoms. You can’t see it, smell it, you just suddenly feel very tired and then you're a goner.
+
+So I felt it’d be doing an injustice to fall asleep. I couldn’t have another Holloway die so suddenly.
+
+All the time I was awake, I kept watch of my family. All my siblings slept while I watched the SleepSafe, the circle staring back at me as I pinched my thigh until I bled to stay awake, waiting for that dot to darken.
+
+Sometimes, around 4am, I swear I would hear the voice of an angel who sounded just like my mother.
+
+But the dot never went dark, of course. We got a regular monoxide alarm hasn't gone off once. Marnie booked a counsellor for me and they drugged me up with sleeping pills. Granny and gandan are still alive. The cottage was sold after mam died in it. Ten slow years passed without her, and I hoped there might be a day where the unfairness of it all didn't swamp me like her coat every minute of my life. Now I am just 24 and I don't think I will ever know what it means to exist without heartbreak. Is this all there is to life?
+
+I don't go online much nowadays. Every time I go downstairs, my dad won’t look at me in the eye. I’m guessing Michael told him, but I haven’t it in me to ask.
+
+I think I’m just going to stay in my box room forever.</div>
+    <div class="resize-handle" onmousedown="startResize(event,'win-notepad')"></div>
+  </div>
+
+  <div class="window" id="win-casenotes" style="top:80px;left:260px;width:440px;height:440px;">
+    <div class="titlebar" onmousedown="startDrag(event,'win-casenotes')">
+      <div class="title-left"><img src="assets/notepad.svg" class="title-icon" alt="">A316.txt - Notepad</div>
+      <div class="win-controls">
+        <div class="win-btn" onclick="minimizeWindow('casenotes')">_</div>
+        <div class="win-btn">□</div>
+        <div class="win-btn" onclick="closeWindow('casenotes')">✕</div>
+      </div>
+    </div>
+    <div class="menubar"><span>File</span><span>Edit</span><span>Format</span><span>View</span><span>Help</span></div>
+    <div class="content notepad-text">A316 - Monday 26/05/08
+
+10:58pm   Crash, underpass into wall on Chertsey Road.
+          "An unknown vehicle". Police investigations into a navy Hyundai, note to self FIND MORE ON THIS
+          witness saw a dark car "speeding away" (BBC 28/05)
+          Man questioned, released without charge (BBC 30/05). No details released on him
+
+why was she on the A316 at 11pm on a Monday
+   - Tyler? lives Twickenham?? (Check his Myspace)
+   - She said "something came up" the Thursday before. Not unusual for her to skimp on our calls but could be a lead.
+
+TIPS HOTLINE: 020 4930 402
+   Rang x5. No answer x3. Left some messages, but nobody's called back. P.S. Their hold music does my head in.
+
+HOW DOES SHE KNOW ABOUT 
+
+does she know she's dead? is she avoiding the question?
+
+things she doesn't know:
+   - what happened
+   - the car
+   - that she's dead</div>
+    <div class="resize-handle" onmousedown="startResize(event,'win-casenotes')"></div>
+  </div>
+
   <div class="window" id="win-photos" style="top:70px;left:190px;width:480px;height:380px;">
     <div class="titlebar" onmousedown="startDrag(event,'win-photos')">
-      <div class="title-left">My Pictures</div>
+      <div class="title-left"><img src="assets/folder.png" class="title-icon" alt="">My Pictures</div>
       <div class="win-controls">
         <div class="win-btn" onclick="minimizeWindow('photos')">_</div>
         <div class="win-btn">□</div>
@@ -650,16 +985,16 @@ I keep looking at her profile picture. I keep wondering why this happened to me.
         </div>
         <div style="display:inline-block;width:80px;text-align:center;padding:6px;cursor:pointer;margin:4px;vertical-align:top" ondblclick="openPhotoFolder('beach')">
           <div style="font-size:32px">📁</div>
-          <div style="font-size:10px;font-family:monospace">beach 2007</div>
+          <div style="font-size:10px;font-family:monospace">beach 2008</div>
         </div>
       </div>
       <div id="photo-grid-isabel" style="display:none">
         <div style="margin-bottom:8px;font-size:11px"><a onclick="closePhotoFolder()" style="cursor:pointer;color:#0033CC">◀ My Photos</a> \ isabel</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <div style="text-align:center"><div style="width:80px;height:60px;background:#FFB6C1;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px;color:#666">IMG_4201.jpg</div><div style="font-size:9px;font-family:monospace;width:80px;overflow:hidden">IMG_4201.jpg</div></div>
-          <div style="text-align:center"><div style="width:80px;height:60px;background:#FFB6C1;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px;color:#666">iz laughing.jpg</div><div style="font-size:9px;font-family:monospace;width:80px;overflow:hidden">iz laughing.jpg</div></div>
-          <div style="text-align:center"><div style="width:80px;height:60px;background:#FFB6C1;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px;color:#666">IMG_4267.jpg</div><div style="font-size:9px;font-family:monospace;width:80px;overflow:hidden">IMG_4267.jpg</div></div>
-          <div style="text-align:center"><div style="width:80px;height:60px;background:#FFB6C1;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px;color:#666">whitley bay<br>jan.jpg</div><div style="font-size:9px;font-family:monospace;width:80px;overflow:hidden">whitley bay jan.jpg</div></div>
+          <div style="text-align:center" data-photo="isabel"><div style="width:80px;height:60px;background:#FFB6C1;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px;color:#666">IMG_4201.jpg</div><div style="font-size:9px;font-family:monospace;width:80px;overflow:hidden">IMG_4201.jpg</div></div>
+          <div style="text-align:center" data-photo="isabel"><img class="photo-thumb" src="assets/photos/iz-laughing.jpg" alt="" ondblclick="viewPhoto('assets/photos/iz-laughing.jpg', 'iz laughing.jpg')"><div style="font-size:9px;font-family:monospace;width:80px;overflow:hidden">iz laughing.jpg</div></div>
+          <div style="text-align:center" data-photo="isabel"><div style="width:80px;height:60px;background:#FFB6C1;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px;color:#666">IMG_4267.jpg</div><div style="font-size:9px;font-family:monospace;width:80px;overflow:hidden">IMG_4267.jpg</div></div>
+          <div style="text-align:center" data-photo="isabel"><div style="width:80px;height:60px;background:#FFB6C1;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px;color:#666">whitley bay<br>jan.jpg</div><div style="font-size:9px;font-family:monospace;width:80px;overflow:hidden">whitley bay jan.jpg</div></div>
           <div style="text-align:center"><div style="width:80px;height:60px;background:#ddd;border:1px dashed #999;display:flex;align-items:center;justify-content:center;font-size:9px;color:#999;font-style:italic">new folder<br>(empty)</div><div style="font-size:9px;font-family:monospace;width:80px;overflow:hidden">&nbsp;</div></div>
         </div>
       </div>
@@ -669,22 +1004,26 @@ I keep looking at her profile picture. I keep wondering why this happened to me.
           <div style="text-align:center"><div style="width:80px;height:60px;background:#c8d8c8;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px">IMG_3901.jpg</div><div style="font-size:9px;font-family:monospace">IMG_3901.jpg</div></div>
         </div>
       </div>
- 
+
       <div id="photo-grid-beach" style="display:none">
         <div style="margin-bottom:8px;font-size:11px"><a onclick="closePhotoFolder()" style="cursor:pointer;color:#0033CC">◀ My Photos</a> \ beach 2007</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <div style="text-align:center"><div style="width:80px;height:60px;background:#b8c8d8;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px">DSC_0142.jpg</div><div style="font-size:9px;font-family:monospace">DSC_0142.jpg</div></div>
+          <div style="text-align:center"><img class="photo-thumb" src="assets/photos/DSC_0142.jpg" alt="" ondblclick="viewPhoto('assets/photos/DSC_0142.jpg', 'DSC_0142.jpg')"><div style="font-size:9px;font-family:monospace">DSC_0142.jpg</div></div>
           <div style="text-align:center"><div style="width:80px;height:60px;background:#b8c8d8;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px">(blurry)<br>DSC_0143.jpg</div><div style="font-size:9px;font-family:monospace">DSC_0143.jpg</div></div>
-          <div style="text-align:center"><div style="width:80px;height:60px;background:#b8c8d8;border:1px solid #999;display:flex;align-items:center;justify-content:center;font-size:9px">last day.jpg</div><div style="font-size:9px;font-family:monospace">last day.jpg</div></div>
+          <div style="text-align:center"><img class="photo-thumb" src="assets/photos/last-day.jpg" alt="" ondblclick="viewPhoto('assets/photos/last-day.jpg', 'last day.jpg')"><div style="font-size:9px;font-family:monospace">last day.jpg</div></div>
         </div>
       </div>
     </div>
     <div class="statusbar" id="photos-status">3 folders</div>
     <div class="resize-handle" onmousedown="startResize(event,'win-photos')"></div>
+    <div id="photo-viewer" onclick="closePhotoViewer()">
+      <div class="photo-viewer-bar"><span id="photo-viewer-name"></span><span class="photo-viewer-close">✕</span></div>
+      <img id="photo-viewer-img" src="" alt="">
+    </div>
   </div>
- 
+
 </div>
- 
+
 <div id="taskbar">
   <img src="assets/winlogo.png" class="win-logo"/>
   <button id="start-btn">Start</button>
@@ -693,7 +1032,7 @@ I keep looking at her profile picture. I keep wondering why this happened to me.
     <img src="assets/myspace.png" class="tb-icon" alt="">MySpace
   </button>
   <button class="taskbar-btn" id="tb-aim" onclick="toggleWindow('aim')">
-    <img src="assets/tinychat.png" class="tb-icon" alt="">TinyChat
+    <img src="assets/messenger.svg" class="tb-icon" alt="">Messenger
   </button>
   <button class="taskbar-btn" id="tb-browser" onclick="toggleWindow('browser')">
     <img src="assets/internetexplorer.png" class="tb-icon" alt="">Internet Explorer
@@ -701,25 +1040,35 @@ I keep looking at her profile picture. I keep wondering why this happened to me.
   <button class="taskbar-btn" id="tb-photos" onclick="toggleWindow('photos')">
     <img src="assets/folder.png" class="tb-icon" alt="">My Pictures
   </button>
+  <button class="taskbar-btn" id="tb-casenotes" onclick="toggleWindow('casenotes')"><img src="assets/notepad.svg" class="tb-icon" alt="">A316.txt</button>
+  <button class="taskbar-btn" id="tb-notepad" onclick="toggleWindow('notepad')"><img src="assets/notepad.svg" class="tb-icon" alt="">journal.txt</button>
+  <button class="taskbar-btn visible" id="tb-clippy" onclick="clippySay('start')" style="min-width:auto;max-width:auto">Need a hint?</button>
   <div id="clock">00:00</div>
 </div>
- 
+
 <div id="notification">
   <div class="titlebar" style="cursor:default">
-    <div class="title-left"><span id="notif-title">TinyChat</span></div>
+    <div class="title-left"><img id="notif-icon" class="title-icon" src="" alt="" style="display:none"><span id="notif-title">Windows Live Messenger</span></div>
     <div class="win-controls">
       <div class="win-btn" onclick="closeNotif()">✕</div>
     </div>
   </div>
-  <div class="notif-body" id="notif-body"></div>
+  <div class="notif-body" id="notif-body" onclick="notifAction()" style="cursor:pointer"></div>
   <div class="notif-actions">
     <button class="notif-btn" id="notif-action-btn" onclick="notifAction()">Open</button>
     <button class="notif-btn" onclick="closeNotif()">Dismiss</button>
   </div>
 </div>
 
-<script src="https://unpkg.com/butterchurn"></script>
-<script src="https://unpkg.com/butterchurn-presets"></script>
+<div id="clippy-container">
+  <div id="clippy-bubble" style="display:none">
+    <div id="clippy-text"></div>
+    <div id="clippy-choices"></div>
+  </div>
+</div>
+
+<script src="assets/lib/butterchurn.min.js"></script>
+<script src="assets/lib/butterchurnPresets.min.js"></script>
 <div id="winamp-corner" style="
   position: fixed;
   bottom: 44px;
@@ -741,7 +1090,7 @@ I keep looking at her profile picture. I keep wondering why this happened to me.
     letter-spacing: 2px;
     cursor: pointer;
   " onclick="toggleWinamp()">
-    <span>i am seriously at my fucking limit
+    <span>Winamp 5.4.1.1
     </span>
     <span id="winamp-toggle-btn">_ □ ×</span>
   </div>
@@ -765,6 +1114,7 @@ I keep looking at her profile picture. I keep wondering why this happened to me.
       overflow: hidden;
       text-overflow: ellipsis;
     " id="wp-track-name">■ select a track</div>
+    <div id="wp-vis-error" style="display:none;background:#000;color:#ff6666;font-size:9px;padding:2px 6px;font-family:'Courier New',monospace;border-bottom:1px solid #222"></div>
 
     <div style="
       background: #000;
@@ -775,7 +1125,6 @@ I keep looking at her profile picture. I keep wondering why this happened to me.
       border-bottom: 1px solid #222;
     " id="wp-time">0:00 / 0:00</div>
 
-    <!-- controls -->
     <div style="
       display: flex;
       gap: 3px;
@@ -793,7 +1142,6 @@ I keep looking at her profile picture. I keep wondering why this happened to me.
       <span style="color:#666;font-size:9px;margin-left:auto" id="wp-vol-label">70%</span>
     </div>
 
-    <!-- playlist -->
     <div id="wp-playlist" style="
       max-height: 100px;
       overflow-y: auto;
@@ -804,7 +1152,7 @@ I keep looking at her profile picture. I keep wondering why this happened to me.
 
 <audio id="wp-audio" crossorigin="anonymous"></audio>
 
-<script> //NOTE NEEDS SERIOUS WORK BUT DEADLINE IS SOON
+<script>
 const wpAudio = document.getElementById("wp-audio");
 const wpCanvas = document.getElementById("oscilloscope");
 const wpTracks = [
@@ -841,12 +1189,29 @@ let wpSource;
 let visualizer;
 let renderLoop;
 let presets;
+let wpAnalyser;
+
+function wpCheckAudioReachesVisualiser() {
+  setTimeout(() => {
+    if (!wpAnalyser || wpAudio.paused) return;
+    const data = new Uint8Array(wpAnalyser.fftSize);
+    wpAnalyser.getByteTimeDomainData(data);
+    const silent = data.every((v) => v === 128);
+    if (silent) wpShowVisError("the visualiser can't hear this track (the music site is blocking it)");
+  }, 4000);
+}
 
 function wpInitAudio() {
     if (wpCtx) return;
     wpCtx = new AudioContext();
     wpSource = wpCtx.createMediaElementSource(wpAudio);
     wpSource.connect(wpCtx.destination);
+    wpAnalyser = wpCtx.createAnalyser();
+    wpSource.connect(wpAnalyser);
+    try {
+    if (!wpCanvas.getContext("webgl2")) {
+      throw new Error("WebGL 2 is switched off in this browser (check chrome://gpu)");
+    }
     visualizer = butterchurn.default.createVisualizer(
         wpCtx,
         wpCanvas,
@@ -856,12 +1221,17 @@ function wpInitAudio() {
         }
     );
     visualizer.connectAudio(wpSource);
-    presets = (window.butterchurnPresets && butterchurnPresets.getPresets) 
-      ? butterchurnPresets.getPresets() 
-      : butterchurnPresets.default 
-        ? butterchurnPresets.default.getPresets() 
+    presets = (window.butterchurnPresets && butterchurnPresets.getPresets)
+      ? butterchurnPresets.getPresets()
+      : butterchurnPresets.default
+        ? butterchurnPresets.default.getPresets()
         : {};
     loadRandomPreset();
+    } catch (e) {
+      console.warn("Visualiser couldn't start:", e);
+      visualizer = null;
+      wpShowVisError(e);
+    }
 }
 
 function loadRandomPreset() {
@@ -875,6 +1245,11 @@ function loadRandomPreset() {
     visualizer.loadPreset(preset, 2.0);
 }
 
+function wpShowVisError(e) {
+  const box = document.getElementById("wp-vis-error");
+  box.textContent = "⚠ visualiser: " + (e && e.message ? e.message : e);
+  box.style.display = "block";
+}
 function wpNextPreset() {
   if (!visualizer || !presets) return;
   const names = Object.keys(presets);
@@ -889,10 +1264,16 @@ function stopVisualizer() {
 }
 function startVisualizer() {
   wpCanvas.style.visibility = 'visible';
-  if (renderLoop) return;
+  if (renderLoop || !visualizer) return;
 
   function render() {
-    visualizer.render();
+    try {
+      visualizer.render();
+    } catch (e) {
+      wpShowVisError(e);
+      renderLoop = null;
+      return;
+    }
     renderLoop = requestAnimationFrame(render);
   }
   render();
@@ -910,6 +1291,7 @@ async function wpPlayTrack(i) {
     );
     await wpAudio.play();
     startVisualizer();
+    wpCheckAudioReachesVisualiser();
     wpPlaying = true;
 
 }
@@ -962,7 +1344,6 @@ function toggleWinamp() {
   body.style.display = body.style.display === 'none' ? 'block' : 'none';
 }
 
-
 wpAudio.addEventListener('ended', wpNext);
 wpAudio.addEventListener('timeupdate', () => {
   const cur = wpAudio.currentTime;
@@ -973,6 +1354,46 @@ wpAudio.addEventListener('timeupdate', () => {
 
 wpBuildPlaylist();
 </script>
-<script src="main.js"></script>
+<script type="module" src="main.js"></script>
+<script>
+
+  (function () {
+    const boot = document.getElementById("boot-screen");
+    const testing = new URLSearchParams(location.search).has("step");
+    let stage = "loading";
+
+    function finish() {
+      if (stage === "done") return;
+      stage = "done";
+      boot.classList.add("done");
+      setTimeout(() => boot.remove(), 800);
+      if (!testing) window.dispatchEvent(new Event("desktop-ready"));
+    }
+
+    function powerOn() {
+      if (stage !== "ready") return;
+      stage = "starting";
+      boot.className = "win95";
+      const sound = new Audio("assets/startup.mp3");
+      sound.play().catch(() => {});
+      let left = false;
+      const leave = () => { if (!left) { left = true; finish(); } };
+      sound.addEventListener("ended", () => setTimeout(leave, 400));
+      setTimeout(leave, 8000);
+    }
+
+    function ready() {
+      if (stage !== "loading") return;
+      if (testing) return finish();
+      stage = "ready";
+      boot.className = "ready";
+      document.addEventListener("keydown", powerOn);
+      boot.addEventListener("click", powerOn);
+    }
+
+    window.addEventListener("load", () => setTimeout(ready, 400));
+    setTimeout(ready, 10000);
+  })();
+</script>
 </body>
 </html>
