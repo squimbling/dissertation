@@ -218,7 +218,8 @@ const story = [
       reveal("notepad-icon");
       showNotif("Notepad", "journal.txt was saved to your Desktop.", "notepad");
     },
-    doneWhen: ["closed:notepad"],
+    doneWhen: ["finished:journal"],
+    pauseAfter: 1500,
   },
   {
     id: "clippy-final",
@@ -254,7 +255,7 @@ function storyEvent(name) {
   stepProgress.add(name);
   if (step.doneWhen.every((e) => stepProgress.has(e))) {
     stepFinished = true;
-    setTimeout(() => startStep(stepIndex + 1), PAUSE_BETWEEN_EVENTS);
+    setTimeout(() => startStep(stepIndex + 1), step.pauseAfter ?? PAUSE_BETWEEN_EVENTS);
   }
 }
 
@@ -295,6 +296,11 @@ function skipTo(id) {
 function buildTestPanel() {
   const panel = document.createElement("div");
   panel.id = "test-panel";
+  const label = document.createElement("button");
+  label.className = "test-panel-label";
+  label.textContent = "dev tool (spoilers)";
+  const tools = document.createElement("span");
+  tools.className = "test-panel-tools";
   const select = document.createElement("select");
   select.innerHTML = '<option value="">skip to event…</option>' +
     story.map((s, i) => `<option value="${s.id}">${i + 1}. ${s.id}</option>`).join("");
@@ -304,18 +310,22 @@ function buildTestPanel() {
   const restart = document.createElement("button");
   restart.textContent = "restart";
   restart.onclick = () => (location.search = "");
-  panel.append("🧪 ", select, restart);
+  tools.append(select, restart);
+  panel.append(label, tools);
   document.body.appendChild(panel);
 
   let open = false;
   try { open = localStorage.getItem("testPanel") === "open"; } catch (e) {}
-  panel.style.display = open ? "flex" : "none";
-  document.addEventListener("keydown", (e) => {
-    if (e.key !== "`") return;
+  const show = () => {
+    tools.style.display = open ? "inline-flex" : "none";
+    label.textContent = open ? "dev tool (spoilers) ✕" : "dev tool (spoilers)";
+  };
+  show();
+  label.onclick = () => {
     open = !open;
-    panel.style.display = open ? "flex" : "none";
+    show();
     try { localStorage.setItem("testPanel", open ? "open" : "closed"); } catch (e) {}
-  });
+  };
 }
 
 function reveal(name) {
@@ -1151,7 +1161,7 @@ const bouncedMail = [
   {
     from: "Mail Delivery Subsystem",
     subject: "Delivery Status Notification (Failure)",
-    body: "Delivery to the following recipient failed permanently:\n\n     istiny888@hotmail.co.uk\n\nThe account you tried to reach has been disabled.\n\n----- Original message -----\nTo: istiny888@hotmail.co.uk\nSubject: tell me something true\nSent: 02/07/2008 04:12\n\niz please im losing my fuckinf mind here",
+    body: "Delivery to the following recipient failed permanently:\n\n     istiny888@hotmail.co.uk\n\nThe account you tried to reach has been disabled.\n\n----- Original message -----\nTo: istiny888@hotmail.co.uk\nSubject: tell me something true\nSent: 02/07/2008 04:12\n\niz please im losing my fuckinf mind",
   },
 ];
 
@@ -1204,7 +1214,7 @@ const junkMail = [
   {
     from: "Replica Watches",
     subject: "Re: re: your order",
-    body: "Luxury watches 80% OFF. Rolex, Cartier, Omega. Nobody will know the difference!!!",
+    body: "Luxury watches 80% OFF. Rolex, Cartier, Omega.",
   },
   {
     from: "Last.fm",
@@ -1591,17 +1601,9 @@ const clippyDialogue = {
     line: "And sometimes, people are just mighty unlucky.",
     choices: [{ text: ">", next: "speech9" }],
   },
-  speech9: {
-    line: "But then again, maybe there's something more.",
-    choices: [{ text: ">", next: "speech10" }],
-  },
   speech10: {
     line: "I don't know.",
     choices: [{ text: ">", next: "speech11" }],
-  },
-  speech11: {
-    line: "I'm just a talking paper clip.",
-    choices: [{ text: ">", next: "speech12" }],
   },
   speech12: {
     line: "I'll probably be retired in a few years...",
@@ -1640,7 +1642,7 @@ const clippyDialogue = {
     choices: [{ text: ">", next: "speech21" }],
   },
   speech21: {
-    line: "Where will you be after all this time?",
+    line: "Where will you be after all that time?",
     choices: [{ text: ">", next: "speech22" }],
   },
   speech22: {
@@ -1762,12 +1764,6 @@ function closeClippyBubble() {
   document.getElementById("clippy-bubble").style.display = "none";
   if (clippy) clippy.stop();
 }
-
-const clippyMonologues = {
-  afterNews: "Isn't it strange, how a page can tell you someone is gone, and the page just sits there. Waiting for you to click something else.",
-  afterMourning: "I counted the comments. I don't know why. I've never counted anything before.",
-  afterPrivateUpdate: "You keep writing things you don't want to be true. I don't think that makes them less true.",
-};
 
 function clippyMonologue(key) {
   if (catchingUp) return;
@@ -2185,7 +2181,7 @@ function navigateTo(page) {
       parents: "http://www.bbc.co.uk/news/london/isabel-tiley-csm",
       exploits: "http://www.bbc.co.uk/news/technology/friends-only-privacy",
       history: "History",
-      forums: "http://www.losingsomeone.org.uk/forum",
+      forums: "http://www.losingsomeone.org.uk/forum/viewtopic.php?t=2187",
       ljleak: "http://www.bbc.co.uk/news/technology/livejournal",
     };
     const titles = {
@@ -2199,7 +2195,7 @@ function navigateTo(page) {
       parents: "Central Saint Martins mourns student - BBC News",
       exploits: "'Friends only' does not mean private - BBC News",
       history: "History - Internet Explorer",
-      forums: "Forum - Internet Explorer",
+      forums: "losing someone :: View topic - has anyone else had messages from someone after they died? - Internet Explorer",
       ljleak: "LiveJournal - BBC News",
     };
     document.getElementById("address-bar").value = urls[page] || page;
@@ -2331,6 +2327,7 @@ function closeWindow(id) {
   const win = document.getElementById("win-" + id);
   const tb = document.getElementById("tb-" + id);
   storyEvent("closed:" + id);
+  if (id === "notepad") storyEvent("finished:journal");
   if (win) {
     win.classList.remove("active");
     win.classList.remove("focused");
@@ -2344,6 +2341,7 @@ function closeWindow(id) {
 function minimizeWindow(id) {
   const win = document.getElementById("win-" + id);
   const tb = document.getElementById("tb-" + id);
+  if (id === "notepad") storyEvent("finished:journal");
   if (win) {
     win.classList.remove("active");
     win.classList.remove("focused");
@@ -2383,6 +2381,7 @@ function focusWindow(id) {
     tb.classList.add("focused");
   }
   storyEvent("opened:" + id);
+  if (id === "notepad") setTimeout(() => storyEvent("finished:journal"), 60000);
 }
 
 winIds.forEach((id) => {

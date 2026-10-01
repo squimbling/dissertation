@@ -1734,18 +1734,32 @@ width: 32px;
   position: fixed;
   top: 6px;
   right: 6px;
-  z-index: 99999;
+  z-index: 100001;
   display: flex;
   gap: 6px;
   align-items: center;
-  padding: 4px 6px;
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid #555;
-  color: #fff;
   font: 11px Tahoma, sans-serif;
 }
+.test-panel-label {
+  background: rgba(0, 0, 0, 0.6);
+  color: #ccc;
+  border: 1px solid #555;
+  padding: 2px 6px;
+  cursor: pointer;
+  font: 10px Tahoma, sans-serif;
+}
+.test-panel-label:hover {
+  color: #fff;
+}
+.test-panel-tools {
+  gap: 6px;
+  align-items: center;
+  padding: 3px 5px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #555;
+}
 #test-panel select,
-#test-panel button {
+#test-panel .test-panel-tools button {
   font: 11px Tahoma, sans-serif;
 }
 
@@ -2188,4 +2202,153 @@ width: 32px;
 }
 #aim-input {
   font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+.webpage.forum {
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 11px;
+  color: #222;
+}
+.fm-banner {
+  background: linear-gradient(#5b7fa6, #3d5f86);
+  color: #fff;
+  padding: 10px 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.fm-logo {
+  font-family: Georgia, serif;
+  font-size: 20px;
+}
+.fm-tag {
+  font-size: 10px;
+  opacity: 0.85;
+  font-style: italic;
+}
+.fm-nav {
+  background: #dfe6ee;
+  border-bottom: 1px solid #a9b8c8;
+  padding: 4px 12px;
+  font-size: 10px;
+  color: #2a4a70;
+}
+.fm-layout {
+  display: flex;
+  gap: 10px;
+  margin: 8px 0;
+}
+.fm-main {
+  flex: 1;
+  min-width: 0;
+}
+.fm-crumbs {
+  font-size: 10px;
+  color: #2a4a70;
+  margin-bottom: 6px;
+}
+.fm-topic {
+  background: #3d5f86;
+  color: #fff;
+  font-weight: bold;
+  padding: 5px 8px;
+}
+.fm-post {
+  display: flex;
+  border: 1px solid #a9b8c8;
+  border-top: none;
+  background: #eef2f6;
+}
+.fm-post.fm-alt {
+  background: #e3e9f0;
+}
+.fm-author {
+  width: 120px;
+  flex-shrink: 0;
+  padding: 6px;
+  border-right: 1px solid #a9b8c8;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 9px;
+  color: #555;
+  word-break: break-word;
+}
+.fm-author b {
+  font-size: 11px;
+  color: #2a4a70;
+}
+.fm-body {
+  padding: 6px 8px;
+  line-height: 1.5;
+}
+.fm-date {
+  font-size: 9px;
+  color: #666;
+  border-bottom: 1px solid #c8d3df;
+  padding-bottom: 3px;
+  margin-bottom: 5px;
+}
+.fm-post-mod .fm-author b {
+  color: #b02020;
+}
+.fm-modnote {
+  margin-top: 6px;
+  font-style: italic;
+  color: #b02020;
+  font-size: 10px;
+}
+.fm-locked {
+  margin-top: 6px;
+  padding: 5px 8px;
+  background: #f6f0d8;
+  border: 1px solid #d8c88a;
+  font-size: 10px;
+}
+.fm-side {
+  width: 150px;
+  flex-shrink: 0;
+}
+.fm-ad-label {
+  font-size: 9px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.fm-ad {
+  border: 1px solid #b9c7a8;
+  background: linear-gradient(#f4f8ee, #e3ecd6);
+  padding: 8px;
+  margin-bottom: 8px;
+}
+.fm-ad-title {
+  font-family: Georgia, serif;
+  font-size: 13px;
+  color: #3f5f2a;
+  margin-bottom: 4px;
+}
+.fm-ad p {
+  margin: 0 0 6px;
+  font-size: 10px;
+}
+.fm-ad-price {
+  font-weight: bold;
+  color: #3f5f2a;
+}
+.fm-ad-btn {
+  display: inline-block;
+  background: #5c8a3a;
+  color: #fff;
+  padding: 3px 8px;
+  font-size: 10px;
+  cursor: pointer;
+}
+.fm-side-box {
+  border: 1px solid #a9b8c8;
+  background: #eef2f6;
+  padding: 6px;
+  font-size: 9px;
+}
+.fm-side-box p {
+  margin: 4px 0 0;
 }
