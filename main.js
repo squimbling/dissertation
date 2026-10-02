@@ -1139,7 +1139,7 @@ chat: {
           "And you said, I was so perfect I had to be fake, a girl you'd dreamed of. So you needed me to tell you something true.",
           "I think you said I love you back. But even if you didn’t, you showed it to me across the past ten months.",
           "I’ll never forget that, Dylisa.",
-          "I love you!",
+          "I love you.",
         ],
         choices: [
           { text: "I love you." },
@@ -1293,7 +1293,7 @@ const leakNotice = {
 
 const leakComments = [
   { from: "(Anonymous)", entry: "entry4", date: "August 12th, 2008", text: "ermmm see a shrink maybe? just keepin it real lmfao u sound nutz" },
-  { from: "Vampy_ch1k29", entry: "entry4", date: "August 1th, 2008", text: "NO WAY is this Dylan Holloway???????? Epic fail"},
+  { from: "Vampy_ch1k29", entry: "entry4", date: "August 12th, 2008", text: "NO WAY is this Dylan Holloway???????? Epic fail"},
   { from: "(Anonymous)", entry: "grief2", date: "August 12th, 2008", text: "Found this through google. This is so sad. Sorry for your loss." },
   { from: "moonchild_90", entry: "entry3", date: "August 12th, 2008", text: "the casserole bit made me cry. my nana died last year so i know exactly what ur goin thru. hang in there huni xo" },
   {from: "(Anonymous)", entry: "entry3", date: "August 12th, 2008", text: "Leviticus 20:13. Praying for you and your family. JESUS LOVES YOU SO MUCH!!!!!"},
